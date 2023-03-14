@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background:white;
+}
+
+::-webkit-scrollbar-thumb { 
+    border-radius: 10px;
+    background: gray;
+}
+
+@media (max-width: 500px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
