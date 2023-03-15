@@ -4,7 +4,7 @@ import {Description} from '../../components/Description';
 import {Footer} from '../../components/Footer';
 
 import {Plates} from '../../components/Plates';
-//import {CarouselControlls} from '../../components/CarouselControlls';
+import {CarouselControlls} from '../../components/CarouselControlls';
 
 import {useState} from "react";
 
@@ -83,7 +83,7 @@ export function Home() {
 
       <Description />
 
-      {/* <main>
+      <main>
         <h2>Pratos principais</h2>
         <CarouselControlls>
           {
@@ -122,7 +122,7 @@ export function Home() {
             )) 
           }
         </CarouselControlls>
-      </main> */}
+      </main>
 
       <Footer />
     </Container>
