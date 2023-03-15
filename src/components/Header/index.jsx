@@ -31,8 +31,6 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
         async function fetchIngredients(){
             const response = await api.get(`/ingredients?name=${search}`);
             setIngredients(response.data);
-            //quando der certo eu tenho que ver qual nome será melhor nesse ingredients
-            //de acordo com oq ele vai armazenar
         }
         fetchIngredients();
     },[search]);
