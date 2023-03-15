@@ -76,18 +76,19 @@ export const Container = styled.div`
             margin-bottom: 5px;
         }
 
-        .wrapper_controll{
-            display: flex;
-            gap: 18px;
-        }
-
+        
         #buttonLess, #buttonMore{
             background: none;
             border: none;
-    
+            
             svg{
                 font-size: 15px;
             }
+        }
+        
+        .wrapper_controll{
+            display: flex;
+            gap: 30px;
         }
 
         >Button{
@@ -95,6 +96,7 @@ export const Container = styled.div`
             height: 30px;
             padding: 0;
             margin: 0;
+            border: none;
         }
     }
 
@@ -179,5 +181,13 @@ export const Container = styled.div`
                 color: ${({theme})=>theme.COLORS.WHITE_500};
             }
         }
+
+        .wrapper_controll{
+            display: flex;
+            gap: 25px;
+            width: 80%;
+            justify-content: center;
+        }
+
     }
 `;

@@ -5,12 +5,11 @@ export const Container = styled.div`
     position: fixed;
     width: 100%;
     z-index: 3;
-
     display: flex;
     justify-content: space-between;
     gap: 30px;
     align-items: center;
-
+    
     padding: 35px 120px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
@@ -30,11 +29,6 @@ export const Container = styled.div`
          border: none;
          margin-right: 50px;
         }
-
-       /* div{
-        width: 100%;
-        margin-left: 5px;
-       } */
     }
 
     .formatSidebarMenu{
@@ -92,13 +86,13 @@ export const Container = styled.div`
     
     @media (max-width: 1340px){
         flex-direction: column;
-           //background: gray;
     }
 
     @media (max-width: 831px){
         flex-direction: row;
-        padding: 35px;
-
+        padding: 30px;
+        gap: 0px;
+        width: 100vmin;
         
         .wrapper_menu{
             width: 70%;
@@ -110,7 +104,7 @@ export const Container = styled.div`
             gap: 10px;
             
             svg{
-                margin-left: 40px;;
+                margin-left: 40px;
             }
         }
         .wrapper_favorites_historic, .wrapper_input, .logOut{
@@ -121,9 +115,10 @@ export const Container = styled.div`
 
     @media (max-width: 730px){
         .wrapper_menu{
+            width: 60%;
 
             button{
-            margin-right: -15px
+            margin-right: -60px
             }
         }   
     }

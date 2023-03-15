@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: Description;
 
+    /* ${window.innerWidth < 832 ? '0px 125px' : '300px 125px 0 125px'} */
     margin: 300px 125px 0 125px;
     height: 260px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
@@ -12,7 +13,6 @@ export const Container = styled.div`
     position: relative;
 
     .wrapper_img{
-        background: blue;
         img{
             position: absolute;
             top: -148px;
@@ -35,10 +35,12 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 1115px){
+    @media (max-width: 1350px){
         margin-top: 550px;
         align-items: center;
         justify-content: center;
+
+        margin: 600px 0 20px;
 
         .wrapper_description{
             position: static;
@@ -51,7 +53,7 @@ export const Container = styled.div`
     }
     
     @media (max-width: 850px){
-        margin: 450px 0 20px;
+        margin: 150px 0 20px;
 
         .wrapper_img{
         img{

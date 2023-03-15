@@ -30,6 +30,8 @@ export const Container = styled.div`
 
         >h2{
             margin: 50px 120px;
+            width: 100%;
+            margin: ${window.innerWidth < 832 ? '20px 20px' : '50px 120px'}
         }
     }
 
