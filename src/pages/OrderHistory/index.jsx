@@ -1,5 +1,3 @@
-import {VscDebugBreakpointData} from 'react-icons/vsc';
-
 import {Header} from '../../components/Header';
 import {Footer} from '../../components/Footer';
 
@@ -7,9 +5,8 @@ import statusRed from '../../assets/statusRed.svg';
 import statusGreen from '../../assets/statusGreen.svg';
 import statusOrange from '../../assets/statusOrange.svg';
 
-import {Container} from './styles';
+import {Container, SectionMobile} from './styles';
 import {api} from '../../services/api';
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function formattingDateAndTime(datetime) {
@@ -26,14 +23,7 @@ function formattingDateAndTime(datetime) {
 export function OrderHistory() {
     const [orderHistory, setOrderHistory] = useState([]);
 
-
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
-
-    const navigate = useNavigate();
-
-    function payment(){
-        navigate("/Payment")
-    }
 
     useEffect(()=>{
         async function getOrderHistory(){
@@ -41,7 +31,7 @@ export function OrderHistory() {
             setOrderHistory(response.data)
         }
         getOrderHistory();
-    },[])
+    },[orderHistory])
 
     return(
         <Container>
@@ -49,8 +39,39 @@ export function OrderHistory() {
 
             <h1>Histórico de Pedidos</h1>
                         
+            {window.innerWidth < 832 ? 
+            <div className='wrapper_mobile'>
+                {orderHistory &&
+                    orderHistory.map((item, index)=>{
+                        return(
+                            <SectionMobile key={String(index)}>
+                                <div className='wrapper_header'>
+                                    
+                                    <span>Cod {item.id}</span>
+                                    
+    
+                                    <div className='wrapper_status'>
+                                        {
+                                        item.status === 'pendente' ?
+                                        <img id='imgStatus' src={statusRed} alt='ball status indicator' />
+                                        :
+                                        item.status === 'preparando' ?
+                                        <img src={statusOrange} alt='ball status indicator' />
+                                        :
+                                        <img src={statusGreen} alt='ball status indicator' />  
+                                        }
+                                        {item.status}
+                                    </div>
+                                    {formattingDateAndTime(item.created_at).dateFormatted}
+                                </div>
+    
+                                {item.details}
+                            </SectionMobile>
+                        )
+                    })}
+            </div>
+            :
             <section>
-
                 <table>
                     <thead>
                         <tr>
@@ -88,8 +109,12 @@ export function OrderHistory() {
                         }
                     </tbody>
                 </table>
-            </section>
-            <Footer />
+            </section >
+            }
+
+            <div className='wrapper_footer'>
+                <Footer />
+            </div>
         </Container>
     )
 }

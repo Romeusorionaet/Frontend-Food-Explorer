@@ -35,7 +35,7 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 1350px){
+    @media (max-width: 1340px){
         margin-top: 550px;
         align-items: center;
         justify-content: center;

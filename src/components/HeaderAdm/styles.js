@@ -9,7 +9,6 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    align-items: center;
 
     padding: 35px 120px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
@@ -38,10 +37,10 @@ export const Container = styled.div`
 
         .menu{
             svg{
-                font-size: 26px;
+                font-size: 22px;
+                margin-top: 2px;
             }
         }
-
     }
 
     .wrapper_input{
@@ -90,21 +89,9 @@ export const Container = styled.div`
 
     @media (max-width: 1340px){
         flex-direction: column;
-           //background: gray;
+        align-items: center;
     }
 
-    /* @media (max-width: 1115px){
-        flex-direction: column;
-        gap: 20px;
-
-        padding-top: 40px;
-
-        >svg{
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }     
-    } */
 
     @media (max-width: 831px){
         flex-direction: row;
@@ -130,6 +117,19 @@ export const Container = styled.div`
         .wrapper_favorites_historic, .wrapper_input, .logOut, #buttonAddPlate{
             display: none;
         }        
+    }
+
+    @media (max-width: 450px){
+        .wrapper_button_logo{
+            margin-right: -20px;
+            img{
+                width: 160px;
+            }
+
+            span{
+                font-size: 10px;;
+            }
+        }
     }
 `;
 

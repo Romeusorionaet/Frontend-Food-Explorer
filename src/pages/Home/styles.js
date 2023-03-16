@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export const Container = styled.div`
     position: relative;
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-areas:
     "Header"
     "Description"
     "Main"
     "Footer";
+
+    overflow: hidden;
 
     .wrapper_slider_button{
         display: flex;
@@ -34,6 +36,4 @@ export const Container = styled.div`
             margin: ${window.innerWidth < 832 ? '20px 20px' : '50px 120px'}
         }
     }
-
-    
 `;

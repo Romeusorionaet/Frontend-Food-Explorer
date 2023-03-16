@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.section`
-    /* padding: 0 120px; */
-
     padding: ${window.innerWidth < 832 ? '0 10px': '0 120px'};
 
     #hidden{
@@ -52,5 +50,11 @@ export const Container = styled.section`
     }
     .rec.rec-arrow{
         display: none;
+    }
+
+    @media (max-width: 832px){
+        #addMargin{
+            margin-left: 0;
+        }
     }
 `;
