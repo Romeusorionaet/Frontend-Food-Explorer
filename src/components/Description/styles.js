@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: Description;
 
-    /* ${window.innerWidth < 832 ? '0px 125px' : '300px 125px 0 125px'} */
     margin: 300px 125px 0 125px;
     height: 260px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
@@ -36,14 +35,12 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1340px){
-        margin-top: 550px;
         align-items: center;
         justify-content: center;
 
-        margin: 600px 0 20px;
+        margin: 300px 20px 20px;
 
         .wrapper_description{
-            position: static;
             z-index: 1;
 
             h1{
@@ -52,8 +49,15 @@ export const Container = styled.div`
         }
     }
     
-    @media (max-width: 850px){
+    @media (max-width: 830px){
         margin: 150px 0 20px;
+
+        .wrapper_description{
+            right:0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
 
         .wrapper_img{
         img{

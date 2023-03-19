@@ -6,8 +6,8 @@ import {MdArrowBackIosNew, MdArrowForwardIos} from 'react-icons/md';
 
 export const CarouselControlls = ({children}) => {
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
+    { width: 1, itemsToShow: 1.5 },
+    { width: 550, itemsToShow: 2.5 },
     { width: 910, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
   ];
@@ -33,11 +33,11 @@ export const CarouselControlls = ({children}) => {
 
         <Carousel
         breakPoints={breakPoints}
-        itemsToShow={window.innerWidth < 832 ? 2 : 4}
+        // itemsToShow={window.innerWidth < 832 ? 1 : 4}
         pagination={false}
-        outerSpacing={window.innerWidth < 832 ? -120 : 50}
+        // outerSpacing={window.innerWidth > 832 ? 50 : 0}
         showEmptySlots
-        itemPadding={[0, 10]}
+        // itemPadding={[0, 10]}
         transitionMs={900}
         ref={ref => (carousel = ref)}
         > 

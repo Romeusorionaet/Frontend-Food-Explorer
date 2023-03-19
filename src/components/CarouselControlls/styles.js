@@ -26,9 +26,6 @@ export const Container = styled.section`
                     color: ${({theme})=>theme.COLORS.WHITE_900};
                 }
             }
-            button:disabled{
-                display: none
-            }
         }
         .wrapper_buttom{
             position: absolute;

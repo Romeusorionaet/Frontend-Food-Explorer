@@ -138,7 +138,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
             </div>
 
             <div>
-                {window.innerWidth < 832 ?
+                {window.innerWidth < 1060 ?
                 <MobileButton onClick={payment}>
                     <img src={lista}/>
                     <span>{applicationLength ?? 0}</span>

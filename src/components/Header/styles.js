@@ -85,7 +85,17 @@ export const Container = styled.div`
     }
     
     @media (max-width: 1340px){
-        flex-direction: column;
+        padding: 35px 10px;
+
+        .wrapper_menu button{
+            margin: 0;
+        }
+    }
+
+    @media (max-width: 1060px){
+        .wrapper_favorites_historic a h2{
+            text-align: center;
+        }
     }
 
     @media (max-width: 831px){

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     position: relative;
     cursor: grab;
+    overflow: hidden;
 
     .wrapper_favorite{
         position: absolute;
@@ -28,15 +29,18 @@ export const Container = styled.div`
     /* =======================mobile================== */
 
     .wrapper_plate_mobile{
-        max-width: 190px;
+        max-width: 200px;
         max-height: 290px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         a{
             gap: 10px;
-
+            
             .wrapper_img{
                 padding-top: 20px;
-                margin-left: -95px;
             
                 img{
                     width: 90px;
@@ -45,7 +49,10 @@ export const Container = styled.div`
             }
 
             .wrapper_title{
-                margin-left: -85px;
+                max-width: 100%;
+                display: flex;
+                align-items: center;
+                margin-right: 10px;
 
                 svg, h1{
                     font-size: 15px;
@@ -57,20 +64,17 @@ export const Container = styled.div`
             }
     
             .wrapper_price span{
-                margin-left: -95px;
                 font-size: 16px;
             }
         }
     }
 
     #wrapper_buttons_mobile{
-        display: flex;
         flex-direction: column;
+        left: 0;
         width: 100%;
-        bottom: 20px;
-        gap: 10px;
-        left: 35px;
-        
+        margin-bottom: -20px;
+
         span{
             font-size: 20px;
             margin-bottom: 5px;
