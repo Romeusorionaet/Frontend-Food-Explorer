@@ -63,10 +63,8 @@ export function Home() {
     }
   })
 
-  const homePage = document.getElementById('homePage')
-
   return(
-    <Container id='homePage'>
+    <Container>
     
       {
         user.admin == 1 ?

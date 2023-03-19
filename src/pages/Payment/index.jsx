@@ -54,12 +54,14 @@ export function Payment() {
     }
 
     useEffect(()=>{
-        async function removePlate(){
-            await api.delete(`/requests/${remove}/${user.id}`);
-            const value = localStorage.getItem("@rocketfood:applicationLength")
-            localStorage.setItem("@rocketfood:applicationLength", value -1)
+        if(remove.length !== 0){
+            async function removePlate(){
+                await api.delete(`/requests/${remove}/${user.id}`);
+                const value = localStorage.getItem("@rocketfood:applicationLength")
+                localStorage.setItem("@rocketfood:applicationLength", value -1)
+            }
+            removePlate();
         }
-        removePlate();
     },[remove])
 
     useEffect(()=> {
@@ -132,7 +134,7 @@ export function Payment() {
                                             <p>{item.amount + "X"} {item.title}</p>
                                             <span>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </span>
                                         </div>
-
+                                    
                                         <button 
                                         onClick={()=>{setRemove(item.plate_id)}}
                                         >

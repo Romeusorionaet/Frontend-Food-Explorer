@@ -1,5 +1,3 @@
-import {VscDebugBreakpointData} from 'react-icons/vsc';
-
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Footer} from '../../components/Footer';
 
@@ -9,7 +7,6 @@ import statusOrange from '../../assets/statusOrange.svg';
 
 import {Container, SectionMobile} from './styles';
 import {api} from '../../services/api';
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 function formattingDateAndTime(datetime) {
@@ -60,7 +57,6 @@ export function OrderHistoryAdm() {
                                 <div className='wrapper_header'>
                                     
                                     <span>Cod {item.id}</span>
-                                    
     
                                     <div className='wrapper_status'>
                                         {

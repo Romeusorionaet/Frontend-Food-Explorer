@@ -1,5 +1,5 @@
 {
-  "name": "testing",
+  "name": "frontendfood",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -27,10 +27,5 @@
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
     "vite": "^4.0.0"
-  },
-  "description": "test",
-  "main": "testindex",
-  "repository": "https://github.com/Romeusorionaet/FrontendFood.git",
-  "author": "romeu soares",
-  "license": "MIT"
+  }
 }
