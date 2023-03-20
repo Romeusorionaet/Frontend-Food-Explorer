@@ -55,16 +55,17 @@ export const Container = styled.div`
         .wrapper_description{
             right:0;
             left: 0;
-            width: 100%;
+            width: 90%;
             text-align: center;
         }
 
         .wrapper_img{
-        img{
-            width: 450px;
-            left: -15px;
-            top: -30px;
+
+            img{
+                width: 450px;
+                left: -15px;
+                top: -30px;
+            }
         }
-    }
     }
 `;

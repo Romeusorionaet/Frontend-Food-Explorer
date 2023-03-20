@@ -32,10 +32,10 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1340px){
-           min-width: 310px;
+        min-width: 310px;
     }
 
-    @media (max-width: 827px){
-           min-width: 90vw;
+    @media (max-width: 950px){
+        min-width: 80vw;
     }
 `;

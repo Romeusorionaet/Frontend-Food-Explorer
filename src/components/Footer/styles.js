@@ -34,7 +34,7 @@ export const Container = styled.div`
         font-size: 11px;
         display: flex;
         min-width: 230px;
-        margin: 30px
+        margin: -70px
     }
    }
 `;

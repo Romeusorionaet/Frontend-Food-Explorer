@@ -1,21 +1,21 @@
 import styled from "styled-components";
 
+const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
+
 export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
     position: absolute;
     min-width: 100vw;
     height: 100vh;
-    margin-top: 105px;
 
-    top: 0;
-    left: 0;
+    margin: ${user.admin == 1 ? '40px -48px' : '105px 0px'};
 
     #wrapper_input{
         width: 100%;
         margin-top: 30px;
+        margin-left: -30px;
         display: flex;
         justify-content: center;
-        /* margin-left: -10px; */
 
         Input{
             min-width: 90%;
@@ -27,7 +27,7 @@ export const Container = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
 
     min-width: 100%;
     padding: 45px 20px;  

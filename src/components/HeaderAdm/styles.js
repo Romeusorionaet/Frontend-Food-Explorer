@@ -81,6 +81,12 @@ export const Container = styled.div`
         }
     }
 
+    .wrapper_buttons{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
     @media (max-width: 1500px){
         .wrapper_favorites_historic{
             flex-direction: column;
@@ -88,17 +94,36 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1340px){
-        flex-direction: column;
-        align-items: center;
+        padding: 35px 2vw;
+        gap: 10px;
+        
+        .wrapper_menu button{
+            margin: 0;
+        }
+
+        .wrapper_buttons{
+            gap: 0;
+            >button{
+                width: 100px;
+            }
+        }
+        
+        .wrapper_favorites_historic a h2{
+            text-align: center;
+        }
     }
 
-
-    @media (max-width: 831px){
+    @media (max-width: 950px){
         flex-direction: row;
-        padding: 35px;
+        padding: 35px 80px;
 
         flex-direction: row-reverse;
         
+        .wrapper_menu{
+            position: absolute;
+            left: 50px;
+        }
+
         .wrapper_button_logo{
             flex-direction: row;
             align-items: center;

@@ -3,15 +3,17 @@ import { Container } from "./styles";
 import Carousel from 'react-elastic-carousel';
 
 import {MdArrowBackIosNew, MdArrowForwardIos} from 'react-icons/md';
+import { useEffect, useState } from "react";
 
 export const CarouselControlls = ({children}) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1.5 },
-    { width: 550, itemsToShow: 2.5 },
-    { width: 910, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
+    { width: 700, itemsToShow: 2 },
+    { width: 910, itemsToShow: 2.5 },
+    { width: 1200, itemsToShow: 3 },
+    { width: 1400, itemsToShow: 4 },
   ];
-  
+
   function carousel(){
     carousel.slidePrev();
   }
@@ -22,6 +24,7 @@ export const CarouselControlls = ({children}) => {
 
   return (
     <Container>
+      {/* penssar em deletar a parte 'addMargin', n estou usando */}
       <div className='wrappper_plates' id={`${children.length < 4 ? 'addMargin' : ''}`}>
 
         <div 
@@ -33,11 +36,8 @@ export const CarouselControlls = ({children}) => {
 
         <Carousel
         breakPoints={breakPoints}
-        // itemsToShow={window.innerWidth < 832 ? 1 : 4}
         pagination={false}
-        // outerSpacing={window.innerWidth > 832 ? 50 : 0}
         showEmptySlots
-        // itemPadding={[0, 10]}
         transitionMs={900}
         ref={ref => (carousel = ref)}
         > 

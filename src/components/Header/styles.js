@@ -50,6 +50,7 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
         width: 50%;
+        text-align: center;
         
         h2{
             font-size: 16px;
@@ -79,33 +80,37 @@ export const Container = styled.div`
     }
 
     @media (max-width: 1500px){
+        justify-content: space-around;
+
         .wrapper_favorites_historic{
             flex-direction: column;
         }
     }
     
     @media (max-width: 1340px){
-        padding: 35px 10px;
-
         .wrapper_menu button{
             margin: 0;
         }
     }
 
     @media (max-width: 1060px){
+        padding-right: 150px;
+
         .wrapper_favorites_historic a h2{
             text-align: center;
         }
+
     }
 
     @media (max-width: 831px){
         flex-direction: row;
-        padding: 30px;
-        gap: 0px;
+        gap: 50px;
         width: 100vmin;
-        
+
         .wrapper_menu{
             width: 70%;
+            padding-right: 300px !important;
+            gap: 15vw;
         }
 
         .sidebar{
@@ -120,7 +125,6 @@ export const Container = styled.div`
         .wrapper_favorites_historic, .wrapper_input, .logOut{
             display: none;
         }      
-        
     }
 
     @media (max-width: 730px){

@@ -7,9 +7,9 @@ export const Container = styled.section`
         display: none;
     }
 
-    #addMargin{
-        margin-left: -90px;
-    }
+    /* #addMargin{
+        margin-left: 0px;
+    } */
 
     .wrappper_plates{
         position: relative;
@@ -52,6 +52,12 @@ export const Container = styled.section`
     @media (max-width: 832px){
         #addMargin{
             margin-left: 0;
+        }
+    }
+
+    @media (max-width: 1300px){
+        .back, .forward{
+            width: 50px !important;
         }
     }
 `;

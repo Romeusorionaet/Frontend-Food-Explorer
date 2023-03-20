@@ -63,13 +63,13 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
  
     useEffect(()=>{
         const menu = document.querySelector('.menu')
-        if(window.innerWidth < 832){
+        if(window.innerWidth < 950){
             menu.classList.remove('hidden')
         }else{
             menu.classList.add('hidden')
         }
 
-        if(window.innerWidth > 832){
+        if(window.innerWidth > 950){
             setSidebar(false)
         }
     },[window.innerWidth])
@@ -131,14 +131,16 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
 
                 <Link to='/OrderHistoryAdm'><h2>Histórico de pedidos</h2></Link>
             </div>
+            
+            <div className='wrapper_buttons'>
+                <Button id='buttonAddPlate' onClick={addPlate}>
+                    <span>Novo prato</span>
+                </Button>
 
-            <Button id='buttonAddPlate' onClick={addPlate}>
-                <span>Novo prato</span>
-            </Button>
-
-            <button onClick={logOut} className="logOut">
-                <FiLogOut />
-            </button>
+                <button onClick={logOut} className="logOut">
+                    <FiLogOut />
+                </button>
+            </div>
         </Container>
     )
 }
