@@ -109,7 +109,7 @@ export const Container = styled.div`
 
         .wrapper_menu{
             width: 70%;
-            padding-right: 300px !important;
+            padding-right: 280px !important;
             gap: 15vw;
         }
 
@@ -129,11 +129,15 @@ export const Container = styled.div`
 
     @media (max-width: 730px){
         .wrapper_menu{
-            width: 60%;
 
-            button{
-            margin-right: -60px
+            >button{
+                margin-left: 50px;
             }
+
+            svg{
+                margin-left: 15px;
+            }
+
         }   
     }
 `;

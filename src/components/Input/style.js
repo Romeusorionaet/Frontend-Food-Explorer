@@ -36,6 +36,10 @@ export const Container = styled.div`
     }
 
     @media (max-width: 950px){
+        min-width: 40vw;
+    }
+    
+    @media (max-width: 830px){
         min-width: 80vw;
     }
 `;
