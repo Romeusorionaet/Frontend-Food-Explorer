@@ -116,7 +116,8 @@ export const Container = styled.div`
         .sidebar{
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: space-between;
+            width: 100px;
             
             svg{
                 margin-left: 40px;

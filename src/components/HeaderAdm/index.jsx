@@ -86,7 +86,7 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
 
     return(
         <Container>
-            <div className="wrapper_button_logo">
+            <div className="wrapper_button_logo" id={sidebar === true ? 'hidden' : ''}>
                 <button onClick={turnHomePage}>
                     <img src={logoHeaderFoodExplorer} alt='logo food Explorer'/>
                 </button>

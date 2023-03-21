@@ -26,8 +26,12 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
         signOut();
     }
 
+    useEffect(()=>{
+
+    },[])
+
     return(
-        <Container id='container' sidebar={active}>
+        <Container id='container' sidebar={active} className={user.admin == 1 ? 'addMarginAdm' : 'addMarginUser'}>
             <div id='wrapper_input'>
                 <Input
                     icon={FiSearch}

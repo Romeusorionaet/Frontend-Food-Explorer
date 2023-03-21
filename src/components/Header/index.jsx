@@ -71,6 +71,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
  
     useEffect(()=>{
         const menu = document.querySelector('.menu')
+        
         if(window.innerWidth < 832){
             menu.classList.remove('hidden')
         }else{

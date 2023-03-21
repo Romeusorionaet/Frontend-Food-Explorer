@@ -33,7 +33,15 @@ export default createGlobalStyle`
         filter: brightness(0.9);
     }
 
-    .hidden{
+    .hidden, #hidden{
         display: none;
+    }
+
+    .addMarginAdm{
+        margin: 40px -48px;
+    }
+
+    .addMarginUser{
+        margin: 105px 0px;
     }
 `;
