@@ -9,6 +9,7 @@ export const Container = styled.div`
     #wrapper_input{
         width: 100%;
         margin-top: 30px;
+        margin-left: -20px;
         display: flex;
         justify-content: center;
 
@@ -34,7 +35,7 @@ export const Content = styled.div`
         border-bottom: ${({theme})=>theme.COLORS.BACKGROUND_LINE} solid 1px;
 
     }
-
+    
     >span{
         border-bottom: ${({theme})=>theme.COLORS.BACKGROUND_LINE} solid 1px;
         cursor: pointer;

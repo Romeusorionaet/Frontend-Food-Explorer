@@ -77,10 +77,9 @@ export const Container = styled.div`
 
         span{
             font-size: 20px;
-            margin-bottom: 5px;
+            /* margin-bottom: 5px; */
         }
 
-        
         #buttonLess, #buttonMore{
             background: none;
             border: none;
@@ -90,9 +89,12 @@ export const Container = styled.div`
             }
         }
         
-        .wrapper_controll{
-            display: flex;
-            gap: 30px;
+        #buttonLess{
+            margin-right: 15px;
+        }
+
+        #buttonMore{
+            margin-left: 15px;
         }
 
         >Button{
@@ -103,7 +105,6 @@ export const Container = styled.div`
             border: none;
         }
     }
-
 
     /* =============================================== */
     

@@ -119,10 +119,9 @@ export const Container = styled.div`
             justify-content: space-between;
             width: 100px;
             
-            svg{
-                margin-left: 40px;
-            }
+            margin-left: 20px;
         }
+        
         .wrapper_favorites_historic, .wrapper_input, .logOut{
             display: none;
         }      

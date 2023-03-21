@@ -133,12 +133,16 @@ export const Container = styled.div`
         .sidebar{
             display: flex;
             align-content: center;
-            gap: 10px;
-            
+
             svg{
-                font-size: 26px;
+                margin-right: 10px;
+            }
+
+            span{
+                font-size: 20px;
             }
         }
+        
         .wrapper_favorites_historic, .wrapper_input, .logOut, #buttonAddPlate{
             display: none;
         }        

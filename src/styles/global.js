@@ -38,7 +38,7 @@ export default createGlobalStyle`
     }
 
     .addMarginAdm{
-        margin: 40px -48px;
+        margin: 10px -48px;
     }
 
     .addMarginUser{
