@@ -4,14 +4,13 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
 
-    height: 100vh;
-
+    height: 98vh;
 `;
 
 export const SectionRequest = styled.section`
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
 
     padding: 230px 120px;
 
@@ -58,12 +57,20 @@ export const SectionRequest = styled.section`
         }
     }
 
+    .buttonForward{
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    @media (max-width: 800px){
+        padding: 130px 20px;
+    }
+
 `;
 
 export const SectionPayment = styled.section`
-    padding: 220px 0px;
-    margin-right: 200px;
-
+    padding: 220px 10px;
     width: 530px;
 
     >h2{
@@ -117,6 +124,10 @@ export const SectionPayment = styled.section`
     .wrapper_form{
         padding: 50px 100px;
     }
+
+    /* @media (max-width: 800px){
+        display: none;
+    } */
 `;
 
 export const Form = styled.form`

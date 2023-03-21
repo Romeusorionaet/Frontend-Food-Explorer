@@ -39,7 +39,7 @@ export const Container = styled.div`
     }
 
     .wrapper_mobile{
-        height: 65vh;
+        height: 70vh;
         overflow: auto;
     }
 
@@ -58,7 +58,7 @@ export const Container = styled.div`
 
     @media (max-width: 450px){
         .wrapper_mobile{
-            height: 45vh;
+            height: 55vh;
         }
     }
 `;

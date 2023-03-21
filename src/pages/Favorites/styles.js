@@ -10,11 +10,11 @@ export const Container = styled.div`
     }
 
     section{
-       
         height: 60vh;;
         margin: 30px 120px;
        
         overflow: auto;
+        overflow-x: hidden;
 
         ul{
             list-style: none;
@@ -48,8 +48,20 @@ export const Container = styled.div`
                 color: ${({theme})=>theme.COLORS.RED_500};
             }
         }
-
         
+        @media (max-width: 760px){
+            height: 60vh;
+            margin: 10px 20px;
+        }
+    }
+
+    @media (max-width: 760px){
+        h1{
+            padding: 120px 20px 0;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 28px;
+        }
     }
 `;
 

@@ -50,6 +50,7 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
                 </Content>
                 :
                 <Content>
+                    <Link to='/Payment'><span>Meus pedidos</span></Link>
                     <Link to='/OrderHistory'><span>Histórico de pedido</span></Link>
                     <Link to='/Favorites'><span>Meus favoritos</span></Link>
                     <span onClick={logOut}>Sair</span>

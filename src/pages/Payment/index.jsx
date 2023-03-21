@@ -28,6 +28,9 @@ export function Payment() {
     const paymentApproved = document.getElementById("hiddenPaymentApproved");
     const hiddenOrderDelivered = document.getElementById("hiddenOrderDelivered");
 
+    const sectionPayment = document.getElementById('sectionPayment');
+    const sectionRequest = document.getElementById('sectionRequest');
+
     const buttonPix = document.querySelector('.opcionPix');
     const buttonCredit = document.querySelector('.opcionCredit');
     const form = document.querySelector('.wrapper_form form');
@@ -113,12 +116,16 @@ export function Payment() {
         await api.post(`/orderHistory/${user.id}`)
     }
 
+    function forward(){
+        sectionPayment.classList.toggle('hidden')
+        sectionRequest.classList.toggle('hidden')
+    }
 
     return(
         <Container>
             <Header />
 
-            <SectionRequest>
+            <SectionRequest id='sectionRequest'>
                 <h2>Meu pedido</h2>
 
                 <div className='list'>
@@ -148,12 +155,16 @@ export function Payment() {
                     </ul>
                 </div>
 
-                <div className='total'>
-                    <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-                </div>
+                <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                
+                <Button 
+                onClick={forward}
+                title='Avançar' 
+                className={window.innerWidth <= 800 ? 'buttonForward' : 'hidden'} 
+                />
             </SectionRequest>
 
-            <SectionPayment>
+            <SectionPayment id='sectionPayment' className={window.innerWidth <=800 ? 'hidden' : ''}>
                 <h2>Pagamento</h2>
                 <div className='wrapper'>
                     <div className='wrapper_option'>

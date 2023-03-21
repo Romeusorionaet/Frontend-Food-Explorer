@@ -138,7 +138,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
                 <Link to='/OrderHistory'><h2>Histórico de pedido</h2></Link>
             </div>
 
-            <div>
+            <div className={sidebar === true ? 'hidden' : ''}>
                 {window.innerWidth < 1060 ?
                 <MobileButton onClick={payment}>
                     <img src={lista}/>

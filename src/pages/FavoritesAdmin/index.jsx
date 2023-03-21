@@ -3,6 +3,7 @@ import { Footer } from '../../components/Footer';
 
 import { api } from '../../services/api';
 
+import {AiFillLike} from 'react-icons/ai';
 import { Container } from './styles';
 import { useEffect, useState } from 'react';
 
@@ -29,11 +30,11 @@ export function FavoritesAdmin() {
                         favorites.map((item, index)=>{
                             return(
                                 <li key={String(index)}>
-                                    <div className="wrapper_title_button">
+                                    <div className="wrapper_title_like">
                                         <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
 
                                         <h2>{item.title}</h2>
-                                        <span>{item.favorited} like</span>
+                                        <span>{item.favorited} <AiFillLike /></span>
                                     </div>
                                 </li>
                             )

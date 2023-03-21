@@ -31,7 +31,7 @@ export const Container = styled.div`
         flex-direction: column;
 
         .wrapper_logo{
-            margin: 100px 0;
+            margin: 20px 0;
         }
     }
 `;
@@ -62,12 +62,21 @@ export const Form = styled.form`
 
     @media (max-width: 865px){
         width: auto;
-        margin: 0;
+        margin: 40px 0;
         padding: 0;
         background: none;
 
         >h1{
             display: none;
         }
+
+        label{
+            Input{
+            }
+        }
     }
+
+    /* @media (max-width: 500px){
+
+    } */
 `;

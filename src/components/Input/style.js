@@ -41,6 +41,5 @@ export const Container = styled.div`
     
     @media (max-width: 830px){
         min-width: 80vw;
-        margin-left: 50px;
     }
 `;

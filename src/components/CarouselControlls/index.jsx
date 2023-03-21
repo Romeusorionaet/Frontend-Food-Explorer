@@ -8,8 +8,8 @@ import { useEffect, useState } from "react";
 export const CarouselControlls = ({children}) => {
   const breakPoints = [
     { width: 1, itemsToShow: 1.5 },
-    { width: 700, itemsToShow: 2 },
-    { width: 910, itemsToShow: 2.5 },
+    { width: 700, itemsToShow: 2.5 },
+    //{ width: 910, itemsToShow: 2.5 },
     { width: 1200, itemsToShow: 3 },
     { width: 1400, itemsToShow: 4 },
   ];

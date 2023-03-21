@@ -38,10 +38,10 @@ export default createGlobalStyle`
     }
 
     .addMarginAdm{
-        margin: 10px -48px;
+        margin: 0 -50px;
     }
 
     .addMarginUser{
-        margin: 105px 0px;
+        margin: 90px 10px;
     }
 `;
