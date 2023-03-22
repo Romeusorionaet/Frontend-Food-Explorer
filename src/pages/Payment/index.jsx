@@ -6,7 +6,6 @@ import QrCode from '../../assets/QrCode.svg';
 import pixImg from '../../assets/pix.svg';
 import creditImg from '../../assets/credit.svg';
 
-
 import {api} from "../../services/api";
 import { useEffect, useState } from 'react';
 import {Header} from '../../components/Header';
@@ -53,7 +52,7 @@ export function Payment() {
         setIsContainerActive(false);
         
         if(isContainerActive === true){
-            pix.style.display = 'flex'
+            pix.classList.remove('hidden')
         }
     }
     
@@ -61,7 +60,7 @@ export function Payment() {
         setIsContainerActive(true);
 
         if(isContainerActive === false){
-            pix.style.display = 'none'
+            pix.classList.add('hidden')
         }
     }
 

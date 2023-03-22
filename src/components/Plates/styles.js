@@ -22,7 +22,7 @@ export const Container = styled.div`
 
         svg{
             font-size: 35px;
-            /* color: ${({theme})=>theme.COLORS.RED_900}; */
+            color: ${({theme})=>theme.COLORS.RED_900};
         }
 
         @media (max-width: 800px){
