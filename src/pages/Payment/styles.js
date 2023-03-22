@@ -117,7 +117,7 @@ export const SectionPayment = styled.section`
             .wrapper_waitingPaymentImg{
                 display: hidden;
                 text-align: center;
-                margin: -50px 0 50px;
+                margin: 0px 0 50px;
 
                 img{
                     width: 300px;
