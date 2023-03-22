@@ -3,8 +3,13 @@ import styled from 'styled-components'
 export const Container = styled.div`
     display: flex;
     justify-content: space-between;
+    padding: 0 120px 0 0;
 
     height: 98vh;
+
+    @media (max-width: 800px){
+        padding: 0;
+    }
 `;
 
 export const SectionRequest = styled.section`
@@ -70,7 +75,7 @@ export const SectionRequest = styled.section`
 `;
 
 export const SectionPayment = styled.section`
-    padding: 220px 10px;
+    padding: 220px 0;
     width: 530px;
 
     >h2{
@@ -94,7 +99,7 @@ export const SectionPayment = styled.section`
                 align-items: center;
                 justify-content: center;
 
-                width: 265px;
+                width: 100%;
                 height: 80px;
                 border: solid 1px ${({theme})=>theme.COLORS.BACKGROUND_LINE};
                 background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
@@ -114,6 +119,10 @@ export const SectionPayment = styled.section`
                 text-align: center;
                 margin: -50px 0 50px;
 
+                img{
+                    width: 300px;
+                }
+
                 .hiddenWatchClass{
                     display: none;
                 }
@@ -125,9 +134,37 @@ export const SectionPayment = styled.section`
         padding: 50px 100px;
     }
 
-    /* @media (max-width: 800px){
-        display: none;
-    } */
+    @media (max-width: 800px){
+        width: 100%;
+        padding: 120px 10px;
+
+        .wrapper{
+            .wrapper_input_cretid_and_pix{
+                .pix{
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .wrapper_form{
+                    padding: 10px 10px;
+
+                    .wrapper_date_and_cvc{
+                        width: 100%;
+                        
+                        label input{
+                            min-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 400px) and (max-width: 800px){
+        .wrapper .wrapper_input_cretid_and_pix .wrapper_form form{
+            padding: 50px 150px;
+        }
+    }
 `;
 
 export const Form = styled.form`

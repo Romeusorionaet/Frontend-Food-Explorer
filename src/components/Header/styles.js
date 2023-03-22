@@ -10,7 +10,7 @@ export const Container = styled.div`
     gap: 30px;
     align-items: center;
     
-    padding: 35px 120px;
+    padding: 35px 100px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
     .wrapper_menu{
@@ -99,7 +99,6 @@ export const Container = styled.div`
         .wrapper_favorites_historic a h2{
             text-align: center;
         }
-
     }
 
     @media (max-width: 831px){
@@ -108,18 +107,23 @@ export const Container = styled.div`
         width: 100vmin;
 
         .wrapper_menu{
-            width: 70%;
-            padding-right: 280px !important;
-            gap: 15vw;
+            >button{
+                margin-left: 95px;
+            }
         }
 
         .sidebar{
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100px;
+            width: 200px;
+            gap: 10px;
             
-            margin-left: 20px;
+            span{
+                font-size: 20px;
+            } 
+            svg{
+                margin-left: 40px;
+            }           
         }
         
         .wrapper_favorites_historic, .wrapper_input, .logOut{
@@ -129,15 +133,13 @@ export const Container = styled.div`
 
     @media (max-width: 730px){
         .wrapper_menu{
-
             >button{
                 margin-left: 50px;
             }
 
             svg{
-                margin-left: 15px;
+                margin-left: 40px;
             }
-
         }   
     }
 `;

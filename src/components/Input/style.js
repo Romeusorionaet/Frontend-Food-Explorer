@@ -4,8 +4,6 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     
-    
-
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
     border-radius: 10px;
 
@@ -15,7 +13,6 @@ export const Container = styled.div`
     }
 
     >input{
-        
         height: 56px;
         width: 100%;
 

@@ -50,10 +50,18 @@ export function Payment() {
 
     function opcionPix(){
         setIsContainerActive(false);
+        
+        if(isContainerActive === true){
+            pix.style.display = 'flex'
+        }
     }
     
     function opcionCredit(){
         setIsContainerActive(true);
+
+        if(isContainerActive === false){
+            pix.style.display = 'none'
+        }
     }
 
     useEffect(()=>{
@@ -117,8 +125,10 @@ export function Payment() {
     }
 
     function forward(){
-        sectionPayment.classList.toggle('hidden')
-        sectionRequest.classList.toggle('hidden')
+        if(window.innerWidth <= 800){
+            sectionPayment.classList.remove('hidden')
+            sectionRequest.classList.toggle('hidden')
+        }
     }
 
     return(
@@ -164,7 +174,7 @@ export function Payment() {
                 />
             </SectionRequest>
 
-            <SectionPayment id='sectionPayment' className={window.innerWidth <=800 ? 'hidden' : ''}>
+            <SectionPayment id='sectionPayment' className={window.innerWidth <= 800 ? 'hidden' : ''}>
                 <h2>Pagamento</h2>
                 <div className='wrapper'>
                     <div className='wrapper_option'>
@@ -184,15 +194,15 @@ export function Payment() {
                         onClick={opcionCredit}
                         >
                             
-                           <img src={creditImg} alt="credit symbol svg" />
+                            <img src={creditImg} alt="credit symbol svg" />
                             <span>Crédito</span>
 
                         </button>
                     </div>
         {/* ver outro nome de class para esse wrapper abaixo */}
                     <div className='wrapper_input_cretid_and_pix'>
-                        <div className={`pix ${isContainerActive !== false ? "hidden" : ""}`}>
-                            <img src={QrCode} alt="Campo QrCode Em caso de pagamento, Pix." />
+                        <div className='pix'>
+                            <img src={QrCode} alt="Campo QrCode em caso de pagamento, Pix." />
                         </div>
 
                         <div className={`wrapper_form ${isContainerActive !== true ? "hidden" : ""}`}>

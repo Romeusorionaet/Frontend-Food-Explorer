@@ -38,8 +38,6 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
 
-        margin: 300px 20px 20px;
-
         .wrapper_description{
             z-index: 1;
 
