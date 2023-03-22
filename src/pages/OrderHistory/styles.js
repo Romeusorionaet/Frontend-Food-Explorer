@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-
     >h1{
         padding:  150px 120px 50px;
         font-size: 32px;
@@ -50,6 +49,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 832px){
+
         >h1{
             padding:  120px 20px 20px;
             font-size: 22px;
@@ -58,7 +58,7 @@ export const Container = styled.div`
 
     @media (max-width: 450px){
         .wrapper_mobile{
-            height: 55vh;
+            height: 68vh;
         }
     }
 `;

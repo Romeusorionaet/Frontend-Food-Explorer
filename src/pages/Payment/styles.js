@@ -62,16 +62,22 @@ export const SectionRequest = styled.section`
         }
     }
 
-    .buttonForward{
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-    }
-
     @media (max-width: 800px){
-        padding: 130px 20px;
-    }
+        padding: 130px 10px;
+        width: 100%;
 
+        .list{
+            min-height: 50vh;
+        }
+
+        .wrapper_totalAndButton{
+            display: flex;
+            min-width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5px;
+        }
+    }
 `;
 
 export const SectionPayment = styled.section`

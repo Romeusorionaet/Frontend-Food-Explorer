@@ -1,18 +1,19 @@
 import waitingPaymentImg from '../../assets/waitingPayment.svg';
 import paymentApprovedImg from '../../assets/paymentApproved.svg';
 import orderDeliveredImg from '../../assets/orderDelivered.svg';
-import QrCode from '../../assets/QrCode.svg'
+import QrCode from '../../assets/QrCode.svg';
 
-import pixImg from '../../assets/pix.svg'
-import creditImg from '../../assets/credit.svg'
+import pixImg from '../../assets/pix.svg';
+import creditImg from '../../assets/credit.svg';
 
 
 import {api} from "../../services/api";
 import { useEffect, useState } from 'react';
-import {Header} from '../../components/Header'
-import {Button} from '../../components/Button'
+import {Header} from '../../components/Header';
+import {Button} from '../../components/Button';
+import {Footer} from '../../components/Footer';
 
-import {Container, SectionRequest, SectionPayment, Form} from './styles'
+import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
 export function Payment() {
     const [plate, setPlate] = useState([]);
@@ -165,13 +166,15 @@ export function Payment() {
                     </ul>
                 </div>
 
-                <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-                
-                <Button 
-                onClick={forward}
-                title='Avançar' 
-                className={window.innerWidth <= 800 ? 'buttonForward' : 'hidden'} 
-                />
+                <div className='wrapper_totalAndButton'>
+                    <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                    
+                    <Button 
+                    onClick={forward}
+                    title='Avançar' 
+                    className={window.innerWidth <= 800 ? '' : 'hidden'} 
+                    />
+                </div>
             </SectionRequest>
 
             <SectionPayment id='sectionPayment' className={window.innerWidth <= 800 ? 'hidden' : ''}>
@@ -250,6 +253,7 @@ export function Payment() {
                 </div>
             </SectionPayment>
 
+            <Footer />
         </Container>
     )
 }

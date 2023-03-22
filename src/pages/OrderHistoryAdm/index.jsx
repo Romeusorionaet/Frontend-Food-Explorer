@@ -46,7 +46,7 @@ export function OrderHistoryAdm() {
         <Container>
             <HeaderAdm />
 
-            <h1>Histórico de Pedidos de clientes</h1>
+            <h1>Histórico dos Pedidos</h1>
 
             {window.innerWidth < 832 ? 
             <div className='wrapper_mobile'>

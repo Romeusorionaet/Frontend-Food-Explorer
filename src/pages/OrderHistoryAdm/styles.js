@@ -79,7 +79,7 @@ export const Container = styled.div`
 
     @media (max-width: 450px){
         .wrapper_mobile{
-            height: 50vh;
+            height: 60vh;
         }
     }
 `;

@@ -21,20 +21,20 @@ export const Container = styled.div`
         font-size: 14px;
     }
 
-   @media (max-width: 830px){
-    height: 80px;
+   @media (max-width: 760px){
+    padding: 0;
+    height: 50px;
 
     >img{
         width: 114px;
         height: 18px;
-        margin-left: -115px;
     }
 
     >span{
         font-size: 11px;
         display: flex;
         min-width: 230px;
-        margin: -70px
+        margin: 30px
     }
    }
 `;
