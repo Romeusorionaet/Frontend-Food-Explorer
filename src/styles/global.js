@@ -38,6 +38,6 @@ export default createGlobalStyle`
     }
 
     .addMarginUser{
-        margin: 100px -200px;
+        margin: 15% -200px;
     }
 `;

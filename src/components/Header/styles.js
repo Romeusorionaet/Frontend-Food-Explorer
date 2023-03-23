@@ -107,10 +107,9 @@ export const Container = styled.div`
 
         .wrapper_menu{
             min-width: 100%;
-
+            
             button{
-                min-width: 100%;
-                margin-left: -10px;
+                min-width: 90%;
             }
         }
 
