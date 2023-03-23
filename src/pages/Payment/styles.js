@@ -6,6 +6,7 @@ export const Container = styled.div`
     padding: 0 120px 0 0;
 
     height: 98vh;
+    overflow-y: hidden;
 
     @media (max-width: 800px){
         padding: 0;
@@ -41,10 +42,10 @@ export const SectionRequest = styled.section`
                 display: flex;
                 align-items: center;
                 gap: 10px;
-
+                
                 padding: 5px 10px 5px 0;
                 margin-top: 15px;
-
+                
                 img{
                     width: 75px;
                 }
@@ -61,15 +62,15 @@ export const SectionRequest = styled.section`
             }
         }
     }
-
+    
     @media (max-width: 800px){
-        padding: 130px 10px;
+        padding: 130px 5px;
         width: 100%;
 
         .list{
-            min-height: 50vh;
+            min-height: 60vh;
+            
         }
-
         .wrapper_totalAndButton{
             display: flex;
             min-width: 100%;
@@ -78,7 +79,7 @@ export const SectionRequest = styled.section`
             padding: 0 5px;
         }
     }
-`;
+    `;
 
 export const SectionPayment = styled.section`
     padding: 220px 0;
@@ -117,7 +118,7 @@ export const SectionPayment = styled.section`
             .pix{
                 display: hidden;
                 text-align: center;
-                padding: 50px 100px;
+                padding: 50px;
             }
 
             .wrapper_waitingPaymentImg{
@@ -141,8 +142,8 @@ export const SectionPayment = styled.section`
     }
 
     @media (max-width: 800px){
-        width: 100%;
-        padding: 120px 10px;
+        padding: 120px 25px 0 0 ;
+        min-width: 100%;
 
         .wrapper{
             .wrapper_input_cretid_and_pix{

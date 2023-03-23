@@ -123,7 +123,7 @@ export function Payment() {
 
     const [hiddenSection, setHiddenSection] = useState(false)
 
-    // useEffect(()=>{
+    
     //     function forward(){
     //         if(window.innerWidth <= 800){
                 
@@ -131,52 +131,57 @@ export function Payment() {
     //             // sectionRequest.classList.toggle('hidden')
     //         }
     //     }
-    //     forward()
-    // },[])
+    
 
     return(
         <Container>
             <Header />
 
             <SectionRequest>
-                <h2>Meu pedido</h2>
+                
+                <div 
+                className={(hiddenSection === true && window.innerWidth <= 800) ? 'hidden' : 'list'}
+                >
+                    <h2>Meu pedido</h2>
 
-                <div className={hiddenSection === true ? 'hidden' : 'list'} >
-                    <ul>
-                        {plate &&
-                        plate.map((item, index)=>{
-                            let price = item.price * item.amount
-                            return(
-                                <li key={String(index)}>
-                                    <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
-                                    <div>
-                                        <div id="wrapper_text_and_price">
-                                            <p>{item.amount + "X"} {item.title}</p>
-                                            <span>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </span>
+                    <div>
+                        <ul>
+                            {plate &&
+                            plate.map((item, index)=>{
+                                let price = item.price * item.amount
+                                return(
+                                    <li key={String(index)}>
+                                        <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
+                                        <div>
+                                            <div id="wrapper_text_and_price">
+                                                <p>{item.amount + "X"} {item.title}</p>
+                                                <span>{price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} </span>
+                                            </div>
+                                        
+                                            <button 
+                                            onClick={()=>{setRemove(item.plate_id)}}
+                                            >
+                                                Excluir
+                                            </button>
                                         </div>
-                                    
-                                        <button 
-                                        onClick={()=>{setRemove(item.plate_id)}}
-                                        >
-                                            Excluir
-                                        </button>
-                                    </div>
-                                </li>
-                            )
-                        })
-                        }   
-                    </ul>
+                                    </li>
+                                )
+                            })
+                            }   
+                        </ul>
+                    </div>
                 </div>
+                
+                    <div className={hiddenSection === true ? 'hidden' : 'wrapper_totalAndButton'}>
+                        <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                        
+                        <Button 
+                        onClick={()=>{setHiddenSection(true)}}
+                        title='Avançar' 
+                        className={window.innerWidth <= 800 ? '' : 'hidden'} 
+                        />
+                    </div>
 
-                <div className='wrapper_totalAndButton'>
-                    <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
-                    
-                    <Button 
-                    onClick={()=>{setHiddenSection(true)}}
-                    title='Avançar' 
-                    className={window.innerWidth <= 800 ? '' : 'hidden'} 
-                    />
-                </div>
             </SectionRequest>
 
             <SectionPayment
