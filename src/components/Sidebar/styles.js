@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
     min-width: 100vw;
-    margin-top: 60px;
     overflow: hidden;
     
     #wrapper_input{

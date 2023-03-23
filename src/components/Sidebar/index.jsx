@@ -28,7 +28,7 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
     }
 
     return(
-        <Container id='container' sidebar={active} className={user.admin == 1 ? '' : 'addMarginUser'}>
+        <Container id='container' sidebar={active} className={user.admin == 1 ? 'addMarginAdmin' : 'addMarginUser'}>
             <div id='wrapper_input'>
                 <Input
                     icon={FiSearch}
