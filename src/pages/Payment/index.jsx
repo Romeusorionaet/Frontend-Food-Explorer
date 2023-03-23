@@ -138,13 +138,10 @@ export function Payment() {
         <Container>
             <Header />
 
-            <SectionRequest 
-            id='sectionRequest' 
-            className={hiddenSection === true ? 'hidden' : ''}
-            >
+            <SectionRequest>
                 <h2>Meu pedido</h2>
 
-                <div className='list'>
+                <div className={hiddenSection === true ? 'hidden' : 'list'} >
                     <ul>
                         {plate &&
                         plate.map((item, index)=>{
@@ -182,8 +179,7 @@ export function Payment() {
                 </div>
             </SectionRequest>
 
-            <SectionPayment 
-            id='sectionPayment' 
+            <SectionPayment
             className={(hiddenSection === false && window.innerWidth <= 800) ? 'hidden' : ''}
             >
 
