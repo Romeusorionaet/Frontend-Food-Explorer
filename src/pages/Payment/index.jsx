@@ -151,7 +151,7 @@ export function Payment() {
                     <div className='wrapper_option'>
                         <button 
                         className='opcionPix'
-                        id={`${pix === false ? "backgroundCheck" : ""}`} 
+                        id={`${pix === false ? "" : "backgroundCheck"}`} 
                         onClick={()=>{setPix(false)}}
                         >
                             <img src={pixImg} alt="pix symbol svg" />
@@ -160,7 +160,7 @@ export function Payment() {
 
                         <button
                         className='opcionCredit'
-                        id={`${pix === true ? "backgroundCheck" : ""}`}
+                        id={`${pix === true ? "" : "backgroundCheck"}`}
                         onClick={()=>{setPix(true)}}
                         >  
                             <img src={creditImg} alt="credit symbol svg" />

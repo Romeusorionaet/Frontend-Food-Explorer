@@ -4,12 +4,10 @@ export const Container = styled.div`
     grid-area: Footer;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
-    
-
-    padding: 45px 120px;
+    padding: 45px 200px;
     margin: 100px 0 0;
 
     position: absolute;
@@ -19,6 +17,11 @@ export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
 
     >span{
+        min-width: 100%;
+        display: flex;
+
+        justify-content: end;
+
         font-weight: 400;
         font-size: 14px;
     }
@@ -34,8 +37,6 @@ export const Container = styled.div`
 
     >span{
         font-size: 11px;
-        display: flex;
-        justify-content: end;
         min-width: 230px;
     }
    }

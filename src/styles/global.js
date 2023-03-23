@@ -37,11 +37,7 @@ export default createGlobalStyle`
         display: none;
     }
 
-    .addMarginAdm{
-        margin: 0 -50px;
-    }
-
     .addMarginUser{
-        margin: 90px 10px;
+        margin: 100px -200px;
     }
 `;

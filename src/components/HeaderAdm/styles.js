@@ -19,10 +19,10 @@ export const Container = styled.div`
        align-items: end;
 
        >span{
-        font-size: 12px;
-        padding-right: 5px;
-        margin-top: -5px;
-        color: ${({theme})=>theme.COLORS.PRICE_$};
+            font-size: 12px;
+            padding-right: 5px;
+            margin-top: -5px;
+            color: ${({theme})=>theme.COLORS.PRICE_$};
        }
 
        button{
@@ -115,50 +115,34 @@ export const Container = styled.div`
 
     @media (max-width: 950px){
         flex-direction: row;
-        padding: 35px 80px;
+        padding: 35px 10px;
 
         flex-direction: row-reverse;
         
-        .wrapper_menu{
-            position: absolute;
-            left: 50px;
-        }
-
         .wrapper_button_logo{
             flex-direction: row;
             align-items: center;
+            justify-content: center;
+            width: 100%;
             gap: 10px;
         }
 
-        .sidebar{
-            display: flex;
-            align-content: center;
+        .wrapper_menu{
+            
+            .sidebar{
+                position: absolute;
+                left: 20px;
+                display: flex;
+                align-content: center;
 
-            svg{
-                margin-right: 10px;
-            }
-
-            span{
-                font-size: 20px;
+                svg{
+                    margin-right: 10px;
+                }
             }
         }
-        
         .wrapper_favorites_historic, .wrapper_input, .logOut, #buttonAddPlate{
             display: none;
         }        
-    }
-
-    @media (max-width: 450px){
-        .wrapper_button_logo{
-            margin-right: -20px;
-            img{
-                width: 160px;
-            }
-
-            span{
-                font-size: 10px;;
-            }
-        }
     }
 `;
 

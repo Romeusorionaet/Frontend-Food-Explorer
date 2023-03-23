@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: Description;
 
-    margin: 300px 125px 0 125px;
+    margin: 300px 125px 0;
     height: 260px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
 
@@ -12,11 +12,9 @@ export const Container = styled.div`
     position: relative;
 
     .wrapper_img{
-        img{
-            position: absolute;
-            top: -148px;
-            left: -60px;
-        }
+        position: absolute;
+        top: -148px;
+        left: -60px;
     }
 
     .wrapper_description{
@@ -25,12 +23,13 @@ export const Container = styled.div`
         top: 100px;
 
         h1{
-            font-weight: 500;
+            font-weight: 600;
             font-size: 50px;
         }
         p{
             font-weight: 400;
             font-size: 16px;
+            Line-height: 16.8px;
         }
     }
 
@@ -48,21 +47,35 @@ export const Container = styled.div`
     }
     
     @media (max-width: 830px){
-        margin: 150px 0 20px;
-
-        .wrapper_description{
-            right:0;
-            left: 0;
-            width: 90%;
-            text-align: center;
-        }
+        margin: 150px 20px 0;
+        height: 115px;
 
         .wrapper_img{
+            width: 190px;
+            height: 150px;
+            position: absolute;
+            top: -15px;
+            left: -25px;
 
             img{
+                padding-right: 250px;
                 width: 450px;
                 left: -15px;
                 top: -30px;
+            }
+        }
+
+        .wrapper_description{
+            right: 0px;
+            top: 30px;
+            width: 100%;
+            text-align: center;
+
+            h1{
+                font-size: 18px;
+            }
+            p{
+                font-size: 12px;
             }
         }
     }

@@ -13,9 +13,10 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     useEffect(()=>{
-        let container = document.getElementById('container')
+        let container = document.getElementById('container');
+
         if(search){
-            container.style.height = 'auto'
+            container.style.height = '15vh'
         }else{
             container.style.height = '100vh'
         }
@@ -26,12 +27,8 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
         signOut();
     }
 
-    useEffect(()=>{
-
-    },[])
-
     return(
-        <Container id='container' sidebar={active} className={user.admin == 1 ? 'addMarginAdm' : 'addMarginUser'}>
+        <Container id='container' sidebar={active} className={user.admin == 1 ? '' : 'addMarginUser'}>
             <div id='wrapper_input'>
                 <Input
                     icon={FiSearch}
@@ -50,9 +47,9 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
                 </Content>
                 :
                 <Content>
-                    <Link to='/Payment'><span>Meus pedidos</span></Link>
                     <Link to='/OrderHistory'><span>Histórico de pedido</span></Link>
                     <Link to='/Favorites'><span>Meus favoritos</span></Link>
+                    <Link to='/Payment'><span>Meus pedidos</span></Link>
                     <span onClick={logOut}>Sair</span>
                 </Content>
             }

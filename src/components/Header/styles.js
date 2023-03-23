@@ -102,13 +102,15 @@ export const Container = styled.div`
     }
 
     @media (max-width: 831px){
-        flex-direction: row;
-        gap: 50px;
-        width: 100vmin;
+        gap: 0;
+        padding: 35px 30px;
 
         .wrapper_menu{
-            >button{
-                margin-left: 95px;
+            min-width: 100%;
+
+            button{
+                min-width: 100%;
+                margin-left: -10px;
             }
         }
 
@@ -129,18 +131,6 @@ export const Container = styled.div`
         .wrapper_favorites_historic, .wrapper_input, .logOut{
             display: none;
         }      
-    }
-
-    @media (max-width: 730px){
-        .wrapper_menu{
-            >button{
-                margin-left: 50px;
-            }
-
-            svg{
-                margin-left: 40px;
-            }
-        }   
     }
 `;
 
@@ -163,10 +153,6 @@ export const Button = styled.button`
 
     >span{
         min-width: 100px;
-    }
-
-    @media (max-width: 670px){
-        width: auto;
     }
 `;
 
