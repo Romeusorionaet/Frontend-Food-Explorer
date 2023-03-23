@@ -7,6 +7,8 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    
+
     padding: 45px 120px;
     margin: 100px 0 0;
 
@@ -33,8 +35,8 @@ export const Container = styled.div`
     >span{
         font-size: 11px;
         display: flex;
+        justify-content: end;
         min-width: 230px;
-        margin: 30px
     }
    }
 `;

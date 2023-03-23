@@ -18,21 +18,12 @@ export function Payment() {
     const [plate, setPlate] = useState([]);
     const [remove, setRemove] = useState([]);
     const [total, setTotal] = useState(0);
-    const [isContainerActive, setIsContainerActive] = useState(false);
+
+    const [hiddenSection, setHiddenSection] = useState(false);
+    const [pix, setPix] = useState(false);
+    const [transitionImg, setTransitionImg] = useState(60);
 
     var count = 60;
-    const hiddenWatch = document.getElementById("hiddenWatch");
-    const paymentApproved = document.getElementById("hiddenPaymentApproved");
-    const hiddenOrderDelivered = document.getElementById("hiddenOrderDelivered");
-
-    const sectionPayment = document.getElementById('sectionPayment');
-    const sectionRequest = document.getElementById('sectionRequest');
-
-    const buttonPix = document.querySelector('.opcionPix');
-    const buttonCredit = document.querySelector('.opcionCredit');
-    const form = document.querySelector('.wrapper_form form');
-    const showWrapper = document.querySelector('.wrapper_waitingPaymentImg');
-    const pix = document.querySelector('.pix');
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
 
@@ -44,22 +35,6 @@ export function Payment() {
         }
         requestedDishes();
     },[plate])
-
-    function opcionPix(){
-        setIsContainerActive(false);
-        
-        if(isContainerActive === true){
-            pix.style.display = 'flex'
-        }
-    }
-    
-    function opcionCredit(){
-        setIsContainerActive(true);
-
-        if(isContainerActive === false){
-            pix.style.display = 'none'
-        }
-    }
 
     useEffect(()=>{
         if(remove.length !== 0){
@@ -81,28 +56,23 @@ export function Payment() {
         setTotal(totalDebt)
     },[plate])
 
-    function waitingPayment(){
-        buttonCredit.style.pointerEvents = 'none';
-        buttonPix.style.pointerEvents = 'none';
-        
-        form.style.display = 'none';
-
-        showWrapper.classList.remove('hidden');
-        pix.classList.add('hidden');
-
+    function startPayment(){
+        setPix()
         start();
     }
 
-    //como o form de credit é só como demostração, então avisar o usuário em um alert
-
     function start() {
+        //trocar esse alert por outro tipo personalizado q n precise de confirm 
+        //alert('Prato recebido! Você pode acompanhar o status do seu prato em "Histórico de pedido".')
+        setPix()
+        
         if (count > 0){
             count -= 1;
             if (count == 30) {
-                hiddenWatch.classList.add("hiddenWatchClass");
-                paymentApproved.classList.remove("hidden");
 
+                setTransitionImg(29);
                 orderHistory();
+
             }else if(count < 10){
                 count = "0" + count;
             }
@@ -110,28 +80,13 @@ export function Payment() {
         }
 
         if(count == 0){
-            paymentApproved.classList.add("hidden");
-            hiddenOrderDelivered.classList.remove('hidden')
-            //Depois que o pagamento for confirmado, mostrar um alert informando que pode
-            //acompanhar o status do prato em histórico de pedidos
+            setTransitionImg(0);
         }
     }
 
     async function orderHistory(){
         await api.post(`/orderHistory/${user.id}`)
     }
-
-    const [hiddenSection, setHiddenSection] = useState(false)
-
-    
-    //     function forward(){
-    //         if(window.innerWidth <= 800){
-                
-    //             // sectionPayment.classList.remove('hidden')
-    //             // sectionRequest.classList.toggle('hidden')
-    //         }
-    //     }
-    
 
     return(
         <Container>
@@ -149,6 +104,7 @@ export function Payment() {
                             {plate &&
                             plate.map((item, index)=>{
                                 let price = item.price * item.amount
+
                                 return(
                                     <li key={String(index)}>
                                         <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
@@ -172,15 +128,15 @@ export function Payment() {
                     </div>
                 </div>
                 
-                    <div className={hiddenSection === true ? 'hidden' : 'wrapper_totalAndButton'}>
-                        <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                <div className={hiddenSection === true ? 'hidden' : 'wrapper_totalAndButton'}>
+                    <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
                         
-                        <Button 
-                        onClick={()=>{setHiddenSection(true)}}
-                        title='Avançar' 
-                        className={window.innerWidth <= 800 ? '' : 'hidden'} 
-                        />
-                    </div>
+                    <Button 
+                    onClick={()=>{setHiddenSection(true)}}
+                    title='Avançar' 
+                    className={window.innerWidth <= 800 ? '' : 'hidden'} 
+                    />
+                </div>
 
             </SectionRequest>
 
@@ -189,36 +145,36 @@ export function Payment() {
             >
 
                 <h2>Pagamento</h2>
+                
                 <div className='wrapper'>
+
                     <div className='wrapper_option'>
                         <button 
                         className='opcionPix'
-                        id={`${isContainerActive !== true ? "backgroundCheck" : ""}`} 
-                        onClick={opcionPix}
+                        id={`${pix === false ? "backgroundCheck" : ""}`} 
+                        onClick={()=>{setPix(false)}}
                         >
-                           <img src={pixImg} alt="pix symbol svg" />
+                            <img src={pixImg} alt="pix symbol svg" />
                             <span>PIX</span>
-
                         </button>
 
                         <button
                         className='opcionCredit'
-                        id={`${isContainerActive !== false ? "backgroundCheck" : ""}`}
-                        onClick={opcionCredit}
-                        >
-                            
+                        id={`${pix === true ? "backgroundCheck" : ""}`}
+                        onClick={()=>{setPix(true)}}
+                        >  
                             <img src={creditImg} alt="credit symbol svg" />
                             <span>Crédito</span>
-
                         </button>
                     </div>
-                    {/* ver outro nome de class para esse wrapper abaixo */}
-                    <div className='wrapper_input_cretid_and_pix'>
-                        <div className='pix'>
+
+                    <div className='wrapper_form_and_pix'>
+
+                        <div className={pix === false ? 'pix' : 'hidden'}>
                             <img src={QrCode} alt="Campo QrCode em caso de pagamento, Pix." />
                         </div>
 
-                        <div className={`wrapper_form ${isContainerActive !== true ? "hidden" : ""}`}>
+                        <div className={`wrapper_form ${pix === true ? "" : "hidden"}`}>
                             <Form>
                                 <label>
                                     Número do Cartão
@@ -249,18 +205,19 @@ export function Payment() {
                                     </label>
                                 </div>
 
-                                <Button onClick={waitingPayment} title="Finalizar pagamento" />
-
+                                <Button onClick={startPayment} title="Finalizar pagamento" />
                             </Form>
                         </div>
 
-                        <div className='wrapper_waitingPaymentImg hidden'>
-                            <img id='hiddenWatch' src={waitingPaymentImg} alt="watch" />
-                            <img id='hiddenPaymentApproved' className='hidden' src={paymentApprovedImg} alt="payment Approved" />
-                            <img id='hiddenOrderDelivered' className='hidden' src={orderDeliveredImg} alt="payment Approved" />
+                        <div className={pix === undefined ? 'wrapper_waitingPaymentImg' : 'hidden'}>
+                            <img className={transitionImg > 30 ? '' : 'hidden'} src={waitingPaymentImg} alt="watch" />
+                            <img className={(transitionImg <= 29 && transitionImg > 0) ? '' : 'hidden'} src={paymentApprovedImg} alt="payment Approved" />
+                            <img className={transitionImg === 0 ? '' : 'hidden'} src={orderDeliveredImg} alt="payment Approved" />
                         </div>
                     </div>
+
                 </div>
+
             </SectionPayment>
 
             <Footer />

@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     >h1{
-        padding:  150px 120px 50px;
+        padding:  180px 120px 50px;
         font-size: 32px;
     }
 
     >section{
         padding: 0 120px;
         overflow: auto;
-        height: 60vh;
+        height: 58vh;
         
         >table{
             width: 100%;

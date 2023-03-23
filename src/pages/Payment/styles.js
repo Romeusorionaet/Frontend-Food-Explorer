@@ -68,7 +68,7 @@ export const SectionRequest = styled.section`
         width: 100%;
 
         .list{
-            min-height: 60vh;
+            min-height: 58vh;
             
         }
         .wrapper_totalAndButton{
@@ -79,7 +79,7 @@ export const SectionRequest = styled.section`
             padding: 0 5px;
         }
     }
-    `;
+`;
 
 export const SectionPayment = styled.section`
     padding: 220px 0;
@@ -114,7 +114,7 @@ export const SectionPayment = styled.section`
             }
         }
 
-        .wrapper_input_cretid_and_pix{
+        .wrapper_form_and_pix{
             .pix{
                 display: hidden;
                 text-align: center;
@@ -122,9 +122,8 @@ export const SectionPayment = styled.section`
             }
 
             .wrapper_waitingPaymentImg{
-                display: hidden;
                 text-align: center;
-                margin: 0px 0 50px;
+                margin: 50px 0 50px;
 
                 img{
                     width: 300px;
@@ -146,7 +145,7 @@ export const SectionPayment = styled.section`
         min-width: 100%;
 
         .wrapper{
-            .wrapper_input_cretid_and_pix{
+            .wrapper_form_and_pix{
                 .pix{
                     display: flex;
                     justify-content: center;
@@ -168,7 +167,7 @@ export const SectionPayment = styled.section`
     }
 
     @media (min-width: 400px) and (max-width: 800px){
-        .wrapper .wrapper_input_cretid_and_pix .wrapper_form form{
+        .wrapper .wrapper_form_and_pix .wrapper_form form{
             padding: 50px 150px;
         }
     }
