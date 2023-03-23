@@ -20,9 +20,6 @@ export function Payment() {
     const [total, setTotal] = useState(0);
     const [isContainerActive, setIsContainerActive] = useState(false);
 
-    //preciso pensar em refatorar essa parte onde tem document, seperar em outro arquivo
-    //chamdo de elements
-
     var count = 60;
     const hiddenWatch = document.getElementById("hiddenWatch");
     const paymentApproved = document.getElementById("hiddenPaymentApproved");
@@ -52,7 +49,7 @@ export function Payment() {
         setIsContainerActive(false);
         
         if(isContainerActive === true){
-            pix.classList.remove('hidden')
+            pix.style.display = 'flex'
         }
     }
     
@@ -60,7 +57,7 @@ export function Payment() {
         setIsContainerActive(true);
 
         if(isContainerActive === false){
-            pix.classList.add('hidden')
+            pix.style.display = 'none'
         }
     }
 
@@ -124,18 +121,22 @@ export function Payment() {
         await api.post(`/orderHistory/${user.id}`)
     }
 
+    const [hiddenSection, sethiddenSection] = useState(false)
+
     function forward(){
         if(window.innerWidth <= 800){
-            sectionPayment.classList.remove('hidden')
-            sectionRequest.classList.toggle('hidden')
+            sethiddenSection(true)
+            // sectionPayment.classList.remove('hidden')
+            // sectionRequest.classList.toggle('hidden')
         }
     }
+
 
     return(
         <Container>
             <Header />
 
-            <SectionRequest id='sectionRequest'>
+            <SectionRequest id='sectionRequest' className={hiddenSection === true ? 'hidden' : ''}>
                 <h2>Meu pedido</h2>
 
                 <div className='list'>
@@ -176,7 +177,11 @@ export function Payment() {
                 </div>
             </SectionRequest>
 
-            <SectionPayment id='sectionPayment' className={window.innerWidth <= 800 ? 'hidden' : ''}>
+            <SectionPayment 
+            id='sectionPayment' 
+            className={(hiddenSection === false && window.innerWidth <= 800) ? 'hidden' : ''}
+            >
+
                 <h2>Pagamento</h2>
                 <div className='wrapper'>
                     <div className='wrapper_option'>
@@ -201,7 +206,7 @@ export function Payment() {
 
                         </button>
                     </div>
-        {/* ver outro nome de class para esse wrapper abaixo */}
+                    {/* ver outro nome de class para esse wrapper abaixo */}
                     <div className='wrapper_input_cretid_and_pix'>
                         <div className='pix'>
                             <img src={QrCode} alt="Campo QrCode em caso de pagamento, Pix." />
