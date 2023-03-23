@@ -121,22 +121,27 @@ export function Payment() {
         await api.post(`/orderHistory/${user.id}`)
     }
 
-    const [hiddenSection, sethiddenSection] = useState(false)
+    const [hiddenSection, setHiddenSection] = useState(false)
 
-    function forward(){
-        if(window.innerWidth <= 800){
-            sethiddenSection(true)
-            // sectionPayment.classList.remove('hidden')
-            // sectionRequest.classList.toggle('hidden')
-        }
-    }
-
+    // useEffect(()=>{
+    //     function forward(){
+    //         if(window.innerWidth <= 800){
+                
+    //             // sectionPayment.classList.remove('hidden')
+    //             // sectionRequest.classList.toggle('hidden')
+    //         }
+    //     }
+    //     forward()
+    // },[])
 
     return(
         <Container>
             <Header />
 
-            <SectionRequest id='sectionRequest' className={hiddenSection === true ? 'hidden' : ''}>
+            <SectionRequest 
+            id='sectionRequest' 
+            className={hiddenSection === true ? 'hidden' : ''}
+            >
                 <h2>Meu pedido</h2>
 
                 <div className='list'>
@@ -170,7 +175,7 @@ export function Payment() {
                     <span>Total: {total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
                     
                     <Button 
-                    onClick={forward}
+                    onClick={()=>{setHiddenSection(true)}}
                     title='Avançar' 
                     className={window.innerWidth <= 800 ? '' : 'hidden'} 
                     />
