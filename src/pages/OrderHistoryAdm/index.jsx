@@ -22,32 +22,13 @@ function formattingDateAndTime(datetime) {
 
 export function OrderHistoryAdm() {
     const [orderHistory, setOrderHistory] = useState([]);
-    const [status, setStatus] = useState('');
-    const [catchCode, setCatchCode] = useState();
 
-    // useEffect(()=>{
-    //     async function setCode(){
-    //         await api.put('/orderHistory', {
-    //             code: catchCode,
-    //             status
-    //         })
-    //         // setTimeout(function(){
-    //         //     window.location.reload();
-    //         // },4000);
-    //     }
-    //     setCode()
-    // },[status])
-
-
-    const teste = async (value, id)=>{
+    const handleOption = async (value, id)=>{
         await api.put(`/orderHistory`,{
             status: value,
             code: id
         })
     }
-
-    //console.log(catchCode, status)
-    //parei aq
 
     useEffect(()=>{
         async function getOrderHistory(){
@@ -93,10 +74,8 @@ export function OrderHistoryAdm() {
                                 <div className='wrapper_select'>
                                     <select 
                                     value={item.status}
-                                    onChange={(e)=>teste(e.target.value, item.id)}
-                                    // onChange={(e)=>setStatus(e.target.value)}
-                                    // onClick={()=>setCatchCode(item.id)}
-                                        >
+                                    onChange={(e)=>handleOption(e.target.value, item.id)}
+                                    >
                                         <option value="pendente">pendente</option>
                                         <option value="preparando">preparando</option>
                                         <option value="entregue">entregue</option>
@@ -137,10 +116,10 @@ export function OrderHistoryAdm() {
                                                 }
                                                
                                                 <select 
-                                                onChange={(e)=>setStatus(e.target.value)}
-                                                onClick={()=>setCatchCode(item.id)}
+                                                value={item.status}
+                                                onChange={(e)=>handleOption(e.target.value, item.id)}
                                                 >
-                                                    <option value="">{item.status}</option>
+                                                    <option value="pendente">pendente</option>
                                                     <option value="preparando">preparando</option>
                                                     <option value="entregue">entregue</option>
                                                 </select>

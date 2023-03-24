@@ -1,7 +1,6 @@
 import {Header} from '../../components/Header'
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Footer} from '../../components/Footer'
-import TorradaDeParma from '../../assets/foodPlates/plates/TorradaDeParma.png'
 
 import {IoIosArrowBack} from 'react-icons/io';
 import {GoPlus} from 'react-icons/go';
@@ -102,7 +101,7 @@ export function Details() {
                 </div>
 
                 <div className='wrapper_description'>
-                    <div>
+                    <div className='wrapper_title'>
                         <h1>{plate.title}</h1>
                         <p>{plate.description}</p>
                     </div>

@@ -5,6 +5,7 @@ export const Container = styled.div`
     position: relative;
     
     .wrapper_dish_details{
+        height: 100%;
         position: relative;
         display: flex;
         gap: 50px;
@@ -30,9 +31,7 @@ export const Container = styled.div`
             >img{
                 width: 389.47px;
                 height: 389.47px;
-
             }
-
         }
 
         .wrapper_description{
@@ -97,6 +96,54 @@ export const Container = styled.div`
                 border-radius: 8px;;
             }
 
+        }
+    }
+
+    @media (max-width: 800px){
+        .wrapper_dish_details{
+            flex-direction: column;
+            padding: 200px 0;
+            margin: 0;
+            
+            .wrapper_description{
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                overflow: hidden;
+                margin-bottom: -180px;
+                
+                position: relative;
+                
+                .wrapper_title{
+                    position: absolute;
+                    top: 0;
+                    text-align: center;
+                    height: 95px;
+                    overflow: auto;
+                }
+                
+                .wrapper_ingredients{
+                    padding: 0 5px;
+                    /* parei aq */
+                    ul{
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+
+            .wrapper_img_dish{
+                margin: -50px auto;
+
+                >img{
+                    width: 50vw;
+                    height: 50vw;
+                }
+            }
+            .turn_back{
+                position: absolute;
+                top: 130px;
+                left: 15px;
+            }
         }
     }
 `;

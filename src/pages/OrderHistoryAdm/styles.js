@@ -35,7 +35,7 @@ export const Container = styled.div`
             #wrapper_status{
                 padding: 15px;
                 background: ${({theme})=>theme.COLORS.BACKGROUND_100};
-                width: 165px;;
+                width: 170px;;
 
                 select{
                     background: none;
