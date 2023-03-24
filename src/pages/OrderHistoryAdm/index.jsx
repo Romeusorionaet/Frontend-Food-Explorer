@@ -23,22 +23,18 @@ function formattingDateAndTime(datetime) {
 export function OrderHistoryAdm() {
     const [orderHistory, setOrderHistory] = useState([]);
     const [status, setStatus] = useState('');
-    const [catchCode, setCatchCode] = useState();
 
-    useEffect(()=>{
-        async function setInformations(){
-            await api.put('/orderHistory', {
-                code: catchCode,
-                status
-            })
-            // setTimeout(function(){
-            //     window.location.reload();
-            // },4000);
-        }
-        setInformations();
-    },[status])
+    async function catchCode(code){
+        await api.put('/orderHistory', {
+            code,
+            status
+        })
+        setTimeout(function(){
+            window.location.reload();
+        },4000);
+    }
 
-    //console.log(status)
+    //parei aq
 
     useEffect(()=>{
         async function getOrderHistory(){
@@ -84,7 +80,7 @@ export function OrderHistoryAdm() {
                                 <div className='wrapper_select'>
                                     <select 
                                         onChange={(e)=>setStatus(e.target.value)}
-                                        onClick={()=>setCatchCode(item.id)}
+                                        onClick={()=>catchCode(item.id)}
                                         >
                                         <option value="">{item.status}</option>
                                         <option value="preparando">preparando</option>
