@@ -57,7 +57,6 @@ function AuthProvider({children}) {
 
     return(
       <AuthContext.Provider value={{
-        //catchPlate,
         signIn,
         signOut,
         user: data.user,
