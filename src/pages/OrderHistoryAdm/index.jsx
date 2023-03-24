@@ -23,17 +23,30 @@ function formattingDateAndTime(datetime) {
 export function OrderHistoryAdm() {
     const [orderHistory, setOrderHistory] = useState([]);
     const [status, setStatus] = useState('');
+    const [catchCode, setCatchCode] = useState();
 
-    async function catchCode(code){
-        await api.put('/orderHistory', {
-            code,
-            status
+    // useEffect(()=>{
+    //     async function setCode(){
+    //         await api.put('/orderHistory', {
+    //             code: catchCode,
+    //             status
+    //         })
+    //         // setTimeout(function(){
+    //         //     window.location.reload();
+    //         // },4000);
+    //     }
+    //     setCode()
+    // },[status])
+
+
+    const teste = async (value, id)=>{
+        await api.put(`/orderHistory`,{
+            status: value,
+            code: id
         })
-        setTimeout(function(){
-            window.location.reload();
-        },4000);
     }
 
+    //console.log(catchCode, status)
     //parei aq
 
     useEffect(()=>{
@@ -79,10 +92,12 @@ export function OrderHistoryAdm() {
 
                                 <div className='wrapper_select'>
                                     <select 
-                                        onChange={(e)=>setStatus(e.target.value)}
-                                        onClick={()=>catchCode(item.id)}
+                                    value={item.status}
+                                    onChange={(e)=>teste(e.target.value, item.id)}
+                                    // onChange={(e)=>setStatus(e.target.value)}
+                                    // onClick={()=>setCatchCode(item.id)}
                                         >
-                                        <option value="">{item.status}</option>
+                                        <option value="pendente">pendente</option>
                                         <option value="preparando">preparando</option>
                                         <option value="entregue">entregue</option>
                                     </select>
@@ -123,7 +138,7 @@ export function OrderHistoryAdm() {
                                                
                                                 <select 
                                                 onChange={(e)=>setStatus(e.target.value)}
-                                                onClick={()=>catchCode(item.id)}
+                                                onClick={()=>setCatchCode(item.id)}
                                                 >
                                                     <option value="">{item.status}</option>
                                                     <option value="preparando">preparando</option>
