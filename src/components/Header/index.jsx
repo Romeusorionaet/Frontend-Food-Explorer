@@ -27,6 +27,8 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
     const navigate = useNavigate();
     const {signOut} = useAuth();
 
+    //abaixo precisa de um try catch
+
     useEffect(()=>{
         async function fetchIngredients(){
             const response = await api.get(`/ingredients?name=${search}`);
