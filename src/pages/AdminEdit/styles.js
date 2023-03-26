@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     position: relative;
+    height: 100vh;
 
     >Form{
         padding: 150px 120px;
@@ -14,6 +15,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 800px) {
+        height: 100%;
         >Form{
             padding: 150px 25px;
         }
@@ -48,6 +50,11 @@ export const Form = styled.form`
         flex-direction: column;
         gap: 25px;
         margin-bottom: 30px;
+
+        h1{
+            font-weight: 500;
+            font-size: 32px;
+        }
 
         >button{
             align-items: center;
@@ -164,6 +171,7 @@ export const Form = styled.form`
             background-color: ${({theme})=>theme.COLORS.RED_500};
             color: ${({theme})=>theme.COLORS.WHITE_900};
             border-radius: 8px;
+            border: none;
             padding: 12px;
             height: 60px;
         }

@@ -88,7 +88,6 @@ export function AdminEdit() {
             ingredients 
         });
 
-
         const fileUpload = new FormData();
 
         fileUpload.append("imgPlate", imagem);
@@ -104,7 +103,6 @@ export function AdminEdit() {
     
     function handleBack(){
         navigate(`/Details/${params.id}`);
-       
     }
 
     useEffect(()=>{
@@ -146,11 +144,13 @@ export function AdminEdit() {
                                 <label>
                                     Nome
                                     <input 
-                                    placeholder={platePreview.title}
+                                   
+                                    value={platePreview.title}
                                     type='text'
                                     onChange={(e)=>setTitle(e.target.value)}
                                     />
                                 </label>
+                                
                                 <label>
                                     Categoria
                                     <select onChange={(e)=>setCategory(e.target.value)} id="select">

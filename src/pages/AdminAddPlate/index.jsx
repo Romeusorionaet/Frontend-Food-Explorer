@@ -166,7 +166,7 @@ export function AdminAddPlate() {
                     </label>
                 </div>
 
-                <div className='buttonAdd'>
+                <div className='button'>
                     <button onClick={createPlate}>Salvar alterações</button>
                 </div>
             </Form>

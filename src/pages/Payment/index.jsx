@@ -23,6 +23,8 @@ export function Payment() {
     const [pix, setPix] = useState(false);
     const [transitionImg, setTransitionImg] = useState(60);
 
+    const [orderLength, setOrderLength] = useState([]);
+
     var count = 60;
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
@@ -40,8 +42,6 @@ export function Payment() {
         if(remove.length !== 0){
             async function removePlate(){
                 await api.delete(`/requests/${remove}/${user.id}`);
-                const value = localStorage.getItem("@rocketfood:applicationLength")
-                localStorage.setItem("@rocketfood:applicationLength", value -1)
             }
             removePlate();
         }
@@ -56,9 +56,21 @@ export function Payment() {
         setTotal(totalDebt)
     },[plate])
 
+    useEffect(()=>{
+        async function getOrderLength(){
+            const response = await api.get(`/requests/${user.id}`);
+            setOrderLength(response.data);
+        }
+        getOrderLength();
+    },[orderLength])
+
     function startPayment(){
-        setPix()
-        start();
+        if(orderLength.length === 0){
+            alert('Lista de pedido vazio!')
+        }else{
+            start();
+            setPix()
+        }
     }
 
     function start() {

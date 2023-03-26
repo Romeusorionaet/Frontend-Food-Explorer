@@ -20,9 +20,9 @@ import {Sidebar} from '../Sidebar';
 export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
     const [search, setSearch] = useState("");
     const [ingredients, setIngredients] = useState([]);
+    const [orderLength, setOrderLength] = useState([]);
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
-    let applicationLength = localStorage.getItem("@rocketfood:applicationLength");
 
     const navigate = useNavigate();
     const {signOut} = useAuth();
@@ -52,6 +52,15 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
         }
         fetchFavorite();
     },[search, favorite]);
+
+
+    useEffect(()=>{
+        async function getOrderLength(){
+            const response = await api.get(`/requests/${user.id}`);
+            setOrderLength(response.data);
+        }
+        getOrderLength();
+    },[orderLength])
 
     function logOut() {
         navigate("/");
@@ -144,12 +153,12 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
                 {window.innerWidth < 1060 ?
                 <MobileButton onClick={payment}>
                     <img src={lista}/>
-                    <span>{applicationLength ?? 0}</span>
+                    <span>{orderLength.length ?? 0}</span>
                 </MobileButton>
                 :
                 <Button onClick={payment}>
                     <img src={lista}/>
-                    <span>Meu pedido ({applicationLength ?? 0})</span>
+                    <span>Meu pedido ({orderLength.length ?? 0})</span>
                 </Button>
                 }
             </div>

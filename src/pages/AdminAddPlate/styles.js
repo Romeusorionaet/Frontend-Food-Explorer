@@ -2,11 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     position: relative;
+    height: 100vh;
 
     >Form{
         padding: 150px 120px;
     }
-    
     
     .wrapper_footer{
         position: absolute;
@@ -15,6 +15,7 @@ export const Container = styled.div`
     }
 
     @media (max-width: 800px) {
+        height: 100%;
         >Form{
             padding: 150px 25px;
         }
@@ -151,7 +152,7 @@ export const Form = styled.form`
         }
     }
 
-    .buttonAdd{
+    .button{
         display: flex;
         justify-content: end;
         margin-top: 20px;
@@ -160,6 +161,7 @@ export const Form = styled.form`
             background-color: ${({theme})=>theme.COLORS.RED_500};
             color: ${({theme})=>theme.COLORS.WHITE_900};
             border-radius: 8px;
+            border: none;
             width: 360px;
             height: 60px;
         }
