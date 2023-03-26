@@ -117,7 +117,7 @@ export function AdminEdit() {
 
     return(
         <Container>
-            {/* <HeaderAdm /> */}
+            <HeaderAdm />
 
             <Form>
                 <div className='wrapper_title_and_button'>
@@ -229,7 +229,9 @@ export function AdminEdit() {
                 </div>
             </Form>
 
-            <Footer />
+            <div className='wrapper_footer'>
+                <Footer />
+            </div>
         </Container>
     )
 }

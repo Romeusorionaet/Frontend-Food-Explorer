@@ -28,12 +28,18 @@ export const Container = styled.div`
     main{
         position: relative;
         grid-area: Main;
-        margin-bottom: 200px;
+        margin-bottom: 150px;
 
         >h2{
             margin: 50px 120px;
             width: 100%;
             margin: ${window.innerWidth < 832 ? '20px 20px' : '50px 120px'}
+        }
+    }
+
+    @media (max-width: 700px){
+        main{
+            margin-bottom: 70px;
         }
     }
 `;

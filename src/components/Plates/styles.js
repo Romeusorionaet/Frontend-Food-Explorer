@@ -55,10 +55,14 @@ export const Container = styled.div`
             }
 
             .wrapper_title{
-                max-width: 100%;
                 display: flex;
-                align-items: center;
+                height: 22px;
+                line-height: 1;
                 margin-right: 10px;
+                
+                h1{
+                    width: 50%;
+                }
 
                 svg, h1{
                     font-size: 15px;
@@ -136,7 +140,8 @@ export const Container = styled.div`
     
         .wrapper_title{
             display: flex;
-            align-items: center;
+            height: 55px;
+            overflow: hidden;
             margin-left: 30px;
             justify-content: center;
             color: ${({theme})=>theme.COLORS.WHITE_900};
@@ -152,9 +157,9 @@ export const Container = styled.div`
             font-size: 14px;
             color: ${({theme})=>theme.COLORS.WHITE_100};
             text-align: center;
-            height: 50px;
+            height: 40px;
             padding: 0 25px;
-            overflow: auto;
+            overflow: hidden;
        }
     
         .wrapper_price{

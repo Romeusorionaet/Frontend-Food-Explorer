@@ -1,9 +1,22 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    position: relative;
 
     >Form{
         padding: 150px 120px;
+    }
+
+    .wrapper_footer{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+
+    @media (max-width: 800px) {
+        >Form{
+            padding: 150px 25px;
+        }
     }
 `;
 
@@ -58,6 +71,7 @@ export const Form = styled.form`
                 
                 label{
                     width: 20%;
+
                     >div{
                         border-radius: 8px;
                         border: none;
@@ -102,8 +116,9 @@ export const Form = styled.form`
             }
 
             .wrapper_ingredients_and_price{
-                position: relative;;
+                position: relative;
                 display: flex;
+
                 div{
                     width: 80%;
                 
@@ -154,4 +169,41 @@ export const Form = styled.form`
         }
     }
 
+    @media (max-width: 800px){
+        .wrapper_inpunts .wrapper_plate{
+            >div{
+                flex-direction: column;
+
+                label{
+                    width: 100%;
+                }
+
+                .wrapper_name_category{
+                    flex-direction: column;
+                    width: 100%;
+                }
+            }
+
+            .wrapper_ingredients_and_price{
+                div{
+                    width: 100%;
+                    
+                    .ingredients{
+                        margin-bottom: 50px;
+                        
+                        .ingredients_registered{
+                            width: 100%;
+                            bottom: 90px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttons{
+            gap: 10px;
+            justify-content: center;
+        }
+    }
 `;

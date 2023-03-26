@@ -28,6 +28,9 @@ export const Container = styled.div`
         }
 
         .wrapper_img_dish{
+            display: flex;
+            align-items: center;
+
             >img{
                 width: 389.47px;
                 height: 389.47px;
@@ -35,12 +38,18 @@ export const Container = styled.div`
         }
 
         .wrapper_description{
+
             width: 600px;
             display: flex;
             flex-direction: column;
             gap: 10px;
             
             justify-content: center;
+
+            .wrapper_title{
+                overflow: auto;
+                height: 100px;
+            }
         }
 
         .wrapper_ingredients ul{
@@ -52,6 +61,7 @@ export const Container = styled.div`
         
         .wrapper_ingredients ul li{
             align-items: center;
+            height: 35px;
             display: flex;
             background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D};
             border-radius: 8px;
@@ -102,7 +112,7 @@ export const Container = styled.div`
     @media (max-width: 800px){
         .wrapper_dish_details{
             flex-direction: column;
-            padding: 200px 0;
+            padding: 180px 0;
             margin: 0;
             
             .wrapper_description{
@@ -123,8 +133,11 @@ export const Container = styled.div`
                 }
                 
                 .wrapper_ingredients{
-                    padding: 0 5px;
-                    /* parei aq */
+                    padding: 5px;
+                    height: 110px;
+                    overflow: auto;
+                    display: flex;
+                    
                     ul{
                         flex-wrap: wrap;
                     }

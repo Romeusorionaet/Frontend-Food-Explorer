@@ -3,6 +3,7 @@ import {MdOutlineFileUpload} from 'react-icons/md';
 
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Ingredient} from '../../components/Ingredient';
+import {Footer} from '../../components/Footer';
 
 import {api} from '../../services/api';
 import {useState} from 'react';
@@ -121,9 +122,8 @@ export function AdminAddPlate() {
                             <div>
                                 <label htmlFor='ingredients'>
                                     Ingredientes
-
-                                    
                                 </label>
+
                                 <div className='ingredients'>
                                     <Ingredient 
                                     isNew 
@@ -171,7 +171,9 @@ export function AdminAddPlate() {
                 </div>
             </Form>
 
-            {/* <Footer /> */}
+            <div className='wrapper_footer'>
+                <Footer />
+            </div>
         </Container>
     )
 }
