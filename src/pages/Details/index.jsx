@@ -52,6 +52,7 @@ export function Details() {
     function AddAmount(){
         setAmount(prevState => prevState + 1)
     }
+    
     function removeAmount(){
         if(amount > 1){
             setAmount(prevState => prevState - 1)
