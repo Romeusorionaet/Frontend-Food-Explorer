@@ -24,23 +24,23 @@ export function HeaderAdm({setPlate=()=>{}, plate}) {
 
     const {signOut} = useAuth();
 
-    useEffect(()=>{
-        async function fetchIngredients(){
-            const response = await api.get(`/ingredients?name=${search}`);
-            setIngredients(response.data);
-            //quando der certo eu tenho que ver qual nome será melhor nesse ingredients
-            //de acordo com oq ele vai armazenar
-        }
-        fetchIngredients();
-    },[search]);
+    // useEffect(()=>{
+    //     async function fetchIngredients(){
+    //         const response = await api.get(`/ingredients?name=${search}`);
+    //         setIngredients(response.data);
+    //         //quando der certo eu tenho que ver qual nome será melhor nesse ingredients
+    //         //de acordo com oq ele vai armazenar
+    //     }
+    //     fetchIngredients();
+    // },[search]);
 
     useEffect(()=>{
         async function fetchPlate(){
-            const response = await api.get(`/plates?title=${search}&ingredients=${JSON.stringify(ingredients)}`);
+            const response = await api.get(`/plates?title=${search}`);
             setPlate(response.data);
         }
         fetchPlate();
-      },[ingredients, search, plate]);
+      },[search, plate]);
 
     function logOut() {
         navigate("/");

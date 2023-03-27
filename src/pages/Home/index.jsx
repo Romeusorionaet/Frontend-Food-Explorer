@@ -20,7 +20,7 @@ export function Home() {
 
   let favoritesId = []
   let newListPlates = []
-
+  
   favorite.map(item=>{
     favoritesId.push(item.id)
   })
@@ -34,7 +34,7 @@ export function Home() {
   let newListPlatesWithFavorites = newListPlates.concat(favorite)
   
   //list MainDishes
-
+  
   const mainDishes = []
   
   newListPlatesWithFavorites.map(item=>{
@@ -42,6 +42,14 @@ export function Home() {
       mainDishes.push(item)
     }
   })  
+
+  mainDishes.sort((a, b)=>{
+    if(a.id < b.id){
+      return -1
+    }else{
+      return true
+    }
+  })
 
   //List Desserts
 
@@ -53,6 +61,14 @@ export function Home() {
     }
   }) 
 
+  desserts.sort((a, b)=>{
+    if(a.id < b.id){
+      return -1
+    }else{
+      return true
+    }
+  })
+
   //List Drinks
 
   const drinks = []
@@ -60,6 +76,14 @@ export function Home() {
   newListPlatesWithFavorites.map(item=>{
     if(item.category === "Bebidas"){
       drinks.push(item)
+    }
+  })
+
+  drinks.sort((a, b)=>{
+    if(a.id < b.id){
+      return -1
+    }else{
+      return true
     }
   })
 

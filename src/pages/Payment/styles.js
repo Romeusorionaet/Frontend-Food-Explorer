@@ -18,7 +18,7 @@ export const SectionRequest = styled.section`
     flex-direction: column;
     gap: 30px;
 
-    padding: 230px 120px;
+    padding: 180px 120px;
 
     .list{
         overflow: auto;
@@ -79,10 +79,14 @@ export const SectionRequest = styled.section`
             padding: 0 5px;
         }
     }
+
+    @media (max-height: 800px) and (min-width: 1000px){
+        padding: 140px 120px;
+    }
 `;
 
 export const SectionPayment = styled.section`
-    padding: 220px 0;
+    padding: 180px 0;
     width: 530px;
 
     >h2{
@@ -170,6 +174,10 @@ export const SectionPayment = styled.section`
         .wrapper .wrapper_form_and_pix .wrapper_form form{
             padding: 50px 150px;
         }
+    }
+
+    @media (max-height: 800px) and (min-width: 1000px){
+        padding: 140px 0;
     }
 `;
 

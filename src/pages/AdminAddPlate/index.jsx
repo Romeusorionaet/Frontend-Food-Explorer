@@ -43,9 +43,10 @@ export function AdminAddPlate() {
         setImagem(file);
     }
 
-    async function createPlate(){
+    async function createPlate(e){
         if(!imagem || !title || !category || !ingredients || !description){
-                alert("Existe campo vazio!")
+            e.preventDefault();
+            alert("Existe campo vazio!")
         }else{
 
             const fileUpload = new FormData();
@@ -167,7 +168,7 @@ export function AdminAddPlate() {
                 </div>
 
                 <div className='button'>
-                    <button onClick={createPlate}>Salvar alterações</button>
+                    <button onClick={createPlate}>Adicionar novo prato</button>
                 </div>
             </Form>
 

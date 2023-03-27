@@ -8,7 +8,7 @@ import {useParams, useNavigate} from 'react-router-dom'
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Ingredient} from '../../components/Ingredient';
 
-import {Button} from '../../components/Button'
+import {Input} from '../../components/Input'
 import {Footer} from '../../components/Footer'
 
 import {Container, Form} from './styles'
@@ -144,8 +144,7 @@ export function AdminEdit() {
                                 <label>
                                     Nome
                                     <input 
-                                   
-                                    value={platePreview.title}
+                                    placeholder={platePreview.title}
                                     type='text'
                                     onChange={(e)=>setTitle(e.target.value)}
                                     />

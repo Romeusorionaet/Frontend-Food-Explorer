@@ -153,7 +153,9 @@ export function Payment() {
             </SectionRequest>
 
             <SectionPayment
-            className={(hiddenSection === false && window.innerWidth <= 800) ? 'hidden' : ''}
+            className={
+                (hiddenSection === false && window.innerWidth <= 800) ? 'hidden' : ''
+            }
             >
 
                 <h2>Pagamento</h2>

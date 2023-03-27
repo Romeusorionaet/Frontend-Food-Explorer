@@ -40,4 +40,19 @@ export const Container = styled.div`
         min-width: 230px;
     }
    }
+
+   @media (max-height: 800px){
+    padding: 0;
+    height: 50px;
+    
+    >img{
+        width: 114px;
+        height: 18px;
+    }
+
+    >span{
+        font-size: 11px;
+        min-width: 230px;
+    }
+   }
 `;

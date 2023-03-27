@@ -29,21 +29,23 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
 
     //abaixo precisa de um try catch
 
-    useEffect(()=>{
-        async function fetchIngredients(){
-            const response = await api.get(`/ingredients?name=${search}`);
-            setIngredients(response.data);
-        }
-        fetchIngredients();
-    },[search]);
+    // useEffect(()=>{
+    //     async function fetchIngredients(){
+    //         const response = await api.get(`/ingredients?name=${search}`);
+    //         setIngredients(response.data);
+    //     }
+    //     fetchIngredients();
+    // },[search]);
+
+    //console.log(ingredients)
 
     useEffect(()=>{
         async function fetchPlate(){
-            const response = await api.get(`/plates?title=${search}&ingredients=${JSON.stringify(ingredients)}`);
+            const response = await api.get(`/plates?title=${search}`);
             setPlate(response.data)    
         }
         fetchPlate();
-    },[ingredients, search]);
+    },[search]);
     
     useEffect(()=>{
         async function fetchFavorite(){

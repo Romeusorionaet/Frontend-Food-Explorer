@@ -20,6 +20,10 @@ export const Container = styled.div`
             padding: 150px 25px;
         }
     }
+
+    @media (max-height: 800px){
+        height: 100%;
+    }
 `;
 
 export const Form = styled.form`
