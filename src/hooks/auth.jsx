@@ -7,11 +7,6 @@ export const AuthContext = createContext({});
 function AuthProvider({children}) {
   const [data, setData] = useState({});
 
-  // function catchPlate(plate){
-  //   console.log(plate)
-  //   return plate
-  // }
-
   async function signIn({email, password}){
 
     try{

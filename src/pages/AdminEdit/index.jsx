@@ -3,15 +3,14 @@ import {MdOutlineFileUpload} from 'react-icons/md';
 
 import {useEffect, useState} from 'react';
 import {api} from '../../services/api';
-import {useParams, useNavigate} from 'react-router-dom'
+import {useParams, useNavigate} from 'react-router-dom';
 
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Ingredient} from '../../components/Ingredient';
 
-import {Input} from '../../components/Input'
-import {Footer} from '../../components/Footer'
+import {Footer} from '../../components/Footer';
 
-import {Container, Form} from './styles'
+import {Container, Form} from './styles';
 
 export function AdminEdit() {
     const [platePreview, setPlatePreview] = useState([]);
@@ -144,6 +143,7 @@ export function AdminEdit() {
                                 <label>
                                     Nome
                                     <input 
+                                    maxLength={25}
                                     placeholder={platePreview.title}
                                     type='text'
                                     onChange={(e)=>setTitle(e.target.value)}
@@ -215,6 +215,7 @@ export function AdminEdit() {
                     <label>
                         Descrição
                         <textarea
+                        maxLength={150}
                         placeholder={platePreview.description}
                         type='text'
                         onChange={(e)=>setDescription(e.target.value)}

@@ -159,4 +159,10 @@ export const Container = styled.div`
             }
         }
     }
+
+    @media (max-height: 700px){
+        .wrapper_dish_details{
+            padding: 140px 0;
+        }
+    }
 `;

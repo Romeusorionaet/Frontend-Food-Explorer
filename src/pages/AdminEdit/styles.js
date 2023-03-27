@@ -132,7 +132,7 @@ export const Form = styled.form`
 
                 div{
                     width: 80%;
-                
+                    
                     .ingredients{
                         width: 95%;
                         height: 50px;
@@ -146,7 +146,7 @@ export const Form = styled.form`
                         background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
 
                         .ingredients_registered{
-                            width: 65.5%;
+                            width: 45.5%;
                             opacity: .5;
                             position: absolute;
                             bottom: 55px;

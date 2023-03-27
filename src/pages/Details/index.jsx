@@ -16,7 +16,7 @@ import { useParams, useNavigate} from 'react-router-dom'
 
 export function Details() {
     const [adm, setAdm] = useState("");
-    const [plate, setPlate] = useState({});
+    const [plate, setPlate] = useState();
     const [ingredient, setIngredient] = useState([]);
     const [amount, setAmount] = useState(1);
 
@@ -25,6 +25,7 @@ export function Details() {
 
     const navigate = useNavigate();
     const params = useParams();
+
     
     useEffect(()=>{
         async function getPlate(){
@@ -36,7 +37,6 @@ export function Details() {
     },[]);
     
     useEffect(()=>{
-        const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
         return setAdm(user.admin);
     },[]);
 
@@ -48,11 +48,9 @@ export function Details() {
         return navigate("/");
     };
 
-
     function AddAmount(){
         setAmount(prevState => prevState + 1)
     }
-    
     function removeAmount(){
         if(amount > 1){
             setAmount(prevState => prevState - 1)
@@ -73,17 +71,8 @@ export function Details() {
             plate_id: plateDetails.id,
             user_id: user.id
         });
-    
-        setForList();
         alert("Prato adicionado a lista!");
     }
-
- 
-    async function setForList(){
-        const response = await api.get(`/requests/${user.id}`)
-        const applicationLength = response.data.length;
-        localStorage.setItem("@rocketfood:applicationLength", applicationLength)
-    } 
 
     return(
         <Container>
@@ -134,7 +123,8 @@ export function Details() {
 
                         {
                         adm == 1 ?
-                        <Button onClick={handleEdit} title='Editar prato'/>
+                        <Button
+                        onClick={handleEdit} title='Editar prato'/>
                         :
                         <button onClick={addPlateInList} id="btnInclude">incluir &nbsp;&bull; R$ {plate.price * amount}</button>
                         }

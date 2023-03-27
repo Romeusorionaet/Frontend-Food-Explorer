@@ -102,6 +102,7 @@ export function AdminAddPlate() {
                                 <label>
                                     Nome
                                     <input 
+                                    maxLength={25}
                                     placeholder='Ex: Salada Ceasar'
                                     type='text'
                                     onChange={(e)=>setTitle(e.target.value)}
@@ -160,6 +161,7 @@ export function AdminAddPlate() {
                     <label>
                         Descrição
                         <textarea
+                        maxLength={150}
                         placeholder='Fale brevemente sobre o prato, seus ingredientes e composição'
                         type='text'
                         onChange={(e)=>setDescription(e.target.value)}

@@ -154,7 +154,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
             <div className={sidebar === true ? 'hidden' : ''}>
                 {window.innerWidth < 1060 ?
                 <MobileButton onClick={payment}>
-                    <img src={lista}/>
+                    <img src={lista} alt='lista'/>
                     <span>{orderLength.length ?? 0}</span>
                 </MobileButton>
                 :
