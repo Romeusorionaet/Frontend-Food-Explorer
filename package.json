@@ -20,6 +20,7 @@
     "react-icons": "^4.7.1",
     "react-pro-sidebar": "^1.0.0",
     "react-router-dom": "^6.7.0",
+    "react-spinners": "^0.13.8",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

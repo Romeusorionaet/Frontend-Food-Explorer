@@ -5,6 +5,13 @@ export const Container = styled.div`
     cursor: grab;
     overflow: hidden;
 
+    .clipLoader{
+        position: absolute;
+        left: 50%;
+        top: 15vh;
+        z-index: 3;
+    }
+
     .wrapper_favorite{
         position: absolute;
         background: none;

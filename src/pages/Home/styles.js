@@ -10,9 +10,7 @@ export const Container = styled.div`
     "Main"
     "Footer";
 
-    .teste{
-        margin-top: 200px;
-    }
+    min-height: 100vh;
 
     overflow: hidden;
 

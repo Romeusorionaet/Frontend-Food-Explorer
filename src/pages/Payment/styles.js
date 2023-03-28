@@ -8,6 +8,12 @@ export const Container = styled.div`
     height: 98vh;
     overflow-y: hidden;
 
+    .cliploader{
+        position: absolute;
+        top: 30%;
+        left: 50%;
+    }
+
     @media (max-width: 800px){
         padding: 0;
     }

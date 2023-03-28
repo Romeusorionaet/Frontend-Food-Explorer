@@ -13,11 +13,13 @@ import { useAuth } from '../../hooks/auth';
 export function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
     const {signIn} = useAuth();
 
     function handleSignIn() {
+        setLoading(true)
         signIn({email, password});
     }
 
@@ -55,7 +57,7 @@ export function SignIn() {
                     />
                 </label>
                 <Button 
-                title="Entrar" 
+                title={loading ? 'Loading...' : 'Entrar'} 
                 onClick={handleSignIn}
                 />
 

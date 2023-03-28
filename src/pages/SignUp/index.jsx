@@ -13,6 +13,7 @@ export function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate(); 
 
@@ -24,7 +25,8 @@ export function SignUp() {
         if(!name || !email || !password){
             return alert("Preencha todos os campos!");
         }
-
+        setLoading(true)
+        
         api.post("/users", {name, email, password})
         .then(()=>{
             alert("Usuário cadastrado com sucesso!");
@@ -80,7 +82,7 @@ export function SignUp() {
 
                 <Button 
                 onClick={handleSignUp}
-                title='Criar conta' 
+                title={loading ? 'Loading...' : 'Criar conta'} 
                 />
                 <div>
                      <a onClick={handleTurnBack}>

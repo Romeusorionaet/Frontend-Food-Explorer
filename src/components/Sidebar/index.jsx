@@ -41,7 +41,7 @@ export function Sidebar({setSearch=()=>{}, active, search}) {
                 user.admin == 1 ?
                 <Content>
                     <Link to='/OrderHistoryAdm'><span>Histórico de pedido</span></Link>
-                    <Link to='/FavoritesAdmin'><span>Meus favoritos</span></Link>
+                    <Link to='/FavoritesAdmin'><span>Favoritados</span></Link>
                     <Link to='/AdminAddPlate'><span>Novo prato</span></Link>
                     <span onClick={logOut}>Sair</span>
                 </Content>

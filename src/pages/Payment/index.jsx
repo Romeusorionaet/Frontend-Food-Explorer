@@ -12,6 +12,8 @@ import {Header} from '../../components/Header';
 import {Button} from '../../components/Button';
 import {Footer} from '../../components/Footer';
 
+import { ClipLoader } from 'react-spinners';
+
 import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
 export function Payment() {
@@ -24,6 +26,7 @@ export function Payment() {
     const [transitionImg, setTransitionImg] = useState(60);
 
     const [orderLength, setOrderLength] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     var count = 60;
 
@@ -69,7 +72,7 @@ export function Payment() {
             alert('Lista de pedido vazio!')
         }else{
             start();
-            setPix()
+            setPix();
         }
     }
 
@@ -100,12 +103,27 @@ export function Payment() {
         await api.post(`/orderHistory/${user.id}`)
     }
 
+    useEffect(()=>{
+        setLoading(true)
+        setTimeout(()=>{
+            setLoading(false)
+        },4000)
+    },[])
+
     return(
         <Container>
             <Header />
 
+            {loading ? 
+            <div className='cliploader'>
+                <ClipLoader
+                size={50}
+                color={'#fffff'}
+                loading={loading}
+                />
+            </div>
+            :
             <SectionRequest>
-                
                 <div 
                 className={(hiddenSection === true && window.innerWidth <= 800) ? 'hidden' : 'list'}
                 >
@@ -150,7 +168,7 @@ export function Payment() {
                     />
                 </div>
 
-            </SectionRequest>
+            </SectionRequest>}
 
             <SectionPayment
             className={
@@ -219,7 +237,10 @@ export function Payment() {
                                     </label>
                                 </div>
 
-                                <Button onClick={startPayment} title="Finalizar pagamento" />
+                                <Button 
+                                onClick={startPayment} 
+                                title='Finalizar pagamento'
+                                />
                             </Form>
                         </div>
 

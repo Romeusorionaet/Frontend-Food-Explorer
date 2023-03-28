@@ -19,6 +19,7 @@ export function Details() {
     const [plate, setPlate] = useState();
     const [ingredient, setIngredient] = useState([]);
     const [amount, setAmount] = useState(1);
+    const [loading, setLoading] = useState(false);
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
     localStorage.setItem("@rocketfood:plateDetails", JSON.stringify(plate))
@@ -41,6 +42,7 @@ export function Details() {
     },[]);
 
     function handleEdit(){
+        setLoading(true)
         return navigate(`/AdminEdit/${plate.id}`);
     };
 
@@ -60,6 +62,7 @@ export function Details() {
     }
 
     async function addPlateInList(){
+        setLoading(true)
         const plateDetails = JSON.parse(localStorage.getItem("@rocketfood:plateDetails"))
 
         await api.post("/requests", {
@@ -72,6 +75,7 @@ export function Details() {
             user_id: user.id
         });
         alert("Prato adicionado a lista!");
+        setLoading(false)
     }
 
     return(
@@ -124,9 +128,14 @@ export function Details() {
                         {
                         adm == 1 ?
                         <Button
-                        onClick={handleEdit} title='Editar prato'/>
+                        onClick={handleEdit} 
+                        title={loading ? 'Loading...' : 'Editar prato'}
+                        />
                         :
-                        <button onClick={addPlateInList} id="btnInclude">incluir &nbsp;&bull; R$ {plate.price * amount}</button>
+                        <button 
+                        onClick={addPlateInList} 
+                        id="btnInclude">{loading ? 'Loading...' : `incluir - R$ ${plate.price * amount}`}
+                        </button>
                         }
                     </div>
                 </div>

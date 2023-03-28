@@ -37,59 +37,103 @@ export function Home() {
   
   const mainDishes = []
   
-  newListPlatesWithFavorites.map(item=>{
-    if(item.category === "Refeições"){
-      mainDishes.push(item)
-    }
-  })  
+  // newListPlatesWithFavorites.map(item=>{
+  //   if(item.category === "Refeições"){
+  //     mainDishes.push(item)
+  //   }
+  // })  
 
-  mainDishes.sort((a, b)=>{
-    if(a.id < b.id){
-      return -1
-    }else{
-      return true
-    }
-  })
+  // mainDishes.sort((a, b)=>{
+  //   if(a.id < b.id){
+  //     return -1
+  //   }else{
+  //     return true
+  //   }
+  // })
 
   //List Desserts
 
   const desserts = []
   
-  newListPlatesWithFavorites.map(item=>{
-    if(item.category === "Sobremesas"){
-      desserts.push(item)
-    }
-  }) 
+  // newListPlatesWithFavorites.map(item=>{
+  //   if(item.category === "Sobremesas"){
+  //     desserts.push(item)
+  //   }
+  // }) 
 
-  desserts.sort((a, b)=>{
-    if(a.id < b.id){
-      return -1
-    }else{
-      return true
-    }
-  })
+  // desserts.sort((a, b)=>{
+  //   if(a.id < b.id){
+  //     return -1
+  //   }else{
+  //     return true
+  //   }
+  // })
 
   //List Drinks
 
   const drinks = []
   
+  // newListPlatesWithFavorites.map(item=>{
+  //   if(item.category === "Bebidas"){
+  //     drinks.push(item)
+  //   }
+  // })
+
+  // drinks.sort((a, b)=>{
+  //   if(a.id < b.id){
+  //     return -1
+  //   }else{
+  //     return true
+  //   }
+  // })
+
   newListPlatesWithFavorites.map(item=>{
-    if(item.category === "Bebidas"){
-      drinks.push(item)
+    switch(item.category){
+      case 'Refeições' :
+        mainDishes.push(item)
+
+        mainDishes.sort((a, b)=>{
+          if(a.id < b.id){
+            return -1
+          }else{
+            return true
+          }
+        })
+        break;
+        
+      case 'Sobremesas' :
+        desserts.push(item)
+
+        desserts.sort((a, b)=>{
+          if(a.id < b.id){
+            return -1
+          }else{
+            return true
+          }
+        })
+        break;
+
+      case 'Bebidas' :
+        drinks.push(item)
+
+        drinks.sort((a, b)=>{
+          if(a.id < b.id){
+            return -1
+          }else{
+            return true
+          }
+        })
+        break;
+
+      default :
+      alert('Error')
     }
   })
 
-  drinks.sort((a, b)=>{
-    if(a.id < b.id){
-      return -1
-    }else{
-      return true
-    }
-  })
 
   return(
     <Container>
-    
+
       {
         user.admin == 1 ?
         <HeaderAdm 
@@ -106,6 +150,7 @@ export function Home() {
       <Description />
 
       <main>
+
         <h2>Pratos principais</h2>
         <CarouselControlls>
           {
@@ -144,6 +189,7 @@ export function Home() {
             )) 
           }
         </CarouselControlls>
+
       </main>
 
       <Footer />
