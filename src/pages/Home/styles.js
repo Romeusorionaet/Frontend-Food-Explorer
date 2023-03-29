@@ -8,6 +8,7 @@ export const Container = styled.div`
     "Header"
     "Description"
     "Main"
+    "Favorite"
     "Footer";
 
     min-height: 100vh;

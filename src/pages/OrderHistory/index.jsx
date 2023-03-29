@@ -26,11 +26,19 @@ export function OrderHistory() {
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
 
     useEffect(()=>{
-        async function getOrderHistory(){
-            const response = await api.get(`/orderHistory/${user.id}`)
-            setOrderHistory(response.data)
+        try{
+            async function getOrderHistory(){
+                const response = await api.get(`/orderHistory/${user.id}`)
+                setOrderHistory(response.data)
+            }
+            getOrderHistory();
+        }catch(err){
+            if(err.response){
+                alert(err.response.data.message)
+            }else{
+                alert('Não foi possível carregar o histórico de pedido, tente novamente mais tarde.')
+            }
         }
-        getOrderHistory();
     },[orderHistory])
 
     return(

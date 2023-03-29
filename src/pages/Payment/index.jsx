@@ -12,7 +12,7 @@ import {Header} from '../../components/Header';
 import {Button} from '../../components/Button';
 import {Footer} from '../../components/Footer';
 
-import { ClipLoader } from 'react-spinners';
+import {RingLoader } from 'react-spinners';
 
 import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
@@ -33,12 +33,20 @@ export function Payment() {
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
 
     useEffect(()=>{
-        async function requestedDishes(){
-            const response = await api.get(`/requests/${user.id}`);
-            setPlate(response.data);
-            localStorage.setItem("@rocketfood:totalDebt", JSON.stringify(response.data))
+        try{
+            async function requestedDishes(){
+                const response = await api.get(`/requests/${user.id}`);
+                setPlate(response.data);
+                localStorage.setItem("@rocketfood:totalDebt", JSON.stringify(response.data))
+            }
+            requestedDishes();
+        }catch(err){
+            if(err.response){
+                alert(err.response.data.message)
+            }else{
+                alert('Erro ao carregar os dados do pedido.')
+            }
         }
-        requestedDishes();
     },[plate])
 
     useEffect(()=>{
@@ -110,15 +118,16 @@ export function Payment() {
         },4000)
     },[])
 
+
     return(
         <Container>
             <Header />
 
             {loading ? 
-            <div className='cliploader'>
-                <ClipLoader
+            <div className='loader'>
+                <RingLoader
                 size={50}
-                color={'#fffff'}
+                color={'#ffffff'}
                 loading={loading}
                 />
             </div>

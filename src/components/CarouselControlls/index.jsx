@@ -24,7 +24,6 @@ export const CarouselControlls = ({children}) => {
 
   return (
     <Container>
-      {/* penssar em deletar a parte 'addMargin', n estou usando */}
       <div className='wrappper_plates' id={`${children.length < 4 ? 'addMargin' : ''}`}>
 
         <div 

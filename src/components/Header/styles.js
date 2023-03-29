@@ -81,7 +81,7 @@ export const Container = styled.div`
 
     @media (max-width: 1500px){
         justify-content: space-around;
-
+        
         .wrapper_favorites_historic{
             flex-direction: column;
         }

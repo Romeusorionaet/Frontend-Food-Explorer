@@ -4,6 +4,7 @@ import {Description} from '../../components/Description';
 import {Footer} from '../../components/Footer';
 
 import {Plates} from '../../components/Plates';
+import {PlatesFavorited} from '../../components/PlatesFavorited';
 import {CarouselControlls} from '../../components/CarouselControlls';
 
 import {useState} from "react";
@@ -33,59 +34,11 @@ export function Home() {
   
   let newListPlatesWithFavorites = newListPlates.concat(favorite)
   
-  //list MainDishes
-  
   const mainDishes = []
-  
-  // newListPlatesWithFavorites.map(item=>{
-  //   if(item.category === "Refeições"){
-  //     mainDishes.push(item)
-  //   }
-  // })  
-
-  // mainDishes.sort((a, b)=>{
-  //   if(a.id < b.id){
-  //     return -1
-  //   }else{
-  //     return true
-  //   }
-  // })
-
-  //List Desserts
 
   const desserts = []
-  
-  // newListPlatesWithFavorites.map(item=>{
-  //   if(item.category === "Sobremesas"){
-  //     desserts.push(item)
-  //   }
-  // }) 
-
-  // desserts.sort((a, b)=>{
-  //   if(a.id < b.id){
-  //     return -1
-  //   }else{
-  //     return true
-  //   }
-  // })
-
-  //List Drinks
 
   const drinks = []
-  
-  // newListPlatesWithFavorites.map(item=>{
-  //   if(item.category === "Bebidas"){
-  //     drinks.push(item)
-  //   }
-  // })
-
-  // drinks.sort((a, b)=>{
-  //   if(a.id < b.id){
-  //     return -1
-  //   }else{
-  //     return true
-  //   }
-  // })
 
   newListPlatesWithFavorites.map(item=>{
     switch(item.category){
@@ -129,7 +82,6 @@ export function Home() {
       alert('Error')
     }
   })
-
 
   return(
     <Container>
@@ -191,6 +143,8 @@ export function Home() {
         </CarouselControlls>
 
       </main>
+
+      <PlatesFavorited />
 
       <Footer />
     </Container>

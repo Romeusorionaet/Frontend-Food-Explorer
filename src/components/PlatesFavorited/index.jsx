@@ -1,20 +1,17 @@
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
-
-import { api } from '../../services/api';
-
-import { Container } from './styles';
 import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import {AiFillHeart} from 'react-icons/ai';
+import {BsFire} from 'react-icons/bs';
 
-export function Favorites() {
+import {Container} from './styles';
+
+export function PlatesFavorited() {
     const [favorites, setFavorites] = useState([]);
-
-    const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     useEffect(()=>{
         try{
             async function catchFavorites(){
-                const response = await api.get(`/favorites/${user.id}`)
+                const response = await api.get(`/plates`)
                 setFavorites(response.data)
             }
             catchFavorites()
@@ -26,16 +23,14 @@ export function Favorites() {
             }
         }
     })
-    
-    async function removeFavorite(id){
-        await api.delete(`favorites/${id}/${user.id}`)
-    }
 
     return(
         <Container>
-            <Header />
-            
-            <h1>Meus Favoritos</h1>
+
+            <div className='wrapper_title'>
+                <h1>Pratos mais avaliado</h1>
+                <AiFillHeart />
+            </div>
 
             <section>
                 <ul>
@@ -43,11 +38,14 @@ export function Favorites() {
                         favorites.map((item, index)=>{
                             return(
                                 <li key={String(index)}>
-                                    <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
-                                    
-                                    <div className="wrapper_title_button">
-                                        <h2>{item.title}</h2>
-                                        <button onClick={()=>removeFavorite(item.id)}>remover dos Favoritos</button>
+                                    <div className="wrapper_title_like">
+                                        <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
+
+                                        <div>
+                                            <h2>{item.title}</h2>
+                                            <span>{item.favorited}</span>
+                                            <BsFire />
+                                        </div>
                                     </div>
                                 </li>
                             )
@@ -55,8 +53,6 @@ export function Favorites() {
                     }
                 </ul>
             </section>
-
-            <Footer />
         </Container>
     )
 }

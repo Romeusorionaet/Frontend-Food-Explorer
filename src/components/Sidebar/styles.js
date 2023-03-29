@@ -4,17 +4,23 @@ export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
     min-width: 100vw;
     overflow: hidden;
+    animation: teste 0.5s;
     
     #wrapper_input{
         width: 100%;
         display: flex;
         padding-top: 30px;
         justify-content: center;
-
+        
         Input{
             min-width: 90%;
             height: 100%;
         }
+    }
+
+    @keyframes teste{
+        0%{transform: rotate(0.9turn)}
+        100%{transform: rotate(1turn)}
     }
 `;
 

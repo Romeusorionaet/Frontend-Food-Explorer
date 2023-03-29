@@ -42,6 +42,15 @@ export const Container = styled.div`
                 border: none;
                 color: ${({theme})=>theme.COLORS.RED_500};
             }
+            div{
+                display: flex;
+                gap: 5px;
+                align-items: center;
+                
+                svg{
+                    color: ${({theme})=>theme.COLORS.RED_900};
+                }
+            }
         }
     }
     

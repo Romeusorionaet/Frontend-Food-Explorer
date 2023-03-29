@@ -29,12 +29,20 @@ export function Details() {
 
     
     useEffect(()=>{
-        async function getPlate(){
-            const response = await api.get(`/plates/${params.id}`);
-            setPlate(response.data[0])
-            setIngredient(response.data[1])
+        try{
+            async function getPlate(){
+                const response = await api.get(`/plates/${params.id}`);
+                setPlate(response.data[0])
+                setIngredient(response.data[1])
+            }
+            getPlate();
+        }catch(err){
+            if(err.response){
+                alert(err.response.data.message)
+            }else{
+                alert('Não foi possível carregar os dados desse prato.')
+            }
         }
-        getPlate();
     },[]);
     
     useEffect(()=>{

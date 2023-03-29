@@ -20,6 +20,7 @@ export const Container = styled.div`
             display: flex;
             align-items: center;
             gap: 5px;
+
             button{
                 background: none;
                 border: none;
@@ -30,6 +31,8 @@ export const Container = styled.div`
         .wrapper_img_dish{
             display: flex;
             align-items: center;
+            justify-content: end;
+            min-width: 500px;
 
             >img{
                 width: 389.47px;
@@ -38,8 +41,7 @@ export const Container = styled.div`
         }
 
         .wrapper_description{
-
-            width: 600px;
+            width: 500px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -109,6 +111,14 @@ export const Container = styled.div`
         }
     }
 
+    @media (max-width: 1500px){
+        .wrapper_dish_details{
+            .turn_back{
+                top: 180px;
+            }
+        }
+    }
+
     @media (max-width: 800px){
         .wrapper_dish_details{
             flex-direction: column;
@@ -146,6 +156,8 @@ export const Container = styled.div`
 
             .wrapper_img_dish{
                 margin: -50px auto;
+                min-width: 200px;
+                justify-content: center;
 
                 >img{
                     width: 50vw;

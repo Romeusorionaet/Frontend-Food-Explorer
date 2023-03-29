@@ -5,7 +5,7 @@ export const Container = styled.div`
     cursor: grab;
     overflow: hidden;
 
-    .clipLoader{
+    .loader{
         position: absolute;
         left: 50%;
         top: 15vh;

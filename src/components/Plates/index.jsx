@@ -12,7 +12,7 @@ import {api} from "../../services/api";
 import {useState, useEffect} from "react"
 import {useNavigate} from 'react-router-dom';
 
-import { ClipLoader } from 'react-spinners';
+import { RingLoader } from 'react-spinners';
 
 export function Plates({date, ...rest}) {
     const [amount, setAmount] = useState(1);
@@ -80,13 +80,13 @@ export function Plates({date, ...rest}) {
         setLoading(true)
         setTimeout(()=>{
             setLoading(false)
-        },2000)
+        },1000)
     },[])
 
     return(
         <Container {...rest}>
             {loading ?
-            <ClipLoader
+            <RingLoader
             size={50}
             color={'#ffffff'}
             loading={loading}

@@ -31,11 +31,19 @@ export function OrderHistoryAdm() {
     }
 
     useEffect(()=>{
-        async function getOrderHistory(){
-            const response = await api.get(`/orderHistory`)
-            setOrderHistory(response.data)
+        try{
+            async function getOrderHistory(){
+                const response = await api.get(`/orderHistory`)
+                setOrderHistory(response.data)
+            }
+            getOrderHistory();
+        }catch(err){
+            if(err.response){
+                alert(err.response.data.message)
+            }else{
+                alert('Não foi possível carregar o histórico de pedido, tente novamente mais tarde.')
+            }
         }
-        getOrderHistory();
     },[orderHistory])
 
     return(

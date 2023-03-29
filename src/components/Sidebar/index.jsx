@@ -7,10 +7,10 @@ import { useAuth } from '../../hooks/auth';
 import { useNavigate } from 'react-router-dom';
 
 export function Sidebar({setSearch=()=>{}, active, search}) {
-    const {signOut} = useAuth()
+    const {signOut, user} = useAuth()
     const navigate = useNavigate();
 
-    const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
+    //const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     useEffect(()=>{
         let container = document.getElementById('container');

@@ -13,7 +13,7 @@ import {Footer} from '../../components/Footer';
 import {Container, Form} from './styles';
 
 export function AdminEdit() {
-    const [platePreview, setPlatePreview] = useState([]);
+    //const [platePreview, setPlatePreview] = useState([]);
 
     const [imagem, setImagem] = useState(null);
     const [title, setTitle] = useState("");
@@ -57,9 +57,9 @@ export function AdminEdit() {
     }  
     
     async function updatePlate(e){
-        if(!imagem || !title || !category || !ingredients || !description){
+        if(!imagem || ingredients.length === 0){
             e.preventDefault();
-            return alert("Existe campo vazio!");
+            return alert("Campo imagem ou ingredientes está vazio!");
         }
         
         alert("Prato alterado com sucesso!");
@@ -105,12 +105,24 @@ export function AdminEdit() {
     }
 
     useEffect(()=>{
-        async function fecthPlate(){
-            const response = await api.get(`/plates/${params.id}`)
-            setPlatePreview(response.data[0])
+        try{
+            async function fecthPlate(){
+                const response = await api.get(`/plates/${params.id}`)
+                setTitle(response.data[0].title)
+                setCategory(response.data[0].category)
+                setPrice(response.data[0].price)
+                setDescription(response.data[0].description)
+            }
+            fecthPlate();
+        }catch(err){
+            if(err.response){
+                alert(err.response.data.message)
+            }else{
+                alert("Não foi possível carregar os dados do prato.")
+            }
         }
-        fecthPlate();
     },[])
+
 
     return(
         <Container>
@@ -144,7 +156,7 @@ export function AdminEdit() {
                                     Nome
                                     <input 
                                     maxLength={25}
-                                    placeholder={platePreview.title}
+                                    value={title}
                                     type='text'
                                     onChange={(e)=>setTitle(e.target.value)}
                                     />
@@ -153,7 +165,7 @@ export function AdminEdit() {
                                 <label>
                                     Categoria
                                     <select onChange={(e)=>setCategory(e.target.value)} id="select">
-                                        <option value="">Selecionar</option>
+                                        <option value="">{category}</option>
                                         <option value="Refeições">Refeições</option>
                                         <option value="Sobremesas">Sobremesas</option>
                                         <option value="Bebidas">Bebidas</option>
@@ -204,7 +216,7 @@ export function AdminEdit() {
                             <label>
                                 Preço
                                 <input
-                                placeholder={platePreview.price}
+                                value={price}
                                 type='number'
                                 onChange={(e)=>setPrice(e.target.value)}
                                 />
@@ -216,7 +228,7 @@ export function AdminEdit() {
                         Descrição
                         <textarea
                         maxLength={150}
-                        placeholder={platePreview.description}
+                        value={description}
                         type='text'
                         onChange={(e)=>setDescription(e.target.value)}
                         />

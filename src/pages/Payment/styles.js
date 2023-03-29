@@ -8,14 +8,19 @@ export const Container = styled.div`
     height: 98vh;
     overflow-y: hidden;
 
-    .cliploader{
-        position: absolute;
-        top: 30%;
-        left: 50%;
+    .loader{
+        width: 50%;;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     @media (max-width: 800px){
         padding: 0;
+
+        .loader{
+            width: 100%;
+        }
     }
 `;
 

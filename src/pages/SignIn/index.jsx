@@ -19,7 +19,9 @@ export function SignIn() {
     const {signIn} = useAuth();
 
     function handleSignIn() {
-        setLoading(true)
+        if(email && password){
+            setLoading(true)
+        }
         signIn({email, password});
     }
 
