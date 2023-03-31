@@ -4,7 +4,7 @@ export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
     min-width: 100vw;
     overflow: hidden;
-    animation: teste 0.5s;
+    animation: toRotate 0.5s;
     
     #wrapper_input{
         width: 100%;
@@ -18,7 +18,7 @@ export const Container = styled.div`
         }
     }
 
-    @keyframes teste{
+    @keyframes toRotate{
         0%{transform: rotate(0.9turn)}
         100%{transform: rotate(1turn)}
     }

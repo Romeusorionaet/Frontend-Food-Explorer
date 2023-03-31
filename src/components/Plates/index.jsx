@@ -6,6 +6,7 @@ import {BsPencil} from 'react-icons/bs';
 
 import {Container} from './styles';
 import {Button} from '../Button';
+import {Popover} from '../../components/Popover';
 
 import {Link} from 'react-router-dom'
 import {api} from "../../services/api";
@@ -17,6 +18,8 @@ import { RingLoader } from 'react-spinners';
 export function Plates({date, ...rest}) {
     const [amount, setAmount] = useState(1);
     const [loading, setLoading] = useState(false)
+
+    const [event, setEvent] = useState(false)
 
     const navigate = useNavigate()
 
@@ -44,7 +47,7 @@ export function Plates({date, ...rest}) {
             user_id: user.id
         });
         setForList();
-        alert("Prato adicionado a lista!");
+        setEvent(true)
     }
 
     async function setForList(){
@@ -69,7 +72,6 @@ export function Plates({date, ...rest}) {
 
     async function actionCheck() {
         addFavorite() 
-        alert('fazer uma animação aq quando for curtido')
     }
 
     function admEdit(){
@@ -85,6 +87,12 @@ export function Plates({date, ...rest}) {
 
     return(
         <Container {...rest}>
+
+            <Popover
+            title={`${date.title}, incluido na lista de pedidos!`}
+            event={event}
+            />
+
             {loading ?
             <RingLoader
             size={50}

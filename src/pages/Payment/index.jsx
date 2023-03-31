@@ -11,6 +11,9 @@ import { useEffect, useState } from 'react';
 import {Header} from '../../components/Header';
 import {Button} from '../../components/Button';
 import {Footer} from '../../components/Footer';
+import {Popover} from '../../components/Popover';
+
+import {useNavigate} from 'react-router-dom'
 
 import {RingLoader } from 'react-spinners';
 
@@ -18,7 +21,8 @@ import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
 export function Payment() {
     const [plate, setPlate] = useState([]);
-    const [remove, setRemove] = useState([]);
+
+    const [removeRequest, setRemoveRequest] = useState([]);
     const [total, setTotal] = useState(0);
 
     const [hiddenSection, setHiddenSection] = useState(false);
@@ -28,7 +32,11 @@ export function Payment() {
     const [orderLength, setOrderLength] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    const [event, setEvent] = useState(false)
+
     var count = 60;
+
+    const navigate = useNavigate();
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
 
@@ -50,13 +58,13 @@ export function Payment() {
     },[plate])
 
     useEffect(()=>{
-        if(remove.length !== 0){
+        if(removeRequest.length !== 0){
             async function removePlate(){
-                await api.delete(`/requests/${remove}/${user.id}`);
+                await api.delete(`/requests/${removeRequest}/${user.id}`);
             }
             removePlate();
         }
-    },[remove])
+    },[removeRequest])
 
     useEffect(()=> {
         let totalDebt = 0
@@ -78,23 +86,33 @@ export function Payment() {
     function startPayment(){
         if(orderLength.length === 0){
             alert('Lista de pedido vazio!')
+            navigate('/')
         }else{
             start();
             setPix();
         }
     }
 
+    //======================================================
+
     function start() {
         //trocar esse alert por outro tipo personalizado q n precise de confirm 
         //alert('Prato recebido! Você pode acompanhar o status do seu prato em "Histórico de pedido".')
         setPix()
         
+        
         if (count > 0){
             count -= 1;
             if (count == 30) {
 
+                setRemoveRequest(0)
+                async ()=> {
+                    await api.delete(`/requests/${removeRequest}/${user.id}`);
+                }
+
                 setTransitionImg(29);
                 orderHistory();
+                setEvent(true)
 
             }else if(count < 10){
                 count = "0" + count;
@@ -105,7 +123,10 @@ export function Payment() {
         if(count == 0){
             setTransitionImg(0);
         }
+        
     }
+
+    //=========================================
 
     async function orderHistory(){
         await api.post(`/orderHistory/${user.id}`)
@@ -115,13 +136,17 @@ export function Payment() {
         setLoading(true)
         setTimeout(()=>{
             setLoading(false)
-        },4000)
+        },2000)
     },[])
-
 
     return(
         <Container>
             <Header />
+
+            <Popover
+            title='Prato recebido! Você pode acompanhar o status do seu prato em "Histórico de pedido"'
+            event={event}
+            />
 
             {loading ? 
             <div className='loader'>
@@ -154,7 +179,7 @@ export function Payment() {
                                             </div>
                                         
                                             <button 
-                                            onClick={()=>{setRemove(item.plate_id)}}
+                                            onClick={()=>{setRemoveRequest(item.plate_id)}}
                                             >
                                                 Excluir
                                             </button>
