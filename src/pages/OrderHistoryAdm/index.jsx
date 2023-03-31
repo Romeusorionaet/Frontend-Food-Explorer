@@ -13,7 +13,7 @@ function formattingDateAndTime(datetime) {
     const [date, time] = datetime.split(" ")
     const [yyyy, mm, dd] = date.split("-")
     const [hour, minutes] = time.split(":")
-    const newHour = hour - 3
+    const newHour = Number(hour) - 3
     const hourFormatted = `${newHour}:${minutes}`
     const dateFormatted = `${dd}/${mm}/${yyyy} às ${hourFormatted}`
     
@@ -145,9 +145,7 @@ export function OrderHistoryAdm() {
             </section>
             }
 
-            <div className='wrapper_footer'>
-                <Footer />
-            </div>
+            <Footer />
         </Container>
     )
 }

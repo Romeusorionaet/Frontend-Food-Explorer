@@ -23,9 +23,6 @@ export const Container = styled.div`
         width: 100%;
         top: 500px;
         z-index: 1;
-        button{
-            
-        }
     }
 
     main{
@@ -34,6 +31,8 @@ export const Container = styled.div`
         margin-bottom: 150px;
 
         >h2{
+            font-weight: 500;
+            font-size: 32px;
             margin: 50px 120px;
             width: 100%;
             margin: ${window.innerWidth < 832 ? '20px 20px' : '50px 120px'}

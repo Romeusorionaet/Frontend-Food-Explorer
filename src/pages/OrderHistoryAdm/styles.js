@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    animation: 0.5s screenScale;
+
+    height: 100vh;
     
     >h1{
         padding:  150px 120px 50px;
@@ -62,12 +65,6 @@ export const Container = styled.div`
     .wrapper_mobile{
         height: 70vh;
         overflow: auto;
-    }
-
-    .wrapper_footer{
-        position: fixed;
-        bottom: 0;
-        width: 100%;
     }
 
     @media (max-width: 832px){

@@ -4,8 +4,13 @@ export const Container = styled.div`
     position: relative;
     height: 100vh;
 
+    animation: 0.5s screenScale;
+
     >Form{
         padding: 150px 120px;
+        label{
+            color: ${({theme})=>theme.COLORS.WHITE_100};
+        }
     }
 
     .wrapper_footer{
@@ -27,10 +32,16 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
+
+    #wrapper_file{
+        color: ${({theme})=>theme.COLORS.WHITE_900};
+    }
+
     label{
         display: flex;
         gap: 5px;
         flex-direction: column;
+
 
         input, textarea{
             background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
@@ -65,8 +76,14 @@ export const Form = styled.form`
             display: flex; 
             background: none;
             border: none;
-            width: 80px;
             color: ${({theme})=>theme.COLORS.WHITE_900};
+
+            svg{
+                font-size: 30px;
+            }
+            span{
+                font-size: 22px;
+            }
         }
     }
 

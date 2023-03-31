@@ -120,9 +120,7 @@ export function OrderHistory() {
             </section >
             }
 
-            <div className='wrapper_footer'>
-                <Footer />
-            </div>
+            <Footer />
         </Container>
     )
 }

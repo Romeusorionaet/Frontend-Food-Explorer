@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    animation: 0.5s screenScale;
+    height: 100vh;
     
     h1{
         padding: 180px 120px 0;

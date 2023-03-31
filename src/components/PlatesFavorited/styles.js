@@ -28,6 +28,10 @@ export const Container = styled.div`
         h1{
             font-size: 20px;
         }
+        svg{
+            color: ${({theme})=>theme.COLORS.RED_900};
+            animation: 2s screenScaleHeart infinite;
+        }
     }
     
     section{

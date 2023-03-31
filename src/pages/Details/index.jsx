@@ -6,6 +6,7 @@ import {IoIosArrowBack} from 'react-icons/io';
 import {GoPlus} from 'react-icons/go';
 import {CgBorderStyleSolid} from 'react-icons/cg';
 import {Button} from '../../components/Button';
+import {Popover} from '../../components/Popover';
 
 import {api} from '../../services/api';
 import {useState, useEffect} from 'react';
@@ -21,12 +22,13 @@ export function Details() {
     const [amount, setAmount] = useState(1);
     const [loading, setLoading] = useState(false);
 
+    const [event, setEvent] = useState(false)
+
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
     localStorage.setItem("@rocketfood:plateDetails", JSON.stringify(plate))
 
     const navigate = useNavigate();
     const params = useParams();
-
     
     useEffect(()=>{
         try{
@@ -70,6 +72,7 @@ export function Details() {
     }
 
     async function addPlateInList(){
+        setEvent(true)
         setLoading(true)
         const plateDetails = JSON.parse(localStorage.getItem("@rocketfood:plateDetails"))
 
@@ -82,7 +85,6 @@ export function Details() {
             plate_id: plateDetails.id,
             user_id: user.id
         });
-        alert("Prato adicionado a lista!");
         setLoading(false)
     }
 
@@ -91,11 +93,19 @@ export function Details() {
 
             {adm == 1 ? <HeaderAdm /> : <Header />}
 
+
             {plate && 
             <section className='wrapper_dish_details'>
+                <Popover
+                title={`${plate.title}, incluido na lista de pedidos!`}
+                event={event}
+                />
+
                 <div className='turn_back'>
-                    <IoIosArrowBack />
-                    <button onClick={handleBack}>Voltar</button>
+                    <button onClick={handleBack}>
+                        <IoIosArrowBack />
+                        <span>voltar</span>
+                    </button>
                 </div>
                 
                 <div className='wrapper_img_dish'>

@@ -4,6 +4,8 @@ export const Container = styled.div`
     position: relative;
     height: 100vh;
 
+    animation: 0.5s screenScale;
+
     >Form{
         padding: 150px 120px;
     }
@@ -63,8 +65,14 @@ export const Form = styled.form`
             display: flex; 
             background: none;
             border: none;
-            width: 80px;
             color: ${({theme})=>theme.COLORS.WHITE_900}; 
+
+            svg{
+                font-size: 30px;
+            }
+            span{
+                font-size: 22px;
+            }
         }
     }
 

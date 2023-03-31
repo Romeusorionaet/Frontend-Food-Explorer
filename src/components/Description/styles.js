@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     grid-area: Description;
+    
+    animation: 0.5s screenScale;
 
     margin: 300px 125px 0;
     height: 260px;

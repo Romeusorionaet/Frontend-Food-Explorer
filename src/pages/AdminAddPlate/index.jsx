@@ -78,7 +78,8 @@ export function AdminAddPlate() {
             <Form>
                 <div className='wrapper_title_and_button'>
                     <button onClick={handleBackHome}>
-                        <RiArrowDropLeftLine /> voltar
+                        <RiArrowDropLeftLine />
+                        <span>voltar</span>
                     </button>
                     <h1>Adicionar prato</h1>
                 </div>

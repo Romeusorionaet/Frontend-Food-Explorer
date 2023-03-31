@@ -21,7 +21,6 @@ import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
 export function Payment() {
     const [plate, setPlate] = useState([]);
-
     const [removeRequest, setRemoveRequest] = useState([]);
     const [total, setTotal] = useState(0);
 
@@ -83,6 +82,12 @@ export function Payment() {
         getOrderLength();
     },[orderLength])
 
+    
+    async function orderHistory(){
+        await api.post(`/orderHistory/${user.id}`)
+    } 
+    
+
     function startPayment(){
         if(orderLength.length === 0){
             alert('Lista de pedido vazio!')
@@ -92,44 +97,27 @@ export function Payment() {
             setPix();
         }
     }
-
-    //======================================================
-
+    
     function start() {
-        //trocar esse alert por outro tipo personalizado q n precise de confirm 
-        //alert('Prato recebido! Você pode acompanhar o status do seu prato em "Histórico de pedido".')
         setPix()
-        
         
         if (count > 0){
             count -= 1;
             if (count == 30) {
-
-                setRemoveRequest(0)
-                async ()=> {
-                    await api.delete(`/requests/${removeRequest}/${user.id}`);
-                }
-
+                orderHistory()
                 setTransitionImg(29);
-                orderHistory();
                 setEvent(true)
-
-            }else if(count < 10){
-                count = "0" + count;
+                    
+                }else if(count < 10){
+                    count = "0" + count;
+                }
+                setTimeout(start, 100); 
             }
-            setTimeout(start, 100); 
+            
+            if(count == 0){
+                setTransitionImg(0);
+                setRemoveRequest(0)
         }
-
-        if(count == 0){
-            setTransitionImg(0);
-        }
-        
-    }
-
-    //=========================================
-
-    async function orderHistory(){
-        await api.post(`/orderHistory/${user.id}`)
     }
 
     useEffect(()=>{

@@ -5,6 +5,8 @@ export const Container = styled.div`
     align-items: center;
     height: 100vh;
 
+    animation: 0.5s screenScale;
+
     .wrapper_logo{
         width: 100%;
         display: flex;
@@ -47,8 +49,14 @@ export const Form = styled.form`
 
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
-    >h1{
+    label{
+        color: ${({theme})=>theme.COLORS.WHITE_100};
+    }
+
+    h1{
         text-align: center;
+        font-weight: 500;
+        font-size: 32px;
     }
 
     Button{
@@ -75,8 +83,4 @@ export const Form = styled.form`
             }
         }
     }
-
-    /* @media (max-width: 500px){
-
-    } */
 `;

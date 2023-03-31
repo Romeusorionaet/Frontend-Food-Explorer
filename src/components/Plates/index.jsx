@@ -117,7 +117,7 @@ export function Plates({date, ...rest}) {
                     />
 
                     {date.user_id == user.id ?
-                    <AiFillHeart /> : <AiOutlineHeart /> }
+                    <AiFillHeart id='fillHeart' /> : <AiOutlineHeart /> }
                 </div>
                 }
 
@@ -138,8 +138,7 @@ export function Plates({date, ...rest}) {
                         </div>
                         
                         <div className='wrapper_price'>
-                            {/* essa trasnformação n está funcionando */}
-                            <span>R$ {date.price}</span>
+                            <span>{Number(date.price).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
                         </div>
 
                     </Link>

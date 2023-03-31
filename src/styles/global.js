@@ -44,4 +44,35 @@ export default createGlobalStyle`
     .addMarginAdmin{
         margin: 50px -10px;
     }
+
+    @keyframes screenScale{
+        0%{
+            transform: scale(0.6); 
+            opacity: 0;
+        }
+        100%{
+            transform: scale(1)
+            opacity: 1;
+        }
+    }
+
+    @keyframes screenScaleHeart{
+        0%{
+            transform: scale(1); 
+        }
+        20%{
+            transform: scale(1.5); 
+            color: red;
+        }
+        50%{
+            transform: scale(1); 
+        }
+        70%{
+            transform: scale(1.5); 
+            color: red;
+        }
+        100%{
+            transform: scale(1);
+        }
+    }
 `;

@@ -123,7 +123,6 @@ export function AdminEdit() {
         }
     },[])
 
-
     return(
         <Container>
             <HeaderAdm />
@@ -131,7 +130,8 @@ export function AdminEdit() {
             <Form>
                 <div className='wrapper_title_and_button'>
                     <button onClick={handleBack}>
-                        <RiArrowDropLeftLine /> voltar
+                        <RiArrowDropLeftLine /> 
+                        <span>voltar</span>
                     </button>
                     <h1>Editar prato</h1>
                 </div>
@@ -141,7 +141,7 @@ export function AdminEdit() {
                         <div>
                             <label>
                                 Imagem do prato
-                                <div>
+                                <div id='wrapper_file'>
                                     <MdOutlineFileUpload />
                                     Selecione imagem
                                     <input 

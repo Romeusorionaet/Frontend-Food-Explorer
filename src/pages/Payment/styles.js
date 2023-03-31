@@ -5,8 +5,10 @@ export const Container = styled.div`
     justify-content: space-between;
     padding: 0 120px 0 0;
 
-    height: 98vh;
+    height: 100vh;
     overflow-y: hidden;
+
+    animation: 0.5s screenScale;
 
     .loader{
         width: 50%;;
@@ -30,6 +32,11 @@ export const SectionRequest = styled.section`
     gap: 30px;
 
     padding: 180px 120px;
+
+    h2{
+        font-weight: 500; 
+        font-size: 32px;
+    }
 
     .list{
         overflow: auto;
@@ -100,7 +107,8 @@ export const SectionPayment = styled.section`
     padding: 180px 0;
     width: 530px;
 
-    >h2{
+    h2{
+        font-weight: 500; 
         font-size: 32px;
         margin-bottom: 30px;
     }

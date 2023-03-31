@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
     height: 100vh;
     position: relative;
+
+    animation: 0.5s screenScale;
     
     .wrapper_dish_details{
         height: 100%;
@@ -17,14 +19,21 @@ export const Container = styled.div`
             position: absolute;
             top: 150px;
             left: 0;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-
+            
             button{
+                display: flex;
+                align-items: center;
+                gap: 5px;
                 background: none;
                 border: none;
                 color: ${({theme})=>theme.COLORS.WHITE_900};
+
+                svg{
+                    font-size: 20px;
+                }
+                span{
+                    font-size: 22px;
+                }
             }
         }
 
@@ -51,6 +60,14 @@ export const Container = styled.div`
             .wrapper_title{
                 overflow: auto;
                 height: 100px;
+
+                h1{
+                    color: ${({theme})=>theme.COLORS.WHITE_900};
+                    font-weight: 500;
+                }
+                p{
+                    color: ${({theme})=>theme.COLORS.WHITE_100};
+                }
             }
         }
 

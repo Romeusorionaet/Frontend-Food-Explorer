@@ -6,6 +6,8 @@ export const Container = styled.div`
     
     height: 100vh;
 
+    animation: 0.5s screenScale;
+
     .wrapper_logo{
         width: 100%;
         display: flex;
@@ -28,7 +30,7 @@ export const Container = styled.div`
         }
     }
 
-    @media (max-width: 960px){
+    @media (max-width: 865px){
         flex-direction: column;
 
         .wrapper_logo{
@@ -50,8 +52,14 @@ export const Form = styled.form`
 
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
-    >h1{
+    label{
+        color: ${({theme})=>theme.COLORS.WHITE_100};
+    }
+
+    h1{
         text-align: center;
+        font-weight: 500;
+        font-size: 32px;
     }
 
     Button{
@@ -63,7 +71,7 @@ export const Form = styled.form`
         text-align: center;
     }
 
-    @media (max-width: 960px){
+    @media (max-width: 865px){
         width: auto;
         margin: 20px;
         padding: 0;

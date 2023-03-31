@@ -11,7 +11,7 @@ export const Container = styled.div`
         top: 15vh;
         z-index: 3;
     }
-
+    
     .wrapper_favorite{
         position: absolute;
         background: none;
@@ -19,7 +19,7 @@ export const Container = styled.div`
         right: 15px;
         top: 15px;
         z-index: 2;
-
+        
         #buttonFavorite{
             position: absolute;
             right: -10px;
@@ -30,6 +30,10 @@ export const Container = styled.div`
         svg{
             font-size: 35px;
             color: ${({theme})=>theme.COLORS.RED_900};
+        }
+        
+        #fillHeart{
+            animation: 0.5s screenScaleHeart;
         }
 
         @media (max-width: 800px){
@@ -67,10 +71,6 @@ export const Container = styled.div`
                 line-height: 1;
                 margin-right: 10px;
                 
-                h1{
-                    width: 50%;
-                }
-
                 svg, h1{
                     font-size: 15px;
                 }
@@ -94,7 +94,6 @@ export const Container = styled.div`
 
         span{
             font-size: 20px;
-            /* margin-bottom: 5px; */
         }
 
         #buttonLess, #buttonMore{

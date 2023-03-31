@@ -27,6 +27,7 @@ export const Container = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
+    animation: toRotate 1s;
 
     padding: 45px 35px;  
 
@@ -37,8 +38,9 @@ export const Content = styled.div`
         border-bottom: ${({theme})=>theme.COLORS.BACKGROUND_LINE} solid 1px;
     }
     
-    >span{
+    span{
         border-bottom: ${({theme})=>theme.COLORS.BACKGROUND_LINE} solid 1px;
         cursor: pointer;
+        font-weight: 300;
     }
 `;

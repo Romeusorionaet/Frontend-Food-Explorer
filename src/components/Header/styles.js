@@ -16,21 +16,21 @@ export const Container = styled.div`
     .wrapper_menu{
         display: flex;
         align-items: center;
-
+        
         .menu{
             width: 100%;
             svg{
                 font-size: 26px;
             }
         }
-
+        
         button{
-         background: none;
-         border: none;
-         margin-right: 50px;
+            background: none;
+            border: none;
+            margin-right: 50px;
         }
     }
-
+    
     .formatSidebarMenu{
         position: absolute;
         background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
@@ -130,6 +130,11 @@ export const Container = styled.div`
         .wrapper_favorites_historic, .wrapper_input, .logOut{
             display: none;
         }      
+    }
+
+    @keyframes toRotate{
+        0%{transform: rotate(0.9turn)}
+        100%{transform: rotate(1turn)}
     }
 `;
 
