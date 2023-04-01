@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     grid-area: Favorite;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
-    height: 150px;
+    height: 170px;
     margin-bottom: 150px;
 
     padding: 10px;
@@ -38,9 +38,9 @@ export const Container = styled.div`
         
         ul{
             animation: autoScroll 5s ease-in-out infinite;
-
             list-style: none;
             display: flex;
+            align-items: center;
             gap: 25px;
             
             li{

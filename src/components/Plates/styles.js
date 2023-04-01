@@ -46,7 +46,7 @@ export const Container = styled.div`
     /* =======================mobile================== */
 
     .wrapper_plate_mobile{
-        max-width: 200px;
+        max-width: 210px;
         max-height: 290px;
 
         display: flex;
@@ -90,7 +90,6 @@ export const Container = styled.div`
         flex-direction: column;
         left: 0;
         width: 100%;
-        margin-bottom: -20px;
 
         span{
             font-size: 20px;
@@ -146,17 +145,18 @@ export const Container = styled.div`
     
         .wrapper_title{
             display: flex;
-            height: 55px;
+            height: 70px;
             overflow: hidden;
             margin-left: 30px;
             justify-content: center;
+            align-items: center;
             color: ${({theme})=>theme.COLORS.WHITE_900};
-    
+            
             svg{
                 font-size: 35px;
             }
         }
-    
+        
         .wrapper_description{
             font-family: 'Roboto', serif;
             font-weight: 400;
@@ -180,7 +180,7 @@ export const Container = styled.div`
     
     .wrapper_buttons{
         position: absolute;
-        bottom: 35px;
+        bottom: 15px;
         left: 45px;
         right: 45px;
         display: flex;

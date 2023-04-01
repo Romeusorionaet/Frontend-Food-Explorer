@@ -80,7 +80,8 @@ export function AdminEdit() {
             title,
             category,
 	        price,
-	        description
+	        description,
+            ingredients
         });
         
         await api.put(`/ingredients/${params.id}`, {
