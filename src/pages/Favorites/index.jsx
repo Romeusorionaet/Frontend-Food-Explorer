@@ -1,10 +1,10 @@
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-
 import { api } from '../../services/api';
 
-import { Container } from './styles';
 import { useEffect, useState } from 'react';
+
+import { Container } from './styles';
 
 export function Favorites() {
     const [favorites, setFavorites] = useState([]);
@@ -24,12 +24,12 @@ export function Favorites() {
             }else{
                 alert('Não foi possível carregar os dados desse prato.')
             }
-        }
-    })
+        };
+    });
     
     async function removeFavorite(id){
-        await api.delete(`favorites/${id}/${user.id}`)
-    }
+        await api.delete(`favorites/${id}/${user.id}`);
+    };
 
     return(
         <Container>

@@ -1,19 +1,18 @@
-import {Header} from '../../components/Header'
-import {HeaderAdm} from '../../components/HeaderAdm';
-import {Footer} from '../../components/Footer'
-
+import {CgBorderStyleSolid} from 'react-icons/cg';
 import {IoIosArrowBack} from 'react-icons/io';
 import {GoPlus} from 'react-icons/go';
-import {CgBorderStyleSolid} from 'react-icons/cg';
-import {Button} from '../../components/Button';
-import {Popover} from '../../components/Popover';
 
+import {HeaderAdm} from '../../components/HeaderAdm';
+import {Popover} from '../../components/Popover';
+import {Button} from '../../components/Button';
+import {Header} from '../../components/Header';
+import {Footer} from '../../components/Footer';
 import {api} from '../../services/api';
+
+import {useParams, useNavigate} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
-import {Container} from './styles'
-
-import { useParams, useNavigate} from 'react-router-dom'
+import {Container} from './styles';
 
 export function Details() {
     const [adm, setAdm] = useState("");
@@ -22,10 +21,10 @@ export function Details() {
     const [amount, setAmount] = useState(1);
     const [loading, setLoading] = useState(false);
 
-    const [event, setEvent] = useState(false)
+    const [event, setEvent] = useState(false);
 
-    const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
-    localStorage.setItem("@rocketfood:plateDetails", JSON.stringify(plate))
+    const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
+    localStorage.setItem("@rocketfood:plateDetails", JSON.stringify(plate));
 
     const navigate = useNavigate();
     const params = useParams();
@@ -44,7 +43,7 @@ export function Details() {
             }else{
                 alert('Não foi possível carregar os dados desse prato.')
             }
-        }
+        };
     },[]);
     
     useEffect(()=>{
@@ -62,19 +61,20 @@ export function Details() {
 
     function AddAmount(){
         setAmount(prevState => prevState + 1)
-    }
+    };
+
     function removeAmount(){
         if(amount > 1){
             setAmount(prevState => prevState - 1)
         }else{
             return
-        }
-    }
+        };
+    };
 
     async function addPlateInList(){
-        setEvent(true)
-        setLoading(true)
-        const plateDetails = JSON.parse(localStorage.getItem("@rocketfood:plateDetails"))
+        setEvent(true);
+        setLoading(true);
+        const plateDetails = JSON.parse(localStorage.getItem("@rocketfood:plateDetails"));
 
         await api.post("/requests", {
             title: plateDetails.title,
@@ -85,8 +85,8 @@ export function Details() {
             plate_id: plateDetails.id,
             user_id: user.id
         });
-        setLoading(false)
-    }
+        setLoading(false);
+    };
 
     return(
         <Container>

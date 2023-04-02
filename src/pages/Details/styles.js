@@ -1,17 +1,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    height: 100vh;
     position: relative;
-
     animation: 0.5s screenScale;
+
+    height: 100vh;
     
     .wrapper_dish_details{
-        height: 100%;
         position: relative;
+        height: 100%;
+
         display: flex;
-        gap: 50px;
         justify-content: center;
+        gap: 50px;
+
         padding: 220px 120px;
         margin: 0 120px;
 
@@ -24,8 +26,10 @@ export const Container = styled.div`
                 display: flex;
                 align-items: center;
                 gap: 5px;
-                background: none;
+                
                 border: none;
+
+                background: none;
                 color: ${({theme})=>theme.COLORS.WHITE_900};
 
                 svg{
@@ -39,31 +43,33 @@ export const Container = styled.div`
 
         .wrapper_img_dish{
             display: flex;
-            align-items: center;
             justify-content: end;
+            align-items: center;
+
             min-width: 500px;
 
             >img{
-                width: 389.47px;
                 height: 389.47px;
+                width: 389.47px;
             }
         }
 
         .wrapper_description{
-            width: 500px;
             display: flex;
+            justify-content: center;
             flex-direction: column;
             gap: 10px;
+
+            width: 500px;
             
-            justify-content: center;
 
             .wrapper_title{
                 overflow: auto;
                 height: 100px;
 
                 h1{
-                    color: ${({theme})=>theme.COLORS.WHITE_900};
                     font-weight: 500;
+                    color: ${({theme})=>theme.COLORS.WHITE_900};
                 }
                 p{
                     color: ${({theme})=>theme.COLORS.WHITE_100};
@@ -73,27 +79,32 @@ export const Container = styled.div`
 
         .wrapper_ingredients ul{
             display: flex;
-            gap: 12px;
             list-style: none;
+            gap: 12px;
+
             overflow: auto;
         }
         
         .wrapper_ingredients ul li{
-            align-items: center;
-            height: 35px;
             display: flex;
-            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D};
+            flex-direction: column;
+            align-items: center;
+
+            height: 35px;
+
             border-radius: 8px;
             padding: 4px 8px;
-            flex-direction: column;
+
+            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D};
         }
         
         .wrapper_buttons{
             display: flex;
-            margin-top: 20px;
-            align-items: center;
             justify-content: start;
+            align-items: center;
             gap: 17px;
+
+            margin-top: 20px;
 
             div{
                 display: flex;
@@ -107,7 +118,6 @@ export const Container = styled.div`
                         color: ${({theme})=>theme.COLORS.WHITE_900}
                     }
                 }
-    
                 >span{
                     font-size: 20px;
                     margin-bottom: 5px;
@@ -115,14 +125,16 @@ export const Container = styled.div`
             }
 
             #btnInclude{
-                background-color: ${({theme})=>theme.COLORS.RED_1000};
-                border: none;
-                color: ${({theme})=>theme.COLORS.WHITE_900};
-                padding: 24px 12px;
-                height: 48px;
                 display: flex;
                 align-items: center;
-                border-radius: 8px;;
+
+                padding: 24px 12px;
+                border-radius: 8px;
+                border: none;
+                height: 48px;
+
+                color: ${({theme})=>theme.COLORS.WHITE_900};
+                background-color: ${({theme})=>theme.COLORS.RED_1000};
             }
 
         }
@@ -145,25 +157,30 @@ export const Container = styled.div`
             .wrapper_description{
                 width: 100%;
                 height: 100%;
+
                 align-items: center;
                 overflow: hidden;
+
                 margin-bottom: -180px;
                 
                 position: relative;
                 
                 .wrapper_title{
                     position: absolute;
-                    top: 0;
-                    text-align: center;
                     height: 95px;
+                    top: 0;
+
+                    text-align: center;
                     overflow: auto;
                 }
                 
                 .wrapper_ingredients{
-                    padding: 5px;
-                    height: 110px;
-                    overflow: auto;
                     display: flex;
+
+                    overflow: auto;
+
+                    height: 110px;
+                    padding: 5px;
                     
                     ul{
                         flex-wrap: wrap;
@@ -172,9 +189,9 @@ export const Container = styled.div`
             }
 
             .wrapper_img_dish{
+                justify-content: center;
                 margin: -50px auto;
                 min-width: 200px;
-                justify-content: center;
 
                 >img{
                     width: 50vw;

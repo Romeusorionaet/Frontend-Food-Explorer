@@ -7,20 +7,17 @@ export const Container = styled.section`
         display: none;
     }
 
-    /* #addMargin{
-        margin-left: 0px;
-    } */
-
     .wrappper_plates{
         position: relative;
  
         .wrapper_buttom{
-            
             button{
-                border: none;
                 background: none;
+                border: none;
+
                 width: 40px;
                 height: 40px;
+
                 svg{
                     font-size: 32px;
                     color: ${({theme})=>theme.COLORS.WHITE_900};
@@ -28,14 +25,16 @@ export const Container = styled.section`
             }
         }
         .wrapper_buttom{
-            position: absolute;
-            z-index: 1;
-            height: 100%;
-            width: 200px;
-            top: 0px;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            position: absolute;
+            top: 0px;
+            z-index: 1;
+
+            height: 100%;
+            width: 200px;
         }
         .back{
             background: linear-gradient(90deg, #000A0F 0%, rgba(0, 10, 15, 0.472541) 100%);

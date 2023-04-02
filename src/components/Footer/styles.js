@@ -17,18 +17,18 @@ export const Container = styled.div`
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
 
     >span{
-        min-width: 100%;
         display: flex;
-
         justify-content: end;
+        
+        min-width: 100%;
 
         font-weight: 400;
         font-size: 14px;
     }
 
    @media (max-width: 760px){
-    padding: 0;
     height: 50px;
+    padding: 0;
 
     >img{
         width: 114px;
@@ -36,14 +36,14 @@ export const Container = styled.div`
     }
 
     >span{
-        font-size: 11px;
         min-width: 230px;
+        font-size: 11px;
     }
    }
 
    @media (max-height: 800px){
-    padding: 0;
     height: 50px;
+    padding: 0;
     
     >img{
         width: 114px;
@@ -51,8 +51,8 @@ export const Container = styled.div`
     }
 
     >span{
-        font-size: 11px;
         min-width: 230px;
+        font-size: 11px;
     }
    }
 `;

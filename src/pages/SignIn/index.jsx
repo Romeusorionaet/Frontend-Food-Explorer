@@ -1,14 +1,14 @@
-import {useNavigate} from 'react-router-dom';
-import {useState} from "react";
-
 import logoHeaderFoodExplorer from '../../assets/logoHeaderFoodExplorer.svg'
 import logoShadow from '../../assets/logoShadow.png'
 
-import {Input} from '../../components/Input';
+import {useNavigate} from 'react-router-dom';
+import {useAuth} from '../../hooks/auth';
+import {useState} from "react";
+
 import {Button} from '../../components/Button';
+import {Input} from '../../components/Input';
 
 import {Container, Form} from './styles';
-import { useAuth } from '../../hooks/auth';
 
 export function SignIn() {
     const [email, setEmail] = useState("");
@@ -20,14 +20,14 @@ export function SignIn() {
 
     function handleSignIn() {
         if(email && password){
-            setLoading(true)
+            setLoading(true);
         }
         signIn({email, password});
-    }
+    };
 
     function handleToSignUp() {
-        navigate("/SignUp")
-    }
+        navigate("/SignUp");
+    };
 
     return(
         <Container>

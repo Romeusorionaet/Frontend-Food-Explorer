@@ -11,18 +11,18 @@ export function PlatesFavorited() {
     useEffect(()=>{
         try{
             async function catchFavorites(){
-                const response = await api.get(`/plates`)
-                setFavorites(response.data)
+                const response = await api.get(`/plates`);
+                setFavorites(response.data);
             }
             catchFavorites()
         }catch(err){
             if(err.response){
-                alert(err.response.data.message)
+                alert(err.response.data.message);
             }else{
-                alert('Não foi possível carregar os dados desse prato.')
+                alert('Não foi possível carregar os dados desse prato.');
             }
-        }
-    })
+        };
+    });
 
     return(
         <Container>

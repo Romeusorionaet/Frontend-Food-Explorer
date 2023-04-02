@@ -3,14 +3,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: Header;
     position: fixed;
-    width: 100%;
     z-index: 3;
+
     display: flex;
     justify-content: space-between;
-    gap: 30px;
     align-items: center;
-    
+    gap: 30px;
+
+    width: 100%;
     padding: 35px 100px;
+    
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
     .wrapper_menu{
@@ -19,25 +21,28 @@ export const Container = styled.div`
         
         .menu{
             width: 100%;
+
             svg{
                 font-size: 26px;
             }
         }
         
         button{
+            margin-right: 50px;
             background: none;
             border: none;
-            margin-right: 50px;
         }
     }
     
     .formatSidebarMenu{
         position: absolute;
-        background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
-        min-width: 100vh;
         height: 115px;
         left: -10px;
+        
+        min-width: 100vh;
         display: flex;
+
+        background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
     }
 
     .wrapper_input{
@@ -47,18 +52,19 @@ export const Container = styled.div`
     .wrapper_favorites_historic{
         display: flex;
         gap: 30px;
-        align-items: center;
         justify-content: center;
-        width: 50%;
+        align-items: center;
+
         text-align: center;
+        width: 50%;
         
         h2{
-            font-size: 16px;
-            color: ${({theme})=>theme.COLORS.WHITE_500};
             font-style: normal;
+            line-height: 100%;
             font-weight: 400;
             font-size: 16px;
-            line-height: 100%;
+
+            color: ${({theme})=>theme.COLORS.WHITE_500};
         }
     }
 
@@ -67,8 +73,8 @@ export const Container = styled.div`
         border: none;
 
         >svg{
-            min-width: 25px;
             min-height: 25px;
+            min-width: 25px;
             opacity: .8;
 
             color: ${({theme})=>theme.COLORS.WHITE_900};
@@ -102,8 +108,8 @@ export const Container = styled.div`
     }
 
     @media (max-width: 831px){
-        gap: 0;
         padding: 35px 30px;
+        gap: 0;
 
         .wrapper_menu{
             min-width: 100%;
@@ -140,8 +146,8 @@ export const Container = styled.div`
 
 export const Button = styled.button`
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 
     width: 210px;
@@ -151,8 +157,8 @@ export const Button = styled.button`
 
     border-radius: 5px;
 
-    color: ${({theme})=>theme.COLORS.WHITE_900};
     background-color: ${({theme})=>theme.COLORS.RED_900};
+    color: ${({theme})=>theme.COLORS.WHITE_900};
     border: none;
 
     >span{
@@ -161,9 +167,9 @@ export const Button = styled.button`
 `;
 
 export const MobileButton = styled.button`
+    position: relative;
     background: none;
     border: none;
-    position: relative;
 
     img{
         min-width: 25px;
@@ -171,13 +177,16 @@ export const MobileButton = styled.button`
     }
 
     span{
-        color: ${({theme})=>theme.COLORS.WHITE_900};
         position: absolute;
         top: -12px;
         right: -10px;
-        background-color: ${({theme})=>theme.COLORS.RED_900};
-        border-radius: 10px;
+
         width: 25px;
         height: 25px;
+
+        border-radius: 10px;
+
+        background-color: ${({theme})=>theme.COLORS.RED_900};
+        color: ${({theme})=>theme.COLORS.WHITE_900};
     }
 `;

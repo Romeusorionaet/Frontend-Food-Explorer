@@ -1,12 +1,12 @@
 import { HeaderAdm } from '../../components/HeaderAdm';
 import { Footer } from '../../components/Footer';
-
 import { api } from '../../services/api';
 
 import {AiFillHeart} from 'react-icons/ai';
 
-import { Container } from './styles';
 import { useEffect, useState } from 'react';
+
+import { Container } from './styles';
 
 export function FavoritesAdmin() {
     const [favorites, setFavorites] = useState([]);
@@ -14,18 +14,18 @@ export function FavoritesAdmin() {
     useEffect(()=>{
         try{
             async function catchFavorites(){
-                const response = await api.get(`/plates`)
-                setFavorites(response.data)
+                const response = await api.get(`/plates`);
+                setFavorites(response.data);
             }
-            catchFavorites()
+            catchFavorites();
         }catch(err){
             if(err.response){
-                alert(err.response.data.message)
+                alert(err.response.data.message);
             }else{
-                alert('Não foi possível carregar os dados desse prato.')
+                alert('Não foi possível carregar os dados desse prato.');
             }
-        }
-    })
+        };
+    });
 
     return(
         <Container>

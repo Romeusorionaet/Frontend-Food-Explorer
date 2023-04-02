@@ -1,17 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    grid-area: Description;
-    
     animation: 0.5s screenScale;
-
-    margin: 300px 125px 0;
-    height: 260px;
-    background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
-
-    display: flex;  
-
+    grid-area: Description;
     position: relative;
+    display: flex;
+
+    height: 260px;
+    margin: 300px 125px 0;
+    background-color: ${({theme})=>theme.COLORS.BACKGROUND_100};
 
     .wrapper_img{
         position: absolute;
@@ -29,15 +26,15 @@ export const Container = styled.div`
             font-size: 50px;
         }
         p{
+            Line-height: 16.8px;
             font-weight: 400;
             font-size: 16px;
-            Line-height: 16.8px;
         }
     }
 
     @media (max-width: 1340px){
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
         .wrapper_description{
             z-index: 1;
@@ -53,15 +50,18 @@ export const Container = styled.div`
         height: 115px;
 
         .wrapper_img{
-            width: 190px;
-            height: 150px;
             position: absolute;
-            top: -15px;
+
             left: -25px;
+            top: -15px;
+
+            height: 150px;
+            width: 190px;
 
             img{
                 padding-right: 250px;
                 width: 450px;
+
                 left: -15px;
                 top: -30px;
             }
@@ -70,8 +70,9 @@ export const Container = styled.div`
         .wrapper_description{
             right: 0px;
             top: 30px;
-            width: 100%;
+            
             text-align: center;
+            width: 100%;
 
             h1{
                 font-size: 18px;

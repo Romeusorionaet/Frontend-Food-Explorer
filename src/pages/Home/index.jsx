@@ -1,11 +1,10 @@
-import {Header} from '../../components/Header';
-import {HeaderAdm} from '../../components/HeaderAdm';
-import {Description} from '../../components/Description';
-import {Footer} from '../../components/Footer';
-
-import {Plates} from '../../components/Plates';
-import {PlatesFavorited} from '../../components/PlatesFavorited';
 import {CarouselControlls} from '../../components/CarouselControlls';
+import {PlatesFavorited} from '../../components/PlatesFavorited';
+import {Description} from '../../components/Description';
+import {HeaderAdm} from '../../components/HeaderAdm';
+import {Header} from '../../components/Header';
+import {Footer} from '../../components/Footer';
+import {Plates} from '../../components/Plates';
 
 import {useState} from "react";
 
@@ -19,26 +18,26 @@ export function Home() {
 
   //Merging arrays
 
-  let favoritesId = []
-  let newListPlates = []
+  let favoritesId = [];
+  let newListPlates = [];
   
   favorite.map(item=>{
     favoritesId.push(item.id)
-  })
+  });
   
   for(let item of plate){
     if(favoritesId.includes(item.id) === false){
-      newListPlates.push(item)
+      newListPlates.push(item);
     }
-  }
+  };
   
-  let newListPlatesWithFavorites = newListPlates.concat(favorite)
+  let newListPlatesWithFavorites = newListPlates.concat(favorite);
   
-  const mainDishes = []
+  const mainDishes = [];
 
-  const desserts = []
+  const desserts = [];
 
-  const drinks = []
+  const drinks = [];
 
   newListPlatesWithFavorites.map(item=>{
     switch(item.category){

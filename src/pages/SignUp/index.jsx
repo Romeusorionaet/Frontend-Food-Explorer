@@ -1,13 +1,14 @@
-import {useState} from "react";
+import logoHeaderFoodExplorer from '../../assets/logoHeaderFoodExplorer.svg';
+import logoShadow from '../../assets/logoShadow.png';
+
 import {useNavigate} from 'react-router-dom';
 import {api} from "../../services/api";
+import {useState} from "react";
 
-import logoHeaderFoodExplorer from '../../assets/logoHeaderFoodExplorer.svg'
-import logoShadow from '../../assets/logoShadow.png'
-import {Button} from '../../components/Button'
-import {Input} from '../../components/Input'
+import {Button} from '../../components/Button';
+import {Input} from '../../components/Input';
 
-import {Container, Form} from './styles'
+import {Container, Form} from './styles';
 
 export function SignUp() {
     const [name, setName] = useState("");
@@ -18,14 +19,14 @@ export function SignUp() {
     const navigate = useNavigate(); 
 
     function handleTurnBack() {
-        navigate(-1)
-    }
+        navigate(-1);
+    };
 
     function handleSignUp() {
         if(!name || !email || !password){
             return alert("Preencha todos os campos!");
         }
-        setLoading(true)
+        setLoading(true);
         
         api.post("/users", {name, email, password})
         .then(()=>{
@@ -39,7 +40,7 @@ export function SignUp() {
                 alert("Não foi possível cadastrar.");
             }
         });
-    }
+    };
 
     return(
         <Container>

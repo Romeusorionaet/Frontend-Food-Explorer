@@ -1,21 +1,19 @@
-import waitingPaymentImg from '../../assets/waitingPayment.svg';
 import paymentApprovedImg from '../../assets/paymentApproved.svg';
+import waitingPaymentImg from '../../assets/waitingPayment.svg';
 import orderDeliveredImg from '../../assets/orderDelivered.svg';
-import QrCode from '../../assets/QrCode.svg';
-
-import pixImg from '../../assets/pix.svg';
 import creditImg from '../../assets/credit.svg';
+import QrCode from '../../assets/QrCode.svg';
+import pixImg from '../../assets/pix.svg';
 
-import {api} from "../../services/api";
+import {useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import {RingLoader } from 'react-spinners';
+
+import {Popover} from '../../components/Popover';
 import {Header} from '../../components/Header';
 import {Button} from '../../components/Button';
 import {Footer} from '../../components/Footer';
-import {Popover} from '../../components/Popover';
-
-import {useNavigate} from 'react-router-dom'
-
-import {RingLoader } from 'react-spinners';
+import {api} from "../../services/api";
 
 import {Container, SectionRequest, SectionPayment, Form} from './styles';
 
@@ -31,30 +29,30 @@ export function Payment() {
     const [orderLength, setOrderLength] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const [event, setEvent] = useState(false)
+    const [event, setEvent] = useState(false);
 
     var count = 60;
 
     const navigate = useNavigate();
 
-    const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
+    const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     useEffect(()=>{
         try{
             async function requestedDishes(){
                 const response = await api.get(`/requests/${user.id}`);
                 setPlate(response.data);
-                localStorage.setItem("@rocketfood:totalDebt", JSON.stringify(response.data))
+                localStorage.setItem("@rocketfood:totalDebt", JSON.stringify(response.data));
             }
             requestedDishes();
         }catch(err){
             if(err.response){
-                alert(err.response.data.message)
+                alert(err.response.data.message);
             }else{
-                alert('Erro ao carregar os dados do pedido.')
+                alert('Erro ao carregar os dados do pedido.');
             }
         }
-    },[plate])
+    },[plate]);
 
     useEffect(()=>{
         if(removeRequest.length !== 0){
@@ -63,7 +61,7 @@ export function Payment() {
             }
             removePlate();
         }
-    },[removeRequest])
+    },[removeRequest]);
 
     useEffect(()=> {
         let totalDebt = 0
@@ -72,7 +70,7 @@ export function Payment() {
             totalDebt += (Number(plate.price) * Number(plate.amount))
         });
         setTotal(totalDebt)
-    },[plate])
+    },[plate]);
 
     useEffect(()=>{
         async function getOrderLength(){
@@ -80,13 +78,12 @@ export function Payment() {
             setOrderLength(response.data);
         }
         getOrderLength();
-    },[orderLength])
+    },[orderLength]);
 
     
     async function orderHistory(){
         await api.post(`/orderHistory/${user.id}`)
-    } 
-    
+    };
 
     function startPayment(){
         if(orderLength.length === 0){
@@ -96,15 +93,17 @@ export function Payment() {
             start();
             setPix();
         }
-    }
-    
+    };
+   
+    // The 'start function' is automatically independent of an adm to process the dish, this so because it is just an example
+    // of what the steps would look like after payment.
     function start() {
-        setPix()
+        setPix();
         
         if (count > 0){
             count -= 1;
             if (count == 30) {
-                orderHistory()
+                orderHistory();
                 setTransitionImg(29);
                 setEvent(true)
                     
@@ -116,16 +115,16 @@ export function Payment() {
             
             if(count == 0){
                 setTransitionImg(0);
-                setRemoveRequest(0)
-        }
-    }
+                setRemoveRequest(0);
+        };
+    };
 
     useEffect(()=>{
         setLoading(true)
         setTimeout(()=>{
             setLoading(false)
-        },2000)
-    },[])
+        },2000);
+    },[]);
 
     return(
         <Container>

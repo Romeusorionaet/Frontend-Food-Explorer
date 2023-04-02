@@ -1,13 +1,13 @@
 import {RiArrowDropLeftLine} from 'react-icons/ri';
 import {MdOutlineFileUpload} from 'react-icons/md';
 
-import {HeaderAdm} from '../../components/HeaderAdm';
 import {Ingredient} from '../../components/Ingredient';
+import {HeaderAdm} from '../../components/HeaderAdm';
 import {Footer} from '../../components/Footer';
-
 import {api} from '../../services/api';
-import {useState} from 'react';
+
 import {useNavigate} from 'react-router-dom'
+import {useState} from 'react';
 
 import {Container, Form} from './styles'
 
@@ -31,17 +31,17 @@ export function AdminAddPlate() {
         }else{
             setIngredients(prevState => [...prevState, newIngredient]);
             setNewIngredients("");
-        }
-    }
+        };
+    };
     
     function handleRemoveIngredient(ingredientDeleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== ingredientDeleted));
-    }
+    };
     
     const handleImagem = (event) => {
         const file = event.target.files[0];
         setImagem(file);
-    }
+    };
 
     async function createPlate(e){
         if(!imagem || !title || !category || !ingredients || !description){
@@ -65,11 +65,11 @@ export function AdminAddPlate() {
             handleBackHome();
             await api.post("/plates", fileUpload);
         }          
-    }
+    };
 
     function handleBackHome(){
         return navigate("/");
-    }
+    };
 
     return(
         <Container>

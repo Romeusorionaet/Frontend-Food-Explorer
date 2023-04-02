@@ -2,19 +2,20 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
     height: 30px;
     max-width: ${({isNew})=>isNew ? "150px" : "120px"};
     
     color: ${({theme})=>theme.COLORS.WHITE_900};
-
-    border: ${({theme, isNew})=>isNew ? `1px dashed ${theme.COLORS.WHITE_900}` : "none"};
+    
     background-color: ${({theme, isNew})=>isNew ? 'none' : `${theme.COLORS.BACKGROUND_INGREDIENT}`};
     background-color: ${({theme, shadow})=>shadow ? `${theme.COLORS.RED_500}` : "none"};
-
+    
     padding-right: 16px;
     border-radius: 8px;
+    border: ${({theme, isNew})=>isNew ? `1px dashed ${theme.COLORS.WHITE_900}` : "none"};
 
     >button{
         border: none;

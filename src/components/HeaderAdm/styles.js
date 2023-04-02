@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
     grid-area: Header;
     position: fixed;
-    width: 100%;
     z-index: 3;
-
+    
     display: flex;
     justify-content: space-between;
     gap: 30px;
-
+    
+    width: 100%;
     padding: 35px 120px;
     background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
 
@@ -19,9 +19,9 @@ export const Container = styled.div`
        align-items: end;
 
        >span{
+           padding-right: 5px;
+           margin-top: -5px;
             font-size: 12px;
-            padding-right: 5px;
-            margin-top: -5px;
             color: ${({theme})=>theme.COLORS.PRICE_$};
        }
 
@@ -52,10 +52,10 @@ export const Container = styled.div`
         border: none;
 
         >svg{
-            min-width: 25px;
             min-height: 25px;
+            min-width: 25px;
+            
             opacity: .8;
-
             color: ${({theme})=>theme.COLORS.WHITE_900};
         }
     }
@@ -66,18 +66,19 @@ export const Container = styled.div`
 
     .wrapper_favorites_historic{
         display: flex;
-        gap: 30px;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        gap: 30px;
+
         width: 50%;
         
         h2{
-            font-size: 16px;
-            color: ${({theme})=>theme.COLORS.WHITE_500};
             font-style: normal;
+            line-height: 100%;
             font-weight: 400;
             font-size: 16px;
-            line-height: 100%;
+
+            color: ${({theme})=>theme.COLORS.WHITE_500};
         }
     }
 
@@ -114,24 +115,23 @@ export const Container = styled.div`
     }
 
     @media (max-width: 950px){
-        flex-direction: row;
+        flex-direction: row-reverse;
         padding: 35px 10px;
 
-        flex-direction: row-reverse;
-        
         .wrapper_button_logo{
+            justify-content: center;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
-            width: 100%;
             gap: 10px;
+
+            width: 100%;
         }
 
         .wrapper_menu{
-            
             .sidebar{
                 position: absolute;
                 left: 20px;
+                
                 display: flex;
                 align-content: center;
 
@@ -148,20 +148,19 @@ export const Container = styled.div`
 
 export const Button = styled.button`
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 10px;
 
     width: 210px;
     height: 48px;
 
     padding: 15px;
-
     border-radius: 5px;
 
+    border: none;
     color: ${({theme})=>theme.COLORS.WHITE_900};
     background-color: ${({theme})=>theme.COLORS.RED_900};
-    border: none;
 
     >span{
         min-width: 100px;

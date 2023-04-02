@@ -2,12 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     position: relative;
+
     height: 100vh;
 
     animation: 0.5s screenScale;
 
     >Form{
         padding: 150px 120px;
+
         label{
             color: ${({theme})=>theme.COLORS.WHITE_100};
         }
@@ -15,12 +17,14 @@ export const Container = styled.div`
 
     .wrapper_footer{
         position: absolute;
-        width: 100%;
         bottom: 0;
+
+        width: 100%;
     }
 
     @media (max-width: 800px) {
         height: 100%;
+
         >Form{
             padding: 150px 25px;
         }
@@ -32,23 +36,23 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
-
     #wrapper_file{
         color: ${({theme})=>theme.COLORS.WHITE_900};
     }
 
     label{
         display: flex;
-        gap: 5px;
         flex-direction: column;
-
+        gap: 5px;
 
         input, textarea{
-            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
-            border: none;
-            padding: 15px;
             border-radius: 8px;
+            border: none;
+
+            padding: 15px;
+
             color: ${({theme})=>theme.COLORS.WHITE_900};
+            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
         }
 
         input{
@@ -64,6 +68,7 @@ export const Form = styled.form`
         display: flex;
         flex-direction: column;
         gap: 25px;
+
         margin-bottom: 30px;
 
         h1{
@@ -72,8 +77,9 @@ export const Form = styled.form`
         }
 
         >button{
-            align-items: center;
             display: flex; 
+            align-items: center;
+
             background: none;
             border: none;
             color: ${({theme})=>theme.COLORS.WHITE_900};
@@ -89,9 +95,9 @@ export const Form = styled.form`
 
     .wrapper_plate{
             display: flex;
+            justify-content: space-between;
             flex-direction: column;
             gap: 30px;
-            justify-content: space-between;
 
             >div{
                 display: flex;
@@ -101,15 +107,18 @@ export const Form = styled.form`
                     width: 20%;
 
                     >div{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+
                         border-radius: 8px;
                         border: none;
-                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
-                        display: flex;
-                        gap: 5px;
-                        align-items: center;
-                        justify-content: center;
+                        
                         height: 45px;
                         padding: 5px;
+
+                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
     
                         >svg{
                             font-size: 24px;
@@ -120,21 +129,23 @@ export const Form = styled.form`
                     }
                 }
                 .wrapper_name_category{
-                    width: 80%;
                     display: flex;
                     gap: 30px;
-    
+                    
+                    width: 80%;
+
                     label{
                         width: 100%;
-                       
                     }
 
                     #select{
                         border-radius: 8px;
-                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
-                        color: ${({theme})=>theme.COLORS.WHITE_100};
-                        padding: 13px;
                         border: none;
+
+                        padding: 13px;
+
+                        color: ${({theme})=>theme.COLORS.WHITE_100};
+                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
 
                         option{
                             background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
@@ -151,27 +162,34 @@ export const Form = styled.form`
                     width: 80%;
                     
                     .ingredients{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+
                         width: 95%;
                         height: 50px;
+
                         overflow-y: hidden;
                         overflow-x: auto;
-                        display: flex;
-                        gap: 5px;
-                        padding: 5px;
-                        align-items: center;
+                        
                         border-radius: 8px;
+                        padding: 5px;
+
                         background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
 
                         .ingredients_registered{
-                            width: 45.5%;
-                            opacity: .5;
                             position: absolute;
                             bottom: 55px;
                             left: 160px;
+
+                            display: flex;
+                            width: 45.5%;
+                            gap: 5px;
+
                             overflow-y: hidden;
                             overflow-x: auto;
-                            display: flex;
-                            gap: 5px;
+
+                            opacity: .5;
                         }
                     }
                 }
@@ -180,8 +198,9 @@ export const Form = styled.form`
 
     .buttons{
         display: flex;
-        gap: 30px;
         justify-content: end;
+        gap: 30px;
+
         margin-top: 20px;
 
         >button:nth-child(1){
@@ -189,12 +208,14 @@ export const Form = styled.form`
         }
 
         >button{
-            background-color: ${({theme})=>theme.COLORS.RED_500};
-            color: ${({theme})=>theme.COLORS.WHITE_900};
             border-radius: 8px;
             border: none;
+
             padding: 12px;
             height: 60px;
+
+            color: ${({theme})=>theme.COLORS.WHITE_900};
+            background-color: ${({theme})=>theme.COLORS.RED_500};
         }
     }
 
@@ -231,8 +252,8 @@ export const Form = styled.form`
         }
 
         .buttons{
-            gap: 10px;
             justify-content: center;
+            gap: 10px;
         }
     }
 `;

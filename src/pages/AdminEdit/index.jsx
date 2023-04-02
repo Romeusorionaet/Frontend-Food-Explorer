@@ -5,16 +5,13 @@ import {useEffect, useState} from 'react';
 import {api} from '../../services/api';
 import {useParams, useNavigate} from 'react-router-dom';
 
-import {HeaderAdm} from '../../components/HeaderAdm';
 import {Ingredient} from '../../components/Ingredient';
-
+import {HeaderAdm} from '../../components/HeaderAdm';
 import {Footer} from '../../components/Footer';
 
 import {Container, Form} from './styles';
 
 export function AdminEdit() {
-    //const [platePreview, setPlatePreview] = useState([]);
-
     const [imagem, setImagem] = useState(null);
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
@@ -36,12 +33,12 @@ export function AdminEdit() {
         }else{
             setIngredients(prevState => [...prevState, newIngredient]);
             setNewIngredients("");
-        }
-    }
+        };
+    };
     
     function handleRemoveIngredient(ingredientDeleted) {
         setIngredients(prevState => prevState.filter(ingredient => ingredient !== ingredientDeleted));
-    }
+    };
 
     useEffect(()=>{
         async function getIngredients(){
@@ -54,28 +51,17 @@ export function AdminEdit() {
     const handleImagem = (event) => {
         const file = event.target.files[0];
         setImagem(file);
-    }  
+    };
     
     async function updatePlate(e){
         if(!imagem || ingredients.length === 0){
             e.preventDefault();
             return alert("Campo imagem ou ingredientes está vazio!");
-        }
+        };
         
         alert("Prato alterado com sucesso!");
-        //navigate(`/Details/${params.id}`)
         navigate("/");
         
-        //comentei essa parte pq tentei tirar o update do platesController e
-        //colocar em uma rota pro controller de favorite, só que a imagem
-        //n att. 
-        // await api.put(`/favorites/${params.id}`, {
-        //     title,
-        //     category,
-        //     price,
-        //     description 
-        // });
-
         await api.put(`/plates/${params.id}`, {
             title,
             category,
@@ -99,11 +85,11 @@ export function AdminEdit() {
         alert("Prato exluido com sucesso.");
         navigate("/");
         await api.delete(`/plates/${params.id}`)
-    }
+    };
     
     function handleBack(){
         navigate(`/Details/${params.id}`);
-    }
+    };
 
     useEffect(()=>{
         try{
@@ -121,8 +107,8 @@ export function AdminEdit() {
             }else{
                 alert("Não foi possível carregar os dados do prato.")
             }
-        }
-    },[])
+        };
+    },[]);
 
     return(
         <Container>

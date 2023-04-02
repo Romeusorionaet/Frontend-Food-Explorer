@@ -1,40 +1,41 @@
-import {RiArrowDropRightLine} from 'react-icons/ri';
-import {GoPlus} from 'react-icons/go';
-import {CgBorderStyleSolid} from 'react-icons/cg';
 import {AiFillHeart, AiOutlineHeart} from 'react-icons/ai';
+import {RiArrowDropRightLine} from 'react-icons/ri';
+import {CgBorderStyleSolid} from 'react-icons/cg';
 import {BsPencil} from 'react-icons/bs';
+import {GoPlus} from 'react-icons/go';
+
+import {Popover} from '../../components/Popover';
+import {api} from "../../services/api";
+import {Button} from '../Button';
+
+import {useNavigate} from 'react-router-dom';
+import {RingLoader} from 'react-spinners';
+import {useState, useEffect} from "react";
+import {Link} from 'react-router-dom';
 
 import {Container} from './styles';
-import {Button} from '../Button';
-import {Popover} from '../../components/Popover';
-
-import {Link} from 'react-router-dom'
-import {api} from "../../services/api";
-import {useState, useEffect} from "react"
-import {useNavigate} from 'react-router-dom';
-
-import { RingLoader } from 'react-spinners';
 
 export function Plates({date, ...rest}) {
     const [amount, setAmount] = useState(1);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
-    const [event, setEvent] = useState(false)
+    const [event, setEvent] = useState(false);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const user = JSON.parse(localStorage.getItem("@rocketfood:user"))
+    const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
    
     function AddAmount(){
         setAmount(prevState => prevState + 1)
-    }
+    };
+
     function removeAmount(){
         if(amount > 1){
-            setAmount(prevState => prevState - 1)
+            setAmount(prevState => prevState - 1);
         }else{
             return
-        }
-    }
+        };
+    };
    
     async function addPlateInList(){
         await api.post("/requests", {
@@ -47,17 +48,15 @@ export function Plates({date, ...rest}) {
             user_id: user.id
         });
         setForList();
-        setEvent(true)
-    }
+        setEvent(true);
+    };
 
     async function setForList(){
         const response = await api.get(`/requests/${user.id}`)
         const applicationLength = response.data.length;
         localStorage.setItem("@rocketfood:applicationLength", applicationLength)
-    } 
+    };
    
-//===================================================
-
     async function addFavorite(){
         await api.post(`favorites/${date.id}`, {
             title: date.title,
@@ -67,22 +66,22 @@ export function Plates({date, ...rest}) {
             price: date.price,
             plate_id: date.id,
             user_id: user.id,
-        })
-    }
+        });
+    };
 
     async function actionCheck() {
-        addFavorite() 
-    }
+        addFavorite(); 
+    };
 
     function admEdit(){
-        navigate(`/AdminEdit/${date.id}`)
-    }
+        navigate(`/AdminEdit/${date.id}`);
+    };
 
     useEffect(()=>{
         setLoading(true)
         setTimeout(()=>{
             setLoading(false)
-        },1000)
+        },1000);
     },[])
 
     return(

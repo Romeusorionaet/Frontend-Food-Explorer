@@ -6,21 +6,23 @@ export const Container = styled.div`
 
     h1{
         padding: 180px 120px 0;
+
         font-style: normal;
         font-weight: 500;
         font-size: 32px;
     }
 
     section{
-        height: 60vh;
         margin: 30px 120px;
+        height: 60vh;
        
         overflow: auto;
 
         ul{
-            list-style: none;
             display: flex;
             gap: 32px;
+            
+            list-style: none;
             flex-wrap: wrap;
         }
 
@@ -30,10 +32,11 @@ export const Container = styled.div`
         }
 
         ul li .wrapper_title_like{
-            min-width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            
+            min-width: 100%;
 
             h2{
                 font-style: normal;
@@ -41,14 +44,15 @@ export const Container = styled.div`
                 font-size: 20px;
             }
             button{
-                background: none;
                 border: none;
+                
+                background: none;
                 color: ${({theme})=>theme.COLORS.RED_500};
             }
             div{
                 display: flex;
-                gap: 5px;
                 align-items: center;
+                gap: 5px;
                 
                 svg{
                     color: ${({theme})=>theme.COLORS.RED_900};

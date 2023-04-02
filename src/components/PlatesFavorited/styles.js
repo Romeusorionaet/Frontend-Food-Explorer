@@ -2,28 +2,30 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     grid-area: Favorite;
-    background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
-    height: 170px;
-    margin-bottom: 150px;
 
-    padding: 10px;
-
-    overflow-x: auto;
-    overflow-y: hidden;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     justify-content: end;
-    
-    position: relative;
-    
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    height: 170px;
+
+    margin-bottom: 150px;
+    padding: 10px;
+
+    background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
     
     .wrapper_title{
         position: absolute;
         top: 10px;
+        
         display: flex;
-        gap: 10px;
         align-items: center;
+        gap: 10px;
         
         h1{
             font-size: 20px;
@@ -35,13 +37,14 @@ export const Container = styled.div`
     }
     
     section{
-        
         ul{
             animation: autoScroll 5s ease-in-out infinite;
-            list-style: none;
+
             display: flex;
-            align-items: center;
             gap: 25px;
+
+            align-items: center;
+            list-style: none;
             
             li{
                 .wrapper_title_like{
@@ -50,14 +53,15 @@ export const Container = styled.div`
                     gap: 5px;
 
                     img{
-                        width: 70px;
                         height: 70px;
+                        width: 70px;
                     }
 
                     div{
                         width: 100%;
 
                         h2{
+                            font-weight: 500;
                             font-size: 18px;
                         }
                         svg{

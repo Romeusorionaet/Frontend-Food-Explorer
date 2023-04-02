@@ -1,13 +1,14 @@
+import statusOrange from '../../assets/statusOrange.svg';
+import statusGreen from '../../assets/statusGreen.svg';
+import statusRed from '../../assets/statusRed.svg';
+
 import {HeaderAdm} from '../../components/HeaderAdm';
 import {Footer} from '../../components/Footer';
+import {api} from '../../services/api';
 
-import statusRed from '../../assets/statusRed.svg';
-import statusGreen from '../../assets/statusGreen.svg';
-import statusOrange from '../../assets/statusOrange.svg';
+import { useEffect, useState } from 'react';
 
 import {Container, SectionMobile} from './styles';
-import {api} from '../../services/api';
-import { useEffect, useState } from 'react';
 
 function formattingDateAndTime(datetime) {
     const [date, time] = datetime.split(" ")
@@ -17,7 +18,7 @@ function formattingDateAndTime(datetime) {
     const hourFormatted = `${newHour}:${minutes}`
     const dateFormatted = `${dd}/${mm}/${yyyy} às ${hourFormatted}`
     
-    return {dateFormatted}
+    return {dateFormatted};
 }
 
 export function OrderHistoryAdm() {
@@ -27,24 +28,24 @@ export function OrderHistoryAdm() {
         await api.put(`/orderHistory`,{
             status: value,
             code: id
-        })
-    }
+        });
+    };
 
     useEffect(()=>{
         try{
             async function getOrderHistory(){
-                const response = await api.get(`/orderHistory`)
-                setOrderHistory(response.data)
+                const response = await api.get(`/orderHistory`);
+                setOrderHistory(response.data);
             }
             getOrderHistory();
         }catch(err){
             if(err.response){
-                alert(err.response.data.message)
+                alert(err.response.data.message);
             }else{
-                alert('Não foi possível carregar o histórico de pedido, tente novamente mais tarde.')
+                alert('Não foi possível carregar o histórico de pedido, tente novamente mais tarde.');
             }
         }
-    },[orderHistory])
+    },[orderHistory]);
 
     return(
         <Container>

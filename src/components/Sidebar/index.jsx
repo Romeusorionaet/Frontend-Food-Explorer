@@ -1,31 +1,32 @@
-import React, { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
+import React, {useEffect} from 'react';
+import {Link} from 'react-router-dom';
+
 import {FiSearch} from 'react-icons/fi';
+
 import {Input} from '../../components/Input';
+import {useAuth} from '../../hooks/auth';
+
 import {Container, Content} from './styles';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/auth';
-import { useNavigate } from 'react-router-dom';
 
 export function Sidebar({setSearch=()=>{}, active, search}) {
-    const {signOut, user} = useAuth()
+    const {signOut, user} = useAuth();
     const navigate = useNavigate();
-
-    //const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     useEffect(()=>{
         let container = document.getElementById('container');
 
         if(search){
-            container.style.height = '15vh'
+            container.style.height = '15vh';
         }else{
-            container.style.height = '100vh'
+            container.style.height = '100vh';
         }
-    },[search])
+    },[search]);
 
     function logOut() {
         navigate("/")
         signOut();
-    }
+    };
 
     return(
         <Container id='container' sidebar={active} className={user.admin == 1 ? 'addMarginAdmin' : 'addMarginUser'}>

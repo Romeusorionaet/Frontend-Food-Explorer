@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     position: relative;
-    height: 100vh;
 
     animation: 0.5s screenScale;
+    height: 100vh;
 
     >Form{
         padding: 150px 120px;
@@ -18,6 +18,7 @@ export const Container = styled.div`
 
     @media (max-width: 800px) {
         height: 100%;
+
         >Form{
             padding: 150px 25px;
         }
@@ -32,19 +33,21 @@ export const Form = styled.form`
 
     label{
         display: flex;
-        gap: 5px;
         flex-direction: column;
+        gap: 5px;
 
         input, textarea{
-            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
+            border-radius: 8px;
             padding: 15px;
             border: none;
-            border-radius: 8px;;
+
+            background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
         }
 
         textarea{
             height: 170px;
             resize: none;
+
             color: ${({theme})=>theme.COLORS.WHITE_900};
         }
     }
@@ -53,6 +56,7 @@ export const Form = styled.form`
         display: flex;
         flex-direction: column;
         gap: 25px;
+
         margin-bottom: 30px;
 
         h1{
@@ -61,10 +65,11 @@ export const Form = styled.form`
         }
 
         >button{
-            align-items: center;
             display: flex; 
-            background: none;
+            align-items: center;
             border: none;
+            
+            background: none;
             color: ${({theme})=>theme.COLORS.WHITE_900}; 
 
             svg{
@@ -84,9 +89,9 @@ export const Form = styled.form`
         
         .wrapper_plate{
             display: flex;
+            justify-content: space-between;
             flex-direction: column;
             gap: 30px;
-            justify-content: space-between;
 
             >div{
                 display: flex;
@@ -94,15 +99,19 @@ export const Form = styled.form`
                 
                 label{
                     width: 20%;
+
                     >div{
-                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
                         display: flex;
-                        border-radius: 8px;
-                        gap: 5px;
-                        align-items: center;
                         justify-content: center;
+                        align-items: center;
+                        gap: 5px;
+
                         height: 45px;
+
+                        border-radius: 8px;
                         padding: 5px;
+
+                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
     
                         >svg{
                             font-size: 24px;
@@ -114,10 +123,11 @@ export const Form = styled.form`
                 }
 
                 .wrapper_name_category{
-                    width: 80%;
                     display: flex;
                     gap: 30px;
+
                     border-radius: 8px;
+                    width: 80%;
     
                     label{
                         width: 100%;
@@ -125,10 +135,11 @@ export const Form = styled.form`
                     }
 
                     #select{
-                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
-                        color: ${({theme})=>theme.COLORS.WHITE_100};
                         padding: 13px;
                         border: none;
+                        
+                        color: ${({theme})=>theme.COLORS.WHITE_100};
+                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
 
                         option{
                             background-color: ${({theme})=>theme.COLORS.BACKGROUND_900};
@@ -139,20 +150,25 @@ export const Form = styled.form`
 
             .wrapper_ingredients_price{
                 display: flex;
+
                 div{
                     width: 80%;
                     
                     .ingredients{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+
                         border-radius: 8px;
-                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
+
                         width: 100%;
                         height: 50px;
+
                         overflow-y: hidden;
                         overflow-x: auto;
-                        display: flex;
-                        gap: 5px;
+                        
                         padding: 5px;
-                        align-items: center;
+                        background-color: ${({theme})=>theme.COLORS.BACKGROUND_INGREDIENT_D2};
                     }
                 }
             }
@@ -166,12 +182,14 @@ export const Form = styled.form`
         margin-top: 20px;
 
         >button{
-            background-color: ${({theme})=>theme.COLORS.RED_500};
-            color: ${({theme})=>theme.COLORS.WHITE_900};
             border-radius: 8px;
             border: none;
+            
             width: 360px;
             height: 60px;
+            
+            color: ${({theme})=>theme.COLORS.WHITE_900};
+            background-color: ${({theme})=>theme.COLORS.RED_500};
         }
     }
 

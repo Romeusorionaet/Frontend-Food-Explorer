@@ -225,6 +225,5 @@ export const Form = styled.form`
             width: 160px;
             cursor: not-allowed;
         }
-        
     }
 `;

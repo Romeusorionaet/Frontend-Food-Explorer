@@ -86,8 +86,10 @@ export const SectionMobile = styled.div`
     border-radius: 8px;
     padding: 20px;
     margin: 0 10px 10px;
+
     overflow: auto;
     max-width: 100%;
+
     display: flex;
     flex-direction: column;
 
@@ -121,6 +123,7 @@ export const SectionMobile = styled.div`
         margin-top: 10px;
         width: 300px;
         height: 40px;
+        
         background-color: ${({theme})=>theme.COLORS.BACKGROUND_500};
         border: none;
         color: ${({theme})=>theme.COLORS.WHITE_500};

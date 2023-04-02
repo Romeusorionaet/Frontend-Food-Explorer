@@ -46,7 +46,6 @@ export const Form = styled.form`
 
     width: 840px;
     
-
     padding: 65px;
     margin: 200px 135px;
 

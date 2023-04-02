@@ -1,43 +1,29 @@
 import logoHeaderFoodExplorer from '../../assets/logoHeaderFoodExplorer.svg';
-import {FiSearch} from 'react-icons/fi';
 import lista from '../../assets/piceOfPaper.svg';
-import {Input} from '../../components/Input';
-import {FiLogOut} from 'react-icons/fi';
-
 import {AiOutlineMenu} from 'react-icons/ai';
 import {GiCrossMark} from 'react-icons/gi';
+import {FiSearch} from 'react-icons/fi';
+import {FiLogOut} from 'react-icons/fi';
 
+import {Input} from '../../components/Input';
 import {api} from "../../services/api";
-import { useAuth } from '../../hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
-import {Container, Button, MobileButton} from './styles';
-import { useState, useEffect } from 'react';
-
 import {Sidebar} from '../Sidebar';
 
+import {useNavigate} from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import {useAuth} from '../../hooks/auth';
+import {Link} from 'react-router-dom';
+
+import {Container, Button, MobileButton} from './styles';
+
 export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
-    const [search, setSearch] = useState("");
-    const [ingredients, setIngredients] = useState([]);
     const [orderLength, setOrderLength] = useState([]);
+    const [search, setSearch] = useState("");
 
     const user = JSON.parse(localStorage.getItem("@rocketfood:user"));
 
     const navigate = useNavigate();
     const {signOut} = useAuth();
-
-    //abaixo precisa de um try catch
-
-    // useEffect(()=>{
-    //     async function fetchIngredients(){
-    //         const response = await api.get(`/ingredients?name=${search}`);
-    //         setIngredients(response.data);
-    //     }
-    //     fetchIngredients();
-    // },[search]);
-
-    //console.log(ingredients)
 
     useEffect(()=>{
         async function fetchPlate(){
@@ -55,7 +41,6 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
         fetchFavorite();
     },[search, favorite]);
 
-
     useEffect(()=>{
         async function getOrderLength(){
             const response = await api.get(`/requests/${user.id}`);
@@ -67,48 +52,50 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
     function logOut() {
         navigate("/");
         signOut();
-    }
+    };
 
     function turnHomePage(){
         navigate("/");
-    }
+    };
 
     function payment(){
         navigate("/Payment");
-    }
+    };
 
-    //===========moblie===================
+    //================Moblie===================
+
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar)
  
     useEffect(()=>{
-        const menu = document.querySelector('.menu')
+        const menu = document.querySelector('.menu');
         
         if(window.innerWidth < 832){
-            menu.classList.remove('hidden')
+            menu.classList.remove('hidden');
         }else{
-            menu.classList.add('hidden')
-        }
+            menu.classList.add('hidden');
+        };
 
         if(window.innerWidth > 832){
             setSidebar(false)
-        }
-    },[window.innerWidth])
+        };
+    },[window.innerWidth]);
 
     useEffect(()=>{
-        const menu = document.querySelector('.menu')
+        const menu = document.querySelector('.menu');
 
         if(sidebar === true){
-            menu.classList.add('formatSidebarMenu')
+            menu.classList.add('formatSidebarMenu');
         }else{
-            menu.classList.remove('formatSidebarMenu')
-        }
-    },[sidebar])
+            menu.classList.remove('formatSidebarMenu');
+        };
+    },[sidebar]);
 
     return(
         <Container>
             <div className="wrapper_menu">
+
                 <div className='menu hidden'>
                     {sidebar === true ?
                     <div className='sidebar'>
