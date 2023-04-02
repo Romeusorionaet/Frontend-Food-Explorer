@@ -12,7 +12,7 @@ export const Container = styled.div`
 
         display: flex;
         justify-content: center;
-        gap: 50px;
+        gap: 20px;
 
         padding: 220px 120px;
         margin: 0 120px;
@@ -43,10 +43,15 @@ export const Container = styled.div`
 
         .wrapper_img_dish{
             display: flex;
-            justify-content: end;
+            justify-content: center;
             align-items: center;
 
-            min-width: 500px;
+            border-radius: 50%;
+
+            min-width: 400px;
+            height: 400px;
+
+            overflow: hidden;
 
             >img{
                 height: 389.47px;
@@ -61,7 +66,7 @@ export const Container = styled.div`
             gap: 10px;
 
             width: 500px;
-            
+            height: 400px;
 
             .wrapper_title{
                 overflow: auto;
@@ -190,8 +195,10 @@ export const Container = styled.div`
 
             .wrapper_img_dish{
                 justify-content: center;
-                margin: -50px auto;
+                margin: -0px auto;
                 min-width: 200px;
+
+                height: auto;
 
                 >img{
                     width: 50vw;
