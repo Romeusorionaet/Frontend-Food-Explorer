@@ -26,6 +26,10 @@ export function SignUp() {
         if(!name || !email || !password){
             return alert("Preencha todos os campos!");
         }
+
+        if(email.includes('@gmail.com') === false){
+            return alert(`"${email}" não é um email válido!`)
+        }
         setLoading(true);
         
         api.post("/users", {name, email, password})
