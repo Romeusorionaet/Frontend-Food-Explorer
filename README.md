@@ -41,6 +41,7 @@ https://github.com/Romeusorionaet/ApiFood
 * Register dishes
 * Edit dishes
 * Delete dishes
+* Edit the order status of other users
 
 > To have access as adm user:
 
