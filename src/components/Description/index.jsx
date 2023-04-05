@@ -6,7 +6,7 @@ export function Description() {
     return(
         <Container>
             <div className='wrapper_img'>
-                <img src={logoSectionSabores} />
+                <img src={logoSectionSabores} alt='logo frutas'/>
             </div> 
            
             <div className='wrapper_description'>

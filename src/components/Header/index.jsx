@@ -146,7 +146,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
                 </MobileButton>
                 :
                 <Button onClick={payment}>
-                    <img src={lista}/>
+                    <img src={lista} alt='lista'/>
                     <span>Meu pedido ({orderLength.length ?? 0})</span>
                 </Button>
                 }
