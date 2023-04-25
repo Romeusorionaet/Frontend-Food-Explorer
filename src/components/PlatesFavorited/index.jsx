@@ -39,13 +39,16 @@ export function PlatesFavorited() {
                             return(
                                 <li key={String(index)}>
                                     <div className="wrapper_title_like">
-                                        <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
 
-                                        <div>
-                                            <h2>{item.title}</h2>
-                                            <span>{item.favorited}</span>
-                                            <BsFire />
+                                        <div className='wrap'>
+                                            <img src={`${api.defaults.baseURL}/files/${item.imagem}`} alt="imagem do prato" />
+                                            <div>
+                                                <span>{item.favorited}</span>
+                                                <BsFire />
+                                            </div>
                                         </div>
+                                        
+                                        <h2>{item.title}</h2>
                                     </div>
                                 </li>
                             )

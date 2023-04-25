@@ -22,7 +22,7 @@ export function SignUp() {
         navigate(-1);
     };
 
-    function handleSignUp() {
+     async function handleSignUp() {
         if(!name || !email || !password){
             return alert("Preencha todos os campos!");
         }
@@ -32,7 +32,7 @@ export function SignUp() {
         }
         setLoading(true);
         
-        api.post("/users", {name, email, password})
+        await api.post("/users", {name, email, password})
         .then(()=>{
             alert("Usuário cadastrado com sucesso!");
             handleTurnBack();

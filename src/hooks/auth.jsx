@@ -6,8 +6,11 @@ export const AuthContext = createContext({});
 
 function AuthProvider({children}) {
   const [data, setData] = useState({});
-
+  const [loading, setLoading] = useState(false);
+  
   async function signIn({email, password}){
+    
+    setLoading(true);
 
     try{
       const response = await api.post("/authentication", {email, password});
@@ -20,6 +23,9 @@ function AuthProvider({children}) {
       setData({user, token});
 
     }catch(error){
+
+      setLoading(false);
+
       if(error.response){
         alert(error.response.data.message);
       }else{
@@ -33,6 +39,7 @@ function AuthProvider({children}) {
       localStorage.removeItem("@rocketfood:user");
 
       setData({});
+      setLoading(false);
   }
 
     useEffect(()=>{
@@ -55,7 +62,8 @@ function AuthProvider({children}) {
         signIn,
         signOut,
         user: data.user,
-        }}>
+        loading,
+      }}>
 
         {children}
       </AuthContext.Provider>

@@ -13,15 +13,11 @@ import {Container, Form} from './styles';
 export function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const {signIn} = useAuth();
+    const {signIn, loading} = useAuth();
 
     function handleSignIn() {
-        if(email && password){
-            setLoading(true);
-        }
         signIn({email, password});
     };
 

@@ -49,7 +49,6 @@ export const Container = styled.div`
             li{
                 .wrapper_title_like{
                     display: flex;
-                    align-items: center;
                     gap: 5px;
 
                     img{
@@ -57,13 +56,17 @@ export const Container = styled.div`
                         width: 70px;
                     }
 
-                    div{
+                    h2{
+                        font-weight: 500;
+                        font-size: 13px;
+                    }
+                    .wrap{
                         width: 100%;
 
-                        h2{
-                            font-weight: 500;
-                            font-size: 18px;
-                        }
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
                         svg{
                             margin-left: 5px;
                         }
