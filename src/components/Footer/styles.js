@@ -20,7 +20,7 @@ export const Container = styled.div`
         display: flex;
         justify-content: end;
         
-        min-width: 100%;
+        width: 100%;
 
         font-weight: 400;
         font-size: 14px;
@@ -53,6 +53,17 @@ export const Container = styled.div`
     >span{
         min-width: 230px;
         font-size: 11px;
+    }
+   }
+
+   @media (max-width: 300px){
+    >img{
+        height: 15px;
+    }
+
+    >span{
+        min-width: 180px;
+        font-size: 9px;
     }
    }
 `;
