@@ -38,6 +38,9 @@ export function PlatesFavorited() {
                         favorites.map((item, index)=>{
                             return(
                                 <li key={String(index)}>
+                                    {item.favorited === 0 ?
+                                    <></>
+                                    :
                                     <div className="wrapper_title_like">
 
                                         <div className='wrap'>
@@ -50,6 +53,7 @@ export function PlatesFavorited() {
                                         
                                         <h2>{item.title}</h2>
                                     </div>
+                                    }
                                 </li>
                             )
                         })
