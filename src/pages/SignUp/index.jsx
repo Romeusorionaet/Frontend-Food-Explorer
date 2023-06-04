@@ -27,6 +27,10 @@ export function SignUp() {
             return alert("Preencha todos os campos!");
         }
 
+        if(password.length < 3){
+            return alert("A senha deve ser no mínimo de 3 caracteres");
+        }
+
         if(email.includes('@gmail.com') === false){
             return alert(`"${email}" não é um email válido!`)
         }
@@ -69,7 +73,7 @@ export function SignUp() {
                 <label>
                     Email
                     <Input 
-                        placeholder="Exemplo: exemplo@exemplo.com.br"
+                        placeholder="Exemplo: maria@gmail.com.br"
                         type="text" 
                         onChange={e=>setEmail(e.target.value)}
                     />
@@ -78,7 +82,7 @@ export function SignUp() {
                 <label>
                     Senha
                     <Input 
-                        placeholder="No mínimo 6 caracteres"
+                        placeholder="No mínimo 3 caracteres"
                         type="password"
                         maxLength="10"
                         onChange={e=>setPassword(e.target.value)}

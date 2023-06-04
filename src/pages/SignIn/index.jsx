@@ -48,8 +48,9 @@ export function SignIn() {
                 <label>
                     Senha
                     <Input 
-                        placeholder="No mínimo 6 caracteres"
+                        placeholder="No mínimo 3 caracteres"
                         type="password"
+                        minLength="3"
                         maxLength="10"
                         onChange={e=>setPassword(e.target.value)}
                     />
