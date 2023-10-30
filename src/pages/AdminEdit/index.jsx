@@ -93,14 +93,14 @@ export function AdminEdit() {
 
     useEffect(()=>{
         try{
-            async function fecthPlate(){
+            async function fetchPlate(){
                 const response = await api.get(`/plates/${params.id}`)
                 setTitle(response.data[0].title)
                 setCategory(response.data[0].category)
                 setPrice(response.data[0].price)
                 setDescription(response.data[0].description)
             }
-            fecthPlate();
+            fetchPlate();
         }catch(err){
             if(err.response){
                 alert(err.response.data.message)
@@ -123,7 +123,7 @@ export function AdminEdit() {
                     <h1>Editar prato</h1>
                 </div>
 
-                <div className='wrapper_inpunts'>
+                <div className='wrapper_inputs'>
                     <div className='wrapper_plate'>
                         <div>
                             <label>

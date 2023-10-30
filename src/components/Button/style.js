@@ -9,6 +9,14 @@ export const Container = styled.button`
         opacity: .8;
     }
 
+    cursor: ${({ isDesabled }) => { 
+        return isDesabled ? 'not-allowed' : 'pointer';
+    }};
+
+    opacity: ${({ isDesabled }) => { 
+        return isDesabled ? .8 : 1;
+    }};
+
     background-color: ${({theme}) => theme.COLORS.RED_900};
     color: ${({theme}) => theme.COLORS.WHITE_900};
     font-weight: 500;

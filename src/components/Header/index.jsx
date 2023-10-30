@@ -62,7 +62,7 @@ export function Header({setPlate=()=>{}, setFavorite=()=>{}, favorite}) {
         navigate("/Payment");
     };
 
-    //================Moblie===================
+    //================Mobile===================
 
     const [sidebar, setSidebar] = useState(false);
 

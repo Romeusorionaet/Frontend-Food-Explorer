@@ -84,7 +84,7 @@ export function AdminAddPlate() {
                     <h1>Adicionar prato</h1>
                 </div>
 
-                <div className='wrapper_inpunts'>
+                <div className='wrapper_inputs'>
                     <div className='wrapper_plate'>
                         <div>
                             <label>

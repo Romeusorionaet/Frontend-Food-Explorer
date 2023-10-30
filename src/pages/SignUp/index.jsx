@@ -42,6 +42,7 @@ export function SignUp() {
             handleTurnBack();
         })
         .catch(error =>{
+            setLoading(false);
             if(error.response){
                 alert(error.response.data.message);
             }else{
@@ -53,9 +54,15 @@ export function SignUp() {
     return(
         <Container>
 
-            <div className='wrapper_logo'>
-                <img id='logo' src={logoHeaderFoodExplorer} alt="logo Header Food Explorer" />
-                <img id='logoShadow' src={logoShadow} alt="logo Header Food Explorer" />
+            <div>
+                <div className='wrapper_logo'>
+                    <img id='logo' src={logoHeaderFoodExplorer} alt="logo Header Food Explorer" />
+                    <img id='logoShadow' src={logoShadow} alt="logo Header Food Explorer" />
+                </div>
+                <p>
+                    O processo inicial pode demorar um pouco por se tratar de um projeto beta, 
+                    estamos usando uma api gratuita.
+                </p>
             </div>
 
             <Form>
@@ -90,8 +97,9 @@ export function SignUp() {
                 </label>
 
                 <Button 
-                onClick={handleSignUp}
+                loading={loading}
                 title={loading ? 'Loading...' : 'Criar conta'} 
+                onClick={handleSignUp}
                 />
                 <div>
                      <a onClick={handleTurnBack}>

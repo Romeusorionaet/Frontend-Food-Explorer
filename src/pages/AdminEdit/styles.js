@@ -220,7 +220,7 @@ export const Form = styled.form`
     }
 
     @media (max-width: 800px){
-        .wrapper_inpunts .wrapper_plate{
+        .wrapper_inputs .wrapper_plate{
             >div{
                 flex-direction: column;
 

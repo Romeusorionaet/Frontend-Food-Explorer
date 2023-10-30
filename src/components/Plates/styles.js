@@ -139,7 +139,7 @@ export const Container = styled.div`
             }
         }
 
-        .wrapper_controll{
+        .wrapper_control{
             display: flex;
             justify-content: center;
             gap: 25px;

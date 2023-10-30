@@ -56,6 +56,7 @@ export function SignIn() {
                     />
                 </label>
                 <Button 
+                loading={loading}
                 title={loading ? 'Loading...' : 'Entrar'} 
                 onClick={handleSignIn}
                 />

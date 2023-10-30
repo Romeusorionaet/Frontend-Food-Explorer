@@ -3,10 +3,10 @@ import {MdArrowBackIosNew, MdArrowForwardIos} from 'react-icons/md';
 
 import { Container } from "./styles";
 
-export const CarouselControlls = ({children}) => {
+export function CarouselControls({children}) {
   const breakPoints = [
     { width: 1, itemsToShow: 1.5 },
-    { width: 700, itemsToShow: 2.5 },
+    { width: 700, itemsToShow: 2.3 },
     { width: 1200, itemsToShow: 3 },
     { width: 1400, itemsToShow: 4 },
   ];
@@ -21,10 +21,10 @@ export const CarouselControlls = ({children}) => {
 
   return (
     <Container>
-      <div className='wrappper_plates' id={`${children.length < 4 ? 'addMargin' : ''}`}>
+      <div className='wrapper_plates' id={`${children.length < 4 ? 'addMargin' : ''}`}>
 
         <div 
-        className='wrapper_buttom back' 
+        className='wrapper_button back' 
         id={`${children.length < 4 || window.innerWidth < 832 ? 'hidden' : ''}`}
         >
           <button onClick={carousel}><MdArrowBackIosNew /></button>
@@ -41,7 +41,7 @@ export const CarouselControlls = ({children}) => {
         </Carousel>
 
         <div 
-        className='wrapper_buttom forward' 
+        className='wrapper_button forward' 
         id={`${children.length < 4 || window.innerWidth < 832 ? 'hidden' : ''}`}
         >
           <button onClick={carouselNext}><MdArrowForwardIos /></button>

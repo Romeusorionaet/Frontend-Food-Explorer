@@ -1,4 +1,4 @@
-import {CarouselControlls} from '../../components/CarouselControlls';
+import {CarouselControls} from '../../components/CarouselControls';
 import {PlatesFavorited} from '../../components/PlatesFavorited';
 import {Description} from '../../components/Description';
 import {HeaderAdm} from '../../components/HeaderAdm';
@@ -103,7 +103,7 @@ export function Home() {
       <main>
 
         <h2>Pratos principais</h2>
-        <CarouselControlls>
+        <CarouselControls>
           {
             mainDishes && mainDishes.map((item, index)=>(
               <div key={String(index)}>
@@ -113,10 +113,10 @@ export function Home() {
               </div> 
             )) 
           }
-        </CarouselControlls>
+        </CarouselControls>
 
         <h2>Sobremesas</h2>
-        <CarouselControlls>
+        <CarouselControls>
           {
             desserts && desserts.map((item, index)=>(
               <div key={String(index)}>
@@ -126,10 +126,10 @@ export function Home() {
               </div> 
             )) 
           }
-        </CarouselControlls>
+        </CarouselControls>
 
         <h2>Bebidas</h2>
-        <CarouselControlls>
+        <CarouselControls>
           {
             drinks && drinks.map((item, index)=>(
               <div key={String(index)}>
@@ -139,7 +139,7 @@ export function Home() {
               </div> 
             )) 
           }
-        </CarouselControlls>
+        </CarouselControls>
 
       </main>
 

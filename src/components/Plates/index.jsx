@@ -148,7 +148,7 @@ export function Plates({date, ...rest}) {
                 null
                 :
                 <div className='wrapper_buttons' id={window.innerWidth < 832 ? 'wrapper_buttons_mobile': ''}>
-                    <div className='wrapper_controll'>
+                    <div className='wrapper_control'>
                         <button onClick={removeAmount} id='buttonLess'><CgBorderStyleSolid /></button>
                         <span>{String(amount).padStart(2, "0")}</span>
                         <button onClick={AddAmount} id='buttonMore'><GoPlus /></button>

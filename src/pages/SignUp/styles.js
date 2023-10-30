@@ -8,6 +8,16 @@ export const Container = styled.div`
 
     animation: 0.5s screenScale;
 
+    >div {
+        width: 80%;
+        p {
+            font-size: 1rem;
+            text-align: center;
+            opacity: .6;
+            margin-top: 4rem;
+        }
+    }
+
     .wrapper_logo{
         width: 100%;
         display: flex;
@@ -32,6 +42,12 @@ export const Container = styled.div`
 
     @media (max-width: 865px){
         flex-direction: column;
+
+        >div {
+            p {
+                text-align: start;
+            }
+        }
 
         .wrapper_logo{
             margin: 20px 0;

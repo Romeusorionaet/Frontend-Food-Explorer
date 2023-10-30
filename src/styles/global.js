@@ -51,7 +51,7 @@ export default createGlobalStyle`
             opacity: 0;
         }
         100%{
-            transform: scale(1)
+            transform: scale(1);
             opacity: 1;
         }
     }

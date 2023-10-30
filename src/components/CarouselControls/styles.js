@@ -7,10 +7,10 @@ export const Container = styled.section`
         display: none;
     }
 
-    .wrappper_plates{
+    .wrapper_plates{
         position: relative;
  
-        .wrapper_buttom{
+        .wrapper_button{
             button{
                 background: none;
                 border: none;
@@ -24,7 +24,7 @@ export const Container = styled.section`
                 }
             }
         }
-        .wrapper_buttom{
+        .wrapper_button{
             display: flex;
             align-items: center;
             justify-content: center;
